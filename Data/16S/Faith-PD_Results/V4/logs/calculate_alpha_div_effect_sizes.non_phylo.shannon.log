@@ -1,0 +1,16 @@
+[2024-11-02 19:49:14,280 - xebec_calculate_alpha_div_effect_sizes] :: Diversity Type: alpha
+[2024-11-02 19:49:14,280 - xebec_calculate_alpha_div_effect_sizes] :: Pairwise: False
+[2024-11-02 19:49:14,290 - xebec_calculate_alpha_div_effect_sizes] :: /Users/yac027/mambaforge3/envs/xebec_python39/lib/python3.9/site-packages/evident/utils.py:20: UserWarning: Data and metadata do not have the same sample IDs. Using 345 samples common to both.
+  warn(msg)
+
+[2024-11-02 19:49:14,309 - xebec_calculate_alpha_div_effect_sizes] :: Diversity Metric: shannon
+[2024-11-02 19:49:14,309 - xebec_calculate_alpha_div_effect_sizes] :: Calculating effect sizes...
+[2024-11-02 19:49:14,365 - xebec_calculate_alpha_div_effect_sizes] :: Finished calculating effect sizes!
+[2024-11-02 19:49:14,371 - xebec_calculate_alpha_div_effect_sizes] :: 
+   effect_size    metric                        column
+0     1.462861  cohens_d             katharoseq_strain
+1     1.462861  cohens_d       katharoseq_plate_number
+2     1.462861  cohens_d  katharoseq_aliquot_volume_ul
+3     1.462861  cohens_d  katharoseq_batch_information
+4     0.295914  cohens_d                       country
+[2024-11-02 19:49:14,373 - xebec_calculate_alpha_div_effect_sizes] :: Saved to results/alpha_div/non_phylo/shannon/effect_sizes.tsv!

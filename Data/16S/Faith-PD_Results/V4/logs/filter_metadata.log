@@ -1,0 +1,182 @@
+[2024-11-02 19:48:33,974 - xebec_filter_metadata] :: Original metadata shape: (384, 50)
+[2024-11-02 19:48:33,974 - xebec_filter_metadata] :: Adding sample depth column to metadata...
+[2024-11-02 19:48:34,071 - xebec_filter_metadata] :: Dropping day because it does not have a valid number of levels (14).
+[2024-11-02 19:48:34,073 - xebec_filter_metadata] :: Dropping title because it does not have a valid number of levels (1).
+[2024-11-02 19:48:34,077 - xebec_filter_metadata] :: Dropping latitude because it is not of dtype 'object'.
+[2024-11-02 19:48:34,077 - xebec_filter_metadata] :: Dropping taxon_id because it is not of dtype 'object'.
+[2024-11-02 19:48:34,078 - xebec_filter_metadata] :: Dropping env_biome because it does not have a valid number of levels (1).
+[2024-11-02 19:48:34,078 - xebec_filter_metadata] :: Dropping longitude because it is not of dtype 'object'.
+[2024-11-02 19:48:34,078 - xebec_filter_metadata] :: Dropping description because it does not have a valid number of levels (384).
+[2024-11-02 19:48:34,082 - xebec_filter_metadata] :: Dropping dna_extracted because it is not of dtype 'object'.
+[2024-11-02 19:48:34,083 - xebec_filter_metadata] :: Dropping host_subject_id because it does not have a valid number of levels (93).
+[2024-11-02 19:48:34,088 - xebec_filter_metadata] :: Dropping skincam_a_cheek_left because it does not have a valid number of levels (139).
+[2024-11-02 19:48:34,089 - xebec_filter_metadata] :: Dropping katharoseq_cell_count because it does not have a valid number of levels (9).
+[2024-11-02 19:48:34,089 - xebec_filter_metadata] :: Dropping skincam_a_cheek_right because it does not have a valid number of levels (130).
+[2024-11-02 19:48:34,090 - xebec_filter_metadata] :: Dropping physical_specimen_location because it does not have a valid number of levels (1).
+[2024-11-02 19:48:34,090 - xebec_filter_metadata] :: Dropping planned_study_day_of_visit because it does not have a valid number of levels (14).
+[2024-11-02 19:48:34,091 - xebec_filter_metadata] :: Dropping physical_specimen_remaining because it is not of dtype 'object'.
+[2024-11-02 19:48:34,092 - xebec_filter_metadata] :: Dropping subject_randomization_number because it does not have a valid number of levels (21).
+[2024-11-02 19:48:34,093 - xebec_filter_metadata] :: Dropping skin_ph_meter_ph_mean_forehead_right because it does not have a valid number of levels (122).
+[2024-11-02 19:48:34,093 - xebec_filter_metadata] :: Dropping sebumeter_casual_level_mean_forehead_left because it does not have a valid number of levels (103).
+[2024-11-02 19:48:34,093 - xebec_filter_metadata] :: Dropping visual_assessment_on_photography_acne_severity_cheek_left because it does not have a valid number of levels (8).
+[2024-11-02 19:48:34,093 - xebec_filter_metadata] :: Dropping visual_assessment_on_photography_acne_severity_cheek_right because it does not have a valid number of levels (8).
+[2024-11-02 19:48:34,094 - xebec_filter_metadata] :: Dropping visual_assessment_in_vivo_number_of_inflammatory_lesions_face because it does not have a valid number of levels (26).
+[2024-11-02 19:48:34,094 - xebec_filter_metadata] :: Dropping visual_assessment_in_vivo_number_of_non_inflammatory_lesions_face because it does not have a valid number of levels (32).
+[2024-11-02 19:48:34,094 - xebec_filter_metadata] :: Dropping visual_assessment_in_vivo_number_of_inflammatory_lesions_cheek_left because it does not have a valid number of levels (15).
+[2024-11-02 19:48:34,094 - xebec_filter_metadata] :: Dropping visual_assessment_in_vivo_number_of_inflammatory_lesions_cheek_right because it does not have a valid number of levels (15).
+[2024-11-02 19:48:34,095 - xebec_filter_metadata] :: Dropping visual_assessment_in_vivo_number_of_non_inflammatory_lesions_cheek_left because it does not have a valid number of levels (23).
+[2024-11-02 19:48:34,095 - xebec_filter_metadata] :: Dropping visual_assessment_in_vivo_number_of_non_inflammatory_lesions_cheek_right because it does not have a valid number of levels (23).
+[2024-11-02 19:48:34,095 - xebec_filter_metadata] :: Dropping qiita_study_id because it is not of dtype 'object'.
+[2024-11-02 19:48:34,097 - xebec_filter_metadata] :: Filtered metadata shape: (384, 24)
+[2024-11-02 19:48:34,121 - xebec_filter_metadata] :: 
+                                              zone          c_zone           empo_1                        empo_2  ... katharoseq_plate_number katharoseq_aliquot_volume_ul                       katharoseq_batch_information xebec_sampling_depth
+sample_name                                                                                                        ...                                                                                                                             
+14901.LAMI.RD306.D25.C1                   Lesional              C1  Host-associated  Host-associated (non-saline)  ...          not applicable               not applicable                                     not applicable                   q3
+14901.LAMI.RD306.D28.C3               Non-lesional              C3  Host-associated  Host-associated (non-saline)  ...          not applicable               not applicable                                     not applicable                   q4
+14901.LAMI.RD308.D16.C2                   Lesional              C2  Host-associated  Host-associated (non-saline)  ...          not applicable               not applicable                                     not applicable                   q2
+14901.LAMI.RD314.D25.C1                   Lesional              C1  Host-associated  Host-associated (non-saline)  ...          not applicable               not applicable                                     not applicable                   q4
+14901.KATHARO.LOREAL.2.11A.2000000  not applicable  not applicable          Control                      Positive  ...                       5                          200  12/16/2022, 0.5B lysobacter cells in 50mL of 1...                   q4
+
+[5 rows x 24 columns]
+[2024-11-02 19:48:34,122 - xebec_filter_metadata] :: 
+zone
+Lesional          160
+not applicable    117
+Non-lesional      107
+Name: count, dtype: int64
+[2024-11-02 19:48:34,123 - xebec_filter_metadata] :: 
+c_zone
+not applicable    117
+C1                109
+C2                108
+C3                 50
+Name: count, dtype: int64
+[2024-11-02 19:48:34,123 - xebec_filter_metadata] :: 
+empo_1
+Host-associated    267
+Control             86
+Free-living         31
+Name: count, dtype: int64
+[2024-11-02 19:48:34,124 - xebec_filter_metadata] :: 
+empo_2
+Host-associated (non-saline)    267
+Negative                         54
+Positive                         32
+Free-living (non-saline)         31
+Name: count, dtype: int64
+[2024-11-02 19:48:34,125 - xebec_filter_metadata] :: 
+empo_3
+Animal (non-saline)    267
+Sterile water blank     54
+Single strain           32
+Solid (non-saline)      31
+Name: count, dtype: int64
+[2024-11-02 19:48:34,125 - xebec_filter_metadata] :: 
+empo_4
+Animal surface (non-saline)    267
+Sterile water blank             54
+Single strain                   32
+Surface (non-saline)            31
+Name: count, dtype: int64
+[2024-11-02 19:48:34,126 - xebec_filter_metadata] :: 
+country
+France              312
+USA:CA:San Diego     72
+Name: count, dtype: int64
+[2024-11-02 19:48:34,126 - xebec_filter_metadata] :: 
+elevation
+78              298
+193              72
+not provided     14
+Name: count, dtype: int64
+[2024-11-02 19:48:34,127 - xebec_filter_metadata] :: 
+env_feature
+human-associated habitat    267
+research facility           117
+Name: count, dtype: int64
+[2024-11-02 19:48:34,128 - xebec_filter_metadata] :: 
+env_package
+human-skin          267
+misc environment    117
+Name: count, dtype: int64
+[2024-11-02 19:48:34,128 - xebec_filter_metadata] :: 
+sample_type
+skin                  267
+control blank          40
+control katharoseq     32
+cosmetic               31
+control                14
+Name: count, dtype: int64
+[2024-11-02 19:48:34,129 - xebec_filter_metadata] :: 
+env_material
+sebum material                          267
+sterile water                            54
+cell culture                             32
+anthropogenic environmental material     31
+Name: count, dtype: int64
+[2024-11-02 19:48:34,130 - xebec_filter_metadata] :: 
+geo_loc_name
+France              312
+USA:CA:San Diego     72
+Name: count, dtype: int64
+[2024-11-02 19:48:34,130 - xebec_filter_metadata] :: 
+surface_area
+4                 267
+not applicable    117
+Name: count, dtype: int64
+[2024-11-02 19:48:34,131 - xebec_filter_metadata] :: 
+collection_date
+2023          312
+2023-04-25     72
+Name: count, dtype: int64
+[2024-11-02 19:48:34,131 - xebec_filter_metadata] :: 
+scientific_name
+human skin metagenome    267
+metagenome                85
+Lysobacter sp. OAE881     32
+Name: count, dtype: int64
+[2024-11-02 19:48:34,132 - xebec_filter_metadata] :: 
+katharoseq_strain
+not applicable           352
+Lysobacter sp. OAE881     32
+Name: count, dtype: int64
+[2024-11-02 19:48:34,133 - xebec_filter_metadata] :: 
+qiita_sample_type
+skin of face        267
+control blank        40
+control positive     32
+cosmetic cream       31
+control              14
+Name: count, dtype: int64
+[2024-11-02 19:48:34,134 - xebec_filter_metadata] :: 
+surface_area_units
+sq cm             267
+not applicable    117
+Name: count, dtype: int64
+[2024-11-02 19:48:34,134 - xebec_filter_metadata] :: 
+collection_timestamp
+2023          312
+2023-04-25     72
+Name: count, dtype: int64
+[2024-11-02 19:48:34,135 - xebec_filter_metadata] :: 
+katharoseq_plate_number
+not applicable    352
+5                  32
+Name: count, dtype: int64
+[2024-11-02 19:48:34,136 - xebec_filter_metadata] :: 
+katharoseq_aliquot_volume_ul
+not applicable    352
+200                32
+Name: count, dtype: int64
+[2024-11-02 19:48:34,136 - xebec_filter_metadata] :: 
+katharoseq_batch_information
+not applicable                                                                   352
+12/16/2022, 0.5B lysobacter cells in 50mL of 1xDPBS+0.5uM CCCP + 25% glycerol     32
+Name: count, dtype: int64
+[2024-11-02 19:48:34,137 - xebec_filter_metadata] :: 
+xebec_sampling_depth
+q3    96
+q4    96
+q2    96
+q1    96
+Name: count, dtype: int64

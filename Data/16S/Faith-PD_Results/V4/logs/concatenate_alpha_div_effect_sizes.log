@@ -1,0 +1,10 @@
+[2024-11-02 19:49:15,131 - xebec_concatenate_alpha_div_effect_sizes] :: Concatenating...
+[2024-11-02 19:49:15,144 - xebec_concatenate_alpha_div_effect_sizes] :: Finished concatenating!
+[2024-11-02 19:49:15,151 - xebec_concatenate_alpha_div_effect_sizes] :: 
+  phylogenetic diversity_metric  effect_size    metric                        column
+0    non_phylo    observed_otus     1.456778  cohens_d             katharoseq_strain
+1    non_phylo    observed_otus     1.456778  cohens_d       katharoseq_plate_number
+2    non_phylo    observed_otus     1.456778  cohens_d  katharoseq_aliquot_volume_ul
+3    non_phylo    observed_otus     1.456778  cohens_d  katharoseq_batch_information
+4    non_phylo    observed_otus     0.885371  cohens_d                       country
+[2024-11-02 19:49:15,153 - xebec_concatenate_alpha_div_effect_sizes] :: Saved to results/alpha_div/all_metrics_effect_sizes.tsv!

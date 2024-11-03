@@ -1,0 +1,16 @@
+[2024-11-02 19:45:04,085 - xebec_calculate_alpha_div_effect_sizes] :: Diversity Type: alpha
+[2024-11-02 19:45:04,085 - xebec_calculate_alpha_div_effect_sizes] :: Pairwise: False
+[2024-11-02 19:45:04,096 - xebec_calculate_alpha_div_effect_sizes] :: /Users/yac027/mambaforge3/envs/xebec_python39/lib/python3.9/site-packages/evident/utils.py:20: UserWarning: Data and metadata do not have the same sample IDs. Using 313 samples common to both.
+  warn(msg)
+
+[2024-11-02 19:45:04,114 - xebec_calculate_alpha_div_effect_sizes] :: Diversity Metric: faith_pd
+[2024-11-02 19:45:04,114 - xebec_calculate_alpha_div_effect_sizes] :: Calculating effect sizes...
+[2024-11-02 19:45:04,171 - xebec_calculate_alpha_div_effect_sizes] :: Finished calculating effect sizes!
+[2024-11-02 19:45:04,179 - xebec_calculate_alpha_div_effect_sizes] :: 
+   effect_size    metric                        column
+0     0.868377  cohens_d             katharoseq_strain
+1     0.868377  cohens_d       katharoseq_plate_number
+2     0.868377  cohens_d  katharoseq_aliquot_volume_ul
+3     0.868377  cohens_d  katharoseq_batch_information
+4     0.582426  cohens_d                       country
+[2024-11-02 19:45:04,181 - xebec_calculate_alpha_div_effect_sizes] :: Saved to results/alpha_div/phylo/faith_pd/effect_sizes.tsv!

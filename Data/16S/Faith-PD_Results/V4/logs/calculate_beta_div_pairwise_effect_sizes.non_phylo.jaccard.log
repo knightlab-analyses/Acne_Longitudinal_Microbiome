@@ -1,0 +1,16 @@
+[2024-11-02 19:49:03,922 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Diversity Type: beta
+[2024-11-02 19:49:03,922 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Pairwise: True
+[2024-11-02 19:49:03,981 - xebec_calculate_beta_div_pairwise_effect_sizes] :: /Users/yac027/mambaforge3/envs/xebec_python39/lib/python3.9/site-packages/evident/utils.py:20: UserWarning: Data and metadata do not have the same sample IDs. Using 345 samples common to both.
+  warn(msg)
+
+[2024-11-02 19:49:04,000 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Diversity Metric: jaccard
+[2024-11-02 19:49:04,000 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Calculating effect sizes...
+[2024-11-02 19:49:04,404 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Finished calculating effect sizes!
+[2024-11-02 19:49:04,410 - xebec_calculate_beta_div_pairwise_effect_sizes] :: 
+   effect_size    metric             column                   group_1               group_2
+0     2.203598  cohens_d        sample_type             control blank              cosmetic
+1     2.203598  cohens_d  qiita_sample_type             control blank        cosmetic cream
+2     1.853917  cohens_d             empo_2  Free-living (non-saline)              Negative
+3     1.853917  cohens_d             empo_3        Solid (non-saline)   Sterile water blank
+4     1.853917  cohens_d             empo_4       Sterile water blank  Surface (non-saline)
+[2024-11-02 19:49:04,412 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Saved to results/beta_div/non_phylo/jaccard/pairwise_effect_sizes.tsv!

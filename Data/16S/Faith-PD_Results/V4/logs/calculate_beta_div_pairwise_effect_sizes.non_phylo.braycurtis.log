@@ -1,0 +1,16 @@
+[2024-11-02 19:48:57,974 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Diversity Type: beta
+[2024-11-02 19:48:57,974 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Pairwise: True
+[2024-11-02 19:48:58,035 - xebec_calculate_beta_div_pairwise_effect_sizes] :: /Users/yac027/mambaforge3/envs/xebec_python39/lib/python3.9/site-packages/evident/utils.py:20: UserWarning: Data and metadata do not have the same sample IDs. Using 345 samples common to both.
+  warn(msg)
+
+[2024-11-02 19:48:58,053 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Diversity Metric: braycurtis
+[2024-11-02 19:48:58,053 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Calculating effect sizes...
+[2024-11-02 19:48:58,463 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Finished calculating effect sizes!
+[2024-11-02 19:48:58,470 - xebec_calculate_beta_div_pairwise_effect_sizes] :: 
+   effect_size    metric                        column                                            group_1         group_2
+0     2.126147  cohens_d               scientific_name                              Lysobacter sp. OAE881      metagenome
+1     1.888264  cohens_d             katharoseq_strain                              Lysobacter sp. OAE881  not applicable
+2     1.888264  cohens_d       katharoseq_plate_number                                                  5  not applicable
+3     1.888264  cohens_d  katharoseq_aliquot_volume_ul                                                200  not applicable
+4     1.888264  cohens_d  katharoseq_batch_information  12/16/2022, 0.5B lysobacter cells in 50mL of 1...  not applicable
+[2024-11-02 19:48:58,472 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Saved to results/beta_div/non_phylo/braycurtis/pairwise_effect_sizes.tsv!

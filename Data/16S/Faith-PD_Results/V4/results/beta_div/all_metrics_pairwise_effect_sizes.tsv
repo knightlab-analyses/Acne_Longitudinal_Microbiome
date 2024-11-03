@@ -1,0 +1,481 @@
+phylogenetic	diversity_metric	effect_size	metric	column	group_1	group_2
+non_phylo	braycurtis	2.12614714137894	cohens_d	scientific_name	Lysobacter sp. OAE881	metagenome
+non_phylo	braycurtis	1.888264430125287	cohens_d	katharoseq_strain	Lysobacter sp. OAE881	not applicable
+non_phylo	braycurtis	1.888264430125287	cohens_d	katharoseq_plate_number	5	not applicable
+non_phylo	braycurtis	1.888264430125287	cohens_d	katharoseq_aliquot_volume_ul	200	not applicable
+non_phylo	braycurtis	1.888264430125287	cohens_d	katharoseq_batch_information	12/16/2022, 0.5B lysobacter cells in 50mL of 1xDPBS+0.5uM CCCP + 25% glycerol	not applicable
+non_phylo	braycurtis	1.7516592878876316	cohens_d	empo_2	Free-living (non-saline)	Positive
+non_phylo	braycurtis	1.7516592878876316	cohens_d	empo_3	Single strain	Solid (non-saline)
+non_phylo	braycurtis	1.7516592878876316	cohens_d	empo_4	Single strain	Surface (non-saline)
+non_phylo	braycurtis	1.7516592878876316	cohens_d	sample_type	control katharoseq	cosmetic
+non_phylo	braycurtis	1.7516592878876316	cohens_d	env_material	anthropogenic environmental material	cell culture
+non_phylo	braycurtis	1.7516592878876316	cohens_d	qiita_sample_type	control positive	cosmetic cream
+non_phylo	braycurtis	1.6109593153048412	cohens_d	empo_2	Host-associated (non-saline)	Positive
+non_phylo	braycurtis	1.6109593153048412	cohens_d	empo_3	Animal (non-saline)	Single strain
+non_phylo	braycurtis	1.6109593153048412	cohens_d	empo_4	Animal surface (non-saline)	Single strain
+non_phylo	braycurtis	1.6109593153048412	cohens_d	sample_type	control katharoseq	skin
+non_phylo	braycurtis	1.6109593153048412	cohens_d	env_material	cell culture	sebum material
+non_phylo	braycurtis	1.6109593153048412	cohens_d	scientific_name	Lysobacter sp. OAE881	human skin metagenome
+non_phylo	braycurtis	1.6109593153048412	cohens_d	qiita_sample_type	control positive	skin of face
+non_phylo	braycurtis	1.5318913255806756	cohens_d	empo_2	Negative	Positive
+non_phylo	braycurtis	1.5318913255806756	cohens_d	empo_3	Single strain	Sterile water blank
+non_phylo	braycurtis	1.5318913255806756	cohens_d	empo_4	Single strain	Sterile water blank
+non_phylo	braycurtis	1.5318913255806756	cohens_d	env_material	cell culture	sterile water
+non_phylo	braycurtis	1.4593857941227584	cohens_d	sample_type	control	control katharoseq
+non_phylo	braycurtis	1.4593857941227584	cohens_d	qiita_sample_type	control	control positive
+non_phylo	braycurtis	1.3692843434714417	cohens_d	sample_type	control blank	cosmetic
+non_phylo	braycurtis	1.3692843434714417	cohens_d	qiita_sample_type	control blank	cosmetic cream
+non_phylo	braycurtis	1.3514860193723053	cohens_d	sample_type	control blank	control katharoseq
+non_phylo	braycurtis	1.3514860193723053	cohens_d	qiita_sample_type	control blank	control positive
+non_phylo	braycurtis	1.1938064956437862	cohens_d	empo_2	Free-living (non-saline)	Negative
+non_phylo	braycurtis	1.1938064956437862	cohens_d	empo_3	Solid (non-saline)	Sterile water blank
+non_phylo	braycurtis	1.1938064956437862	cohens_d	empo_4	Sterile water blank	Surface (non-saline)
+non_phylo	braycurtis	1.1938064956437862	cohens_d	env_material	anthropogenic environmental material	sterile water
+non_phylo	braycurtis	1.1096024608357848	cohens_d	sample_type	control	control blank
+non_phylo	braycurtis	1.1096024608357848	cohens_d	qiita_sample_type	control	control blank
+non_phylo	braycurtis	0.9627910911095804	cohens_d	empo_1	Free-living	Host-associated
+non_phylo	braycurtis	0.9627910911095804	cohens_d	empo_2	Free-living (non-saline)	Host-associated (non-saline)
+non_phylo	braycurtis	0.9627910911095804	cohens_d	empo_3	Animal (non-saline)	Solid (non-saline)
+non_phylo	braycurtis	0.9627910911095804	cohens_d	empo_4	Animal surface (non-saline)	Surface (non-saline)
+non_phylo	braycurtis	0.9627910911095804	cohens_d	sample_type	cosmetic	skin
+non_phylo	braycurtis	0.9627910911095804	cohens_d	env_material	anthropogenic environmental material	sebum material
+non_phylo	braycurtis	0.9627910911095804	cohens_d	qiita_sample_type	cosmetic cream	skin of face
+non_phylo	braycurtis	0.7195904660679128	cohens_d	xebec_sampling_depth	q1	q3
+non_phylo	braycurtis	0.6922181212744828	cohens_d	c_zone	C3	not applicable
+non_phylo	braycurtis	0.6893200261555383	cohens_d	zone	Lesional	not applicable
+non_phylo	braycurtis	0.6660224318423392	cohens_d	env_feature	human-associated habitat	research facility
+non_phylo	braycurtis	0.6660224318423392	cohens_d	env_package	human-skin	misc environment
+non_phylo	braycurtis	0.6660224318423392	cohens_d	surface_area	4	not applicable
+non_phylo	braycurtis	0.6660224318423392	cohens_d	surface_area_units	not applicable	sq cm
+non_phylo	braycurtis	0.6413419232208706	cohens_d	sample_type	control	skin
+non_phylo	braycurtis	0.6413419232208706	cohens_d	qiita_sample_type	control	skin of face
+non_phylo	braycurtis	0.622556393871595	cohens_d	c_zone	C2	not applicable
+non_phylo	braycurtis	0.6144069566705954	cohens_d	scientific_name	human skin metagenome	metagenome
+non_phylo	braycurtis	0.5876507434539121	cohens_d	zone	Non-lesional	not applicable
+non_phylo	braycurtis	0.5598001947709537	cohens_d	xebec_sampling_depth	q1	q2
+non_phylo	braycurtis	0.5496767611729891	cohens_d	c_zone	C1	not applicable
+non_phylo	braycurtis	0.509639326068194	cohens_d	elevation	78	not provided
+non_phylo	braycurtis	0.3912880082983305	cohens_d	empo_1	Control	Free-living
+non_phylo	braycurtis	0.383487306418654	cohens_d	empo_1	Control	Host-associated
+non_phylo	braycurtis	0.3222588582543976	cohens_d	sample_type	control	cosmetic
+non_phylo	braycurtis	0.3222588582543976	cohens_d	qiita_sample_type	control	cosmetic cream
+non_phylo	braycurtis	0.2962648119333071	cohens_d	xebec_sampling_depth	q3	q4
+non_phylo	braycurtis	0.2613237140599586	cohens_d	c_zone	C1	C3
+non_phylo	braycurtis	0.2499133741292128	cohens_d	xebec_sampling_depth	q2	q3
+non_phylo	braycurtis	0.2202089574891092	cohens_d	elevation	193	not provided
+non_phylo	braycurtis	0.2069580961933074	cohens_d	xebec_sampling_depth	q1	q4
+non_phylo	braycurtis	0.1938465802149671	cohens_d	zone	Lesional	Non-lesional
+non_phylo	braycurtis	0.1760000177557898	cohens_d	elevation	193	78
+non_phylo	braycurtis	0.1757123305850046	cohens_d	c_zone	C2	C3
+non_phylo	braycurtis	0.1377419771392501	cohens_d	country	France	USA:CA:San Diego
+non_phylo	braycurtis	0.1377419771392501	cohens_d	geo_loc_name	France	USA:CA:San Diego
+non_phylo	braycurtis	0.1377419771392501	cohens_d	collection_date	2023	2023-04-25
+non_phylo	braycurtis	0.1377419771392501	cohens_d	collection_timestamp	2023	2023-04-25
+non_phylo	braycurtis	0.1324064040385184	cohens_d	empo_2	Host-associated (non-saline)	Negative
+non_phylo	braycurtis	0.1324064040385184	cohens_d	empo_3	Animal (non-saline)	Sterile water blank
+non_phylo	braycurtis	0.1324064040385184	cohens_d	empo_4	Animal surface (non-saline)	Sterile water blank
+non_phylo	braycurtis	0.1324064040385184	cohens_d	env_material	sebum material	sterile water
+non_phylo	braycurtis	0.124562263395819	cohens_d	xebec_sampling_depth	q2	q4
+non_phylo	braycurtis	0.0863236088829342	cohens_d	c_zone	C1	C2
+non_phylo	braycurtis	0.0075575782838713	cohens_d	sample_type	control blank	skin
+non_phylo	braycurtis	0.0075575782838713	cohens_d	qiita_sample_type	control blank	skin of face
+non_phylo	jaccard	2.203597685717961	cohens_d	sample_type	control blank	cosmetic
+non_phylo	jaccard	2.203597685717961	cohens_d	qiita_sample_type	control blank	cosmetic cream
+non_phylo	jaccard	1.85391707526838	cohens_d	empo_2	Free-living (non-saline)	Negative
+non_phylo	jaccard	1.85391707526838	cohens_d	empo_3	Solid (non-saline)	Sterile water blank
+non_phylo	jaccard	1.85391707526838	cohens_d	empo_4	Sterile water blank	Surface (non-saline)
+non_phylo	jaccard	1.85391707526838	cohens_d	env_material	anthropogenic environmental material	sterile water
+non_phylo	jaccard	1.660519265344156	cohens_d	katharoseq_strain	Lysobacter sp. OAE881	not applicable
+non_phylo	jaccard	1.660519265344156	cohens_d	katharoseq_plate_number	5	not applicable
+non_phylo	jaccard	1.660519265344156	cohens_d	katharoseq_aliquot_volume_ul	200	not applicable
+non_phylo	jaccard	1.660519265344156	cohens_d	katharoseq_batch_information	12/16/2022, 0.5B lysobacter cells in 50mL of 1xDPBS+0.5uM CCCP + 25% glycerol	not applicable
+non_phylo	jaccard	1.474537321310466	cohens_d	empo_2	Host-associated (non-saline)	Positive
+non_phylo	jaccard	1.474537321310466	cohens_d	empo_3	Animal (non-saline)	Single strain
+non_phylo	jaccard	1.474537321310466	cohens_d	empo_4	Animal surface (non-saline)	Single strain
+non_phylo	jaccard	1.474537321310466	cohens_d	sample_type	control katharoseq	skin
+non_phylo	jaccard	1.474537321310466	cohens_d	env_material	cell culture	sebum material
+non_phylo	jaccard	1.474537321310466	cohens_d	scientific_name	Lysobacter sp. OAE881	human skin metagenome
+non_phylo	jaccard	1.474537321310466	cohens_d	qiita_sample_type	control positive	skin of face
+non_phylo	jaccard	1.1064677443998423	cohens_d	sample_type	control	control blank
+non_phylo	jaccard	1.1064677443998423	cohens_d	qiita_sample_type	control	control blank
+non_phylo	jaccard	1.0951193627088094	cohens_d	empo_2	Free-living (non-saline)	Positive
+non_phylo	jaccard	1.0951193627088094	cohens_d	empo_3	Single strain	Solid (non-saline)
+non_phylo	jaccard	1.0951193627088094	cohens_d	empo_4	Single strain	Surface (non-saline)
+non_phylo	jaccard	1.0951193627088094	cohens_d	sample_type	control katharoseq	cosmetic
+non_phylo	jaccard	1.0951193627088094	cohens_d	env_material	anthropogenic environmental material	cell culture
+non_phylo	jaccard	1.0951193627088094	cohens_d	qiita_sample_type	control positive	cosmetic cream
+non_phylo	jaccard	1.0196919318651876	cohens_d	sample_type	control blank	skin
+non_phylo	jaccard	1.0196919318651876	cohens_d	qiita_sample_type	control blank	skin of face
+non_phylo	jaccard	0.9703707472286128	cohens_d	sample_type	control	cosmetic
+non_phylo	jaccard	0.9703707472286128	cohens_d	qiita_sample_type	control	cosmetic cream
+non_phylo	jaccard	0.900371958129274	cohens_d	scientific_name	Lysobacter sp. OAE881	metagenome
+non_phylo	jaccard	0.850649290164309	cohens_d	empo_1	Free-living	Host-associated
+non_phylo	jaccard	0.850649290164309	cohens_d	empo_2	Free-living (non-saline)	Host-associated (non-saline)
+non_phylo	jaccard	0.850649290164309	cohens_d	empo_3	Animal (non-saline)	Solid (non-saline)
+non_phylo	jaccard	0.850649290164309	cohens_d	empo_4	Animal surface (non-saline)	Surface (non-saline)
+non_phylo	jaccard	0.850649290164309	cohens_d	sample_type	cosmetic	skin
+non_phylo	jaccard	0.850649290164309	cohens_d	env_material	anthropogenic environmental material	sebum material
+non_phylo	jaccard	0.850649290164309	cohens_d	qiita_sample_type	cosmetic cream	skin of face
+non_phylo	jaccard	0.8082057988343918	cohens_d	empo_2	Host-associated (non-saline)	Negative
+non_phylo	jaccard	0.8082057988343918	cohens_d	empo_3	Animal (non-saline)	Sterile water blank
+non_phylo	jaccard	0.8082057988343918	cohens_d	empo_4	Animal surface (non-saline)	Sterile water blank
+non_phylo	jaccard	0.8082057988343918	cohens_d	env_material	sebum material	sterile water
+non_phylo	jaccard	0.5833557354032628	cohens_d	sample_type	control	control katharoseq
+non_phylo	jaccard	0.5833557354032628	cohens_d	qiita_sample_type	control	control positive
+non_phylo	jaccard	0.5177511928986932	cohens_d	xebec_sampling_depth	q3	q4
+non_phylo	jaccard	0.4721072117753922	cohens_d	xebec_sampling_depth	q1	q4
+non_phylo	jaccard	0.4489760205303678	cohens_d	env_feature	human-associated habitat	research facility
+non_phylo	jaccard	0.4489760205303678	cohens_d	env_package	human-skin	misc environment
+non_phylo	jaccard	0.4489760205303678	cohens_d	surface_area	4	not applicable
+non_phylo	jaccard	0.4489760205303678	cohens_d	surface_area_units	not applicable	sq cm
+non_phylo	jaccard	0.422795883018136	cohens_d	zone	Non-lesional	not applicable
+non_phylo	jaccard	0.4184467670961158	cohens_d	empo_2	Negative	Positive
+non_phylo	jaccard	0.4184467670961158	cohens_d	empo_3	Single strain	Sterile water blank
+non_phylo	jaccard	0.4184467670961158	cohens_d	empo_4	Single strain	Sterile water blank
+non_phylo	jaccard	0.4184467670961158	cohens_d	env_material	cell culture	sterile water
+non_phylo	jaccard	0.4176865082429441	cohens_d	xebec_sampling_depth	q2	q4
+non_phylo	jaccard	0.3980990834622791	cohens_d	c_zone	C2	not applicable
+non_phylo	jaccard	0.3934297661506742	cohens_d	zone	Lesional	not applicable
+non_phylo	jaccard	0.3518613853210461	cohens_d	c_zone	C1	not applicable
+non_phylo	jaccard	0.3155823619866077	cohens_d	empo_1	Control	Free-living
+non_phylo	jaccard	0.2802773193374813	cohens_d	sample_type	control blank	control katharoseq
+non_phylo	jaccard	0.2802773193374813	cohens_d	qiita_sample_type	control blank	control positive
+non_phylo	jaccard	0.2755081291221848	cohens_d	elevation	78	not provided
+non_phylo	jaccard	0.2572182588957363	cohens_d	c_zone	C3	not applicable
+non_phylo	jaccard	0.2180370482926862	cohens_d	empo_1	Control	Host-associated
+non_phylo	jaccard	0.1698697109320312	cohens_d	xebec_sampling_depth	q2	q3
+non_phylo	jaccard	0.1587688448150896	cohens_d	sample_type	control	skin
+non_phylo	jaccard	0.1587688448150896	cohens_d	qiita_sample_type	control	skin of face
+non_phylo	jaccard	0.1474665048049062	cohens_d	elevation	193	not provided
+non_phylo	jaccard	0.1463827825978466	cohens_d	xebec_sampling_depth	q1	q2
+non_phylo	jaccard	0.1126278769202993	cohens_d	c_zone	C2	C3
+non_phylo	jaccard	0.082806439563302	cohens_d	zone	Lesional	Non-lesional
+non_phylo	jaccard	0.0703941240296771	cohens_d	c_zone	C1	C2
+non_phylo	jaccard	0.0459562767118485	cohens_d	c_zone	C1	C3
+non_phylo	jaccard	0.0457458736308564	cohens_d	scientific_name	human skin metagenome	metagenome
+non_phylo	jaccard	0.0366715046188687	cohens_d	xebec_sampling_depth	q1	q3
+non_phylo	jaccard	0.0262531896456476	cohens_d	country	France	USA:CA:San Diego
+non_phylo	jaccard	0.0262531896456476	cohens_d	geo_loc_name	France	USA:CA:San Diego
+non_phylo	jaccard	0.0262531896456476	cohens_d	collection_date	2023	2023-04-25
+non_phylo	jaccard	0.0262531896456476	cohens_d	collection_timestamp	2023	2023-04-25
+non_phylo	jaccard	0.0125305766554069	cohens_d	elevation	193	78
+non_phylo	rpca	1.930387569614106	cohens_d	empo_2	Negative	Positive
+non_phylo	rpca	1.930387569614106	cohens_d	empo_3	Single strain	Sterile water blank
+non_phylo	rpca	1.930387569614106	cohens_d	empo_4	Single strain	Sterile water blank
+non_phylo	rpca	1.930387569614106	cohens_d	env_material	cell culture	sterile water
+non_phylo	rpca	1.6849731162490733	cohens_d	xebec_sampling_depth	q1	q4
+non_phylo	rpca	1.6087392089609254	cohens_d	sample_type	control blank	control katharoseq
+non_phylo	rpca	1.6087392089609254	cohens_d	qiita_sample_type	control blank	control positive
+non_phylo	rpca	1.5509577299972683	cohens_d	empo_2	Free-living (non-saline)	Negative
+non_phylo	rpca	1.5509577299972683	cohens_d	empo_3	Solid (non-saline)	Sterile water blank
+non_phylo	rpca	1.5509577299972683	cohens_d	empo_4	Sterile water blank	Surface (non-saline)
+non_phylo	rpca	1.5509577299972683	cohens_d	env_material	anthropogenic environmental material	sterile water
+non_phylo	rpca	1.543790529806765	cohens_d	xebec_sampling_depth	q1	q3
+non_phylo	rpca	1.308940778417122	cohens_d	elevation	78	not provided
+non_phylo	rpca	1.2926928836007243	cohens_d	sample_type	control blank	cosmetic
+non_phylo	rpca	1.2926928836007243	cohens_d	qiita_sample_type	control blank	cosmetic cream
+non_phylo	rpca	1.2784034515557776	cohens_d	sample_type	control	control katharoseq
+non_phylo	rpca	1.2784034515557776	cohens_d	qiita_sample_type	control	control positive
+non_phylo	rpca	1.2730600871608824	cohens_d	sample_type	control	skin
+non_phylo	rpca	1.2730600871608824	cohens_d	qiita_sample_type	control	skin of face
+non_phylo	rpca	1.227945696931612	cohens_d	empo_2	Host-associated (non-saline)	Negative
+non_phylo	rpca	1.227945696931612	cohens_d	empo_3	Animal (non-saline)	Sterile water blank
+non_phylo	rpca	1.227945696931612	cohens_d	empo_4	Animal surface (non-saline)	Sterile water blank
+non_phylo	rpca	1.227945696931612	cohens_d	env_material	sebum material	sterile water
+non_phylo	rpca	1.2066988426271836	cohens_d	sample_type	control blank	skin
+non_phylo	rpca	1.2066988426271836	cohens_d	qiita_sample_type	control blank	skin of face
+non_phylo	rpca	1.152948036163823	cohens_d	xebec_sampling_depth	q2	q4
+non_phylo	rpca	1.1181475376470311	cohens_d	elevation	193	not provided
+non_phylo	rpca	1.0668286910944154	cohens_d	sample_type	control	cosmetic
+non_phylo	rpca	1.0668286910944154	cohens_d	qiita_sample_type	control	cosmetic cream
+non_phylo	rpca	0.9734991140663846	cohens_d	scientific_name	human skin metagenome	metagenome
+non_phylo	rpca	0.9436546449150496	cohens_d	xebec_sampling_depth	q1	q2
+non_phylo	rpca	0.9049212099465416	cohens_d	scientific_name	Lysobacter sp. OAE881	metagenome
+non_phylo	rpca	0.7969045436247371	cohens_d	xebec_sampling_depth	q2	q3
+non_phylo	rpca	0.653432211938405	cohens_d	empo_1	Free-living	Host-associated
+non_phylo	rpca	0.653432211938405	cohens_d	empo_2	Free-living (non-saline)	Host-associated (non-saline)
+non_phylo	rpca	0.653432211938405	cohens_d	empo_3	Animal (non-saline)	Solid (non-saline)
+non_phylo	rpca	0.653432211938405	cohens_d	empo_4	Animal surface (non-saline)	Surface (non-saline)
+non_phylo	rpca	0.653432211938405	cohens_d	sample_type	cosmetic	skin
+non_phylo	rpca	0.653432211938405	cohens_d	env_material	anthropogenic environmental material	sebum material
+non_phylo	rpca	0.653432211938405	cohens_d	qiita_sample_type	cosmetic cream	skin of face
+non_phylo	rpca	0.5322680609935103	cohens_d	empo_1	Control	Free-living
+non_phylo	rpca	0.5055836249661108	cohens_d	xebec_sampling_depth	q3	q4
+non_phylo	rpca	0.4445095192046009	cohens_d	empo_2	Host-associated (non-saline)	Positive
+non_phylo	rpca	0.4445095192046009	cohens_d	empo_3	Animal (non-saline)	Single strain
+non_phylo	rpca	0.4445095192046009	cohens_d	empo_4	Animal surface (non-saline)	Single strain
+non_phylo	rpca	0.4445095192046009	cohens_d	sample_type	control katharoseq	skin
+non_phylo	rpca	0.4445095192046009	cohens_d	env_material	cell culture	sebum material
+non_phylo	rpca	0.4445095192046009	cohens_d	scientific_name	Lysobacter sp. OAE881	human skin metagenome
+non_phylo	rpca	0.4445095192046009	cohens_d	qiita_sample_type	control positive	skin of face
+non_phylo	rpca	0.3897455065837241	cohens_d	katharoseq_strain	Lysobacter sp. OAE881	not applicable
+non_phylo	rpca	0.3897455065837241	cohens_d	katharoseq_plate_number	5	not applicable
+non_phylo	rpca	0.3897455065837241	cohens_d	katharoseq_aliquot_volume_ul	200	not applicable
+non_phylo	rpca	0.3897455065837241	cohens_d	katharoseq_batch_information	12/16/2022, 0.5B lysobacter cells in 50mL of 1xDPBS+0.5uM CCCP + 25% glycerol	not applicable
+non_phylo	rpca	0.3803751984637705	cohens_d	sample_type	control	control blank
+non_phylo	rpca	0.3803751984637705	cohens_d	qiita_sample_type	control	control blank
+non_phylo	rpca	0.3107247909640268	cohens_d	empo_2	Free-living (non-saline)	Positive
+non_phylo	rpca	0.3107247909640268	cohens_d	empo_3	Single strain	Solid (non-saline)
+non_phylo	rpca	0.3107247909640268	cohens_d	empo_4	Single strain	Surface (non-saline)
+non_phylo	rpca	0.3107247909640268	cohens_d	sample_type	control katharoseq	cosmetic
+non_phylo	rpca	0.3107247909640268	cohens_d	env_material	anthropogenic environmental material	cell culture
+non_phylo	rpca	0.3107247909640268	cohens_d	qiita_sample_type	control positive	cosmetic cream
+non_phylo	rpca	0.2788685388841059	cohens_d	zone	Lesional	Non-lesional
+non_phylo	rpca	0.204686912796886	cohens_d	zone	Lesional	not applicable
+non_phylo	rpca	0.1623412649917127	cohens_d	country	France	USA:CA:San Diego
+non_phylo	rpca	0.1623412649917127	cohens_d	geo_loc_name	France	USA:CA:San Diego
+non_phylo	rpca	0.1623412649917127	cohens_d	collection_date	2023	2023-04-25
+non_phylo	rpca	0.1623412649917127	cohens_d	collection_timestamp	2023	2023-04-25
+non_phylo	rpca	0.1425771497437526	cohens_d	elevation	193	78
+non_phylo	rpca	0.1385746814702325	cohens_d	c_zone	C2	not applicable
+non_phylo	rpca	0.1194089057666219	cohens_d	env_feature	human-associated habitat	research facility
+non_phylo	rpca	0.1194089057666219	cohens_d	env_package	human-skin	misc environment
+non_phylo	rpca	0.1194089057666219	cohens_d	surface_area	4	not applicable
+non_phylo	rpca	0.1194089057666219	cohens_d	surface_area_units	not applicable	sq cm
+non_phylo	rpca	0.1033514912019142	cohens_d	c_zone	C1	not applicable
+non_phylo	rpca	0.0891706850771564	cohens_d	c_zone	C3	not applicable
+non_phylo	rpca	0.0542979319586274	cohens_d	zone	Non-lesional	not applicable
+non_phylo	rpca	0.0529149121017796	cohens_d	c_zone	C2	C3
+non_phylo	rpca	0.0429720858481432	cohens_d	c_zone	C1	C2
+non_phylo	rpca	0.011505918262346	cohens_d	c_zone	C1	C3
+non_phylo	rpca	0.0030771823834556	cohens_d	empo_1	Control	Host-associated
+phylo	unweighted_unifrac	1.6478645100154217	cohens_d	sample_type	control blank	cosmetic
+phylo	unweighted_unifrac	1.6478645100154217	cohens_d	qiita_sample_type	control blank	cosmetic cream
+phylo	unweighted_unifrac	1.276951839336764	cohens_d	empo_2	Free-living (non-saline)	Negative
+phylo	unweighted_unifrac	1.276951839336764	cohens_d	empo_3	Solid (non-saline)	Sterile water blank
+phylo	unweighted_unifrac	1.276951839336764	cohens_d	empo_4	Sterile water blank	Surface (non-saline)
+phylo	unweighted_unifrac	1.276951839336764	cohens_d	env_material	anthropogenic environmental material	sterile water
+phylo	unweighted_unifrac	1.068652009229557	cohens_d	sample_type	control	control blank
+phylo	unweighted_unifrac	1.068652009229557	cohens_d	qiita_sample_type	control	control blank
+phylo	unweighted_unifrac	0.8780860503477362	cohens_d	zone	Non-lesional	not applicable
+phylo	unweighted_unifrac	0.8722073045474164	cohens_d	empo_1	Free-living	Host-associated
+phylo	unweighted_unifrac	0.8722073045474164	cohens_d	empo_2	Free-living (non-saline)	Host-associated (non-saline)
+phylo	unweighted_unifrac	0.8722073045474164	cohens_d	empo_3	Animal (non-saline)	Solid (non-saline)
+phylo	unweighted_unifrac	0.8722073045474164	cohens_d	empo_4	Animal surface (non-saline)	Surface (non-saline)
+phylo	unweighted_unifrac	0.8722073045474164	cohens_d	sample_type	cosmetic	skin
+phylo	unweighted_unifrac	0.8722073045474164	cohens_d	env_material	anthropogenic environmental material	sebum material
+phylo	unweighted_unifrac	0.8722073045474164	cohens_d	qiita_sample_type	cosmetic cream	skin of face
+phylo	unweighted_unifrac	0.792299800794894	cohens_d	env_feature	human-associated habitat	research facility
+phylo	unweighted_unifrac	0.792299800794894	cohens_d	env_package	human-skin	misc environment
+phylo	unweighted_unifrac	0.792299800794894	cohens_d	surface_area	4	not applicable
+phylo	unweighted_unifrac	0.792299800794894	cohens_d	surface_area_units	not applicable	sq cm
+phylo	unweighted_unifrac	0.7709919934892695	cohens_d	c_zone	C2	not applicable
+phylo	unweighted_unifrac	0.7651498041115811	cohens_d	xebec_sampling_depth	q3	q4
+phylo	unweighted_unifrac	0.7306067044253822	cohens_d	c_zone	C1	not applicable
+phylo	unweighted_unifrac	0.7023857419906008	cohens_d	zone	Lesional	not applicable
+phylo	unweighted_unifrac	0.6806635598400869	cohens_d	empo_1	Control	Host-associated
+phylo	unweighted_unifrac	0.6800252311563919	cohens_d	xebec_sampling_depth	q2	q4
+phylo	unweighted_unifrac	0.6279824738220093	cohens_d	c_zone	C3	not applicable
+phylo	unweighted_unifrac	0.5283277183171093	cohens_d	empo_2	Free-living (non-saline)	Positive
+phylo	unweighted_unifrac	0.5283277183171093	cohens_d	empo_3	Single strain	Solid (non-saline)
+phylo	unweighted_unifrac	0.5283277183171093	cohens_d	empo_4	Single strain	Surface (non-saline)
+phylo	unweighted_unifrac	0.5283277183171093	cohens_d	sample_type	control katharoseq	cosmetic
+phylo	unweighted_unifrac	0.5283277183171093	cohens_d	env_material	anthropogenic environmental material	cell culture
+phylo	unweighted_unifrac	0.5283277183171093	cohens_d	qiita_sample_type	control positive	cosmetic cream
+phylo	unweighted_unifrac	0.5269776377134017	cohens_d	sample_type	control	cosmetic
+phylo	unweighted_unifrac	0.5269776377134017	cohens_d	qiita_sample_type	control	cosmetic cream
+phylo	unweighted_unifrac	0.4834114472761527	cohens_d	elevation	193	78
+phylo	unweighted_unifrac	0.464241432636855	cohens_d	xebec_sampling_depth	q1	q4
+phylo	unweighted_unifrac	0.4497449401390274	cohens_d	country	France	USA:CA:San Diego
+phylo	unweighted_unifrac	0.4497449401390274	cohens_d	geo_loc_name	France	USA:CA:San Diego
+phylo	unweighted_unifrac	0.4497449401390274	cohens_d	collection_date	2023	2023-04-25
+phylo	unweighted_unifrac	0.4497449401390274	cohens_d	collection_timestamp	2023	2023-04-25
+phylo	unweighted_unifrac	0.3535364688939474	cohens_d	xebec_sampling_depth	q1	q3
+phylo	unweighted_unifrac	0.3361293965987148	cohens_d	scientific_name	human skin metagenome	metagenome
+phylo	unweighted_unifrac	0.3229271126635786	cohens_d	sample_type	control blank	skin
+phylo	unweighted_unifrac	0.3229271126635786	cohens_d	qiita_sample_type	control blank	skin of face
+phylo	unweighted_unifrac	0.3153225971595754	cohens_d	sample_type	control blank	control katharoseq
+phylo	unweighted_unifrac	0.3153225971595754	cohens_d	qiita_sample_type	control blank	control positive
+phylo	unweighted_unifrac	0.3096625167708237	cohens_d	sample_type	control	skin
+phylo	unweighted_unifrac	0.3096625167708237	cohens_d	qiita_sample_type	control	skin of face
+phylo	unweighted_unifrac	0.2411580108333356	cohens_d	xebec_sampling_depth	q1	q2
+phylo	unweighted_unifrac	0.2297953143438044	cohens_d	katharoseq_strain	Lysobacter sp. OAE881	not applicable
+phylo	unweighted_unifrac	0.2297953143438044	cohens_d	katharoseq_plate_number	5	not applicable
+phylo	unweighted_unifrac	0.2297953143438044	cohens_d	katharoseq_aliquot_volume_ul	200	not applicable
+phylo	unweighted_unifrac	0.2297953143438044	cohens_d	katharoseq_batch_information	12/16/2022, 0.5B lysobacter cells in 50mL of 1xDPBS+0.5uM CCCP + 25% glycerol	not applicable
+phylo	unweighted_unifrac	0.2288133531084092	cohens_d	elevation	193	not provided
+phylo	unweighted_unifrac	0.2246862826000751	cohens_d	scientific_name	Lysobacter sp. OAE881	metagenome
+phylo	unweighted_unifrac	0.2192747771167168	cohens_d	zone	Lesional	Non-lesional
+phylo	unweighted_unifrac	0.1916956671901781	cohens_d	elevation	78	not provided
+phylo	unweighted_unifrac	0.1547055626216993	cohens_d	empo_2	Negative	Positive
+phylo	unweighted_unifrac	0.1547055626216993	cohens_d	empo_3	Single strain	Sterile water blank
+phylo	unweighted_unifrac	0.1547055626216993	cohens_d	empo_4	Single strain	Sterile water blank
+phylo	unweighted_unifrac	0.1547055626216993	cohens_d	env_material	cell culture	sterile water
+phylo	unweighted_unifrac	0.150628431242437	cohens_d	sample_type	control	control katharoseq
+phylo	unweighted_unifrac	0.150628431242437	cohens_d	qiita_sample_type	control	control positive
+phylo	unweighted_unifrac	0.1322661222979334	cohens_d	empo_1	Control	Free-living
+phylo	unweighted_unifrac	0.1283895910009773	cohens_d	xebec_sampling_depth	q2	q3
+phylo	unweighted_unifrac	0.1166625573455767	cohens_d	empo_2	Host-associated (non-saline)	Negative
+phylo	unweighted_unifrac	0.1166625573455767	cohens_d	empo_3	Animal (non-saline)	Sterile water blank
+phylo	unweighted_unifrac	0.1166625573455767	cohens_d	empo_4	Animal surface (non-saline)	Sterile water blank
+phylo	unweighted_unifrac	0.1166625573455767	cohens_d	env_material	sebum material	sterile water
+phylo	unweighted_unifrac	0.0776175180591775	cohens_d	c_zone	C2	C3
+phylo	unweighted_unifrac	0.0685224013956975	cohens_d	empo_2	Host-associated (non-saline)	Positive
+phylo	unweighted_unifrac	0.0685224013956975	cohens_d	empo_3	Animal (non-saline)	Single strain
+phylo	unweighted_unifrac	0.0685224013956975	cohens_d	empo_4	Animal surface (non-saline)	Single strain
+phylo	unweighted_unifrac	0.0685224013956975	cohens_d	sample_type	control katharoseq	skin
+phylo	unweighted_unifrac	0.0685224013956975	cohens_d	env_material	cell culture	sebum material
+phylo	unweighted_unifrac	0.0685224013956975	cohens_d	scientific_name	Lysobacter sp. OAE881	human skin metagenome
+phylo	unweighted_unifrac	0.0685224013956975	cohens_d	qiita_sample_type	control positive	skin of face
+phylo	unweighted_unifrac	0.0507260337683618	cohens_d	c_zone	C1	C2
+phylo	unweighted_unifrac	0.0283369251777711	cohens_d	c_zone	C1	C3
+phylo	weighted_normalized_unifrac	1.295130376387836	cohens_d	sample_type	control blank	cosmetic
+phylo	weighted_normalized_unifrac	1.295130376387836	cohens_d	qiita_sample_type	control blank	cosmetic cream
+phylo	weighted_normalized_unifrac	1.128747324416583	cohens_d	empo_2	Free-living (non-saline)	Positive
+phylo	weighted_normalized_unifrac	1.128747324416583	cohens_d	empo_3	Single strain	Solid (non-saline)
+phylo	weighted_normalized_unifrac	1.128747324416583	cohens_d	empo_4	Single strain	Surface (non-saline)
+phylo	weighted_normalized_unifrac	1.128747324416583	cohens_d	sample_type	control katharoseq	cosmetic
+phylo	weighted_normalized_unifrac	1.128747324416583	cohens_d	env_material	anthropogenic environmental material	cell culture
+phylo	weighted_normalized_unifrac	1.128747324416583	cohens_d	qiita_sample_type	control positive	cosmetic cream
+phylo	weighted_normalized_unifrac	1.0237749824112097	cohens_d	empo_2	Free-living (non-saline)	Negative
+phylo	weighted_normalized_unifrac	1.0237749824112097	cohens_d	empo_3	Solid (non-saline)	Sterile water blank
+phylo	weighted_normalized_unifrac	1.0237749824112097	cohens_d	empo_4	Sterile water blank	Surface (non-saline)
+phylo	weighted_normalized_unifrac	1.0237749824112097	cohens_d	env_material	anthropogenic environmental material	sterile water
+phylo	weighted_normalized_unifrac	1.0182576265982064	cohens_d	sample_type	control	control blank
+phylo	weighted_normalized_unifrac	1.0182576265982064	cohens_d	qiita_sample_type	control	control blank
+phylo	weighted_normalized_unifrac	0.988806355217768	cohens_d	katharoseq_strain	Lysobacter sp. OAE881	not applicable
+phylo	weighted_normalized_unifrac	0.988806355217768	cohens_d	katharoseq_plate_number	5	not applicable
+phylo	weighted_normalized_unifrac	0.988806355217768	cohens_d	katharoseq_aliquot_volume_ul	200	not applicable
+phylo	weighted_normalized_unifrac	0.988806355217768	cohens_d	katharoseq_batch_information	12/16/2022, 0.5B lysobacter cells in 50mL of 1xDPBS+0.5uM CCCP + 25% glycerol	not applicable
+phylo	weighted_normalized_unifrac	0.8790698225554631	cohens_d	sample_type	control	control katharoseq
+phylo	weighted_normalized_unifrac	0.8790698225554631	cohens_d	qiita_sample_type	control	control positive
+phylo	weighted_normalized_unifrac	0.8320941201525819	cohens_d	scientific_name	Lysobacter sp. OAE881	metagenome
+phylo	weighted_normalized_unifrac	0.7397707307673435	cohens_d	empo_2	Host-associated (non-saline)	Positive
+phylo	weighted_normalized_unifrac	0.7397707307673435	cohens_d	empo_3	Animal (non-saline)	Single strain
+phylo	weighted_normalized_unifrac	0.7397707307673435	cohens_d	empo_4	Animal surface (non-saline)	Single strain
+phylo	weighted_normalized_unifrac	0.7397707307673435	cohens_d	sample_type	control katharoseq	skin
+phylo	weighted_normalized_unifrac	0.7397707307673435	cohens_d	env_material	cell culture	sebum material
+phylo	weighted_normalized_unifrac	0.7397707307673435	cohens_d	scientific_name	Lysobacter sp. OAE881	human skin metagenome
+phylo	weighted_normalized_unifrac	0.7397707307673435	cohens_d	qiita_sample_type	control positive	skin of face
+phylo	weighted_normalized_unifrac	0.6601235790100947	cohens_d	empo_1	Free-living	Host-associated
+phylo	weighted_normalized_unifrac	0.6601235790100947	cohens_d	empo_2	Free-living (non-saline)	Host-associated (non-saline)
+phylo	weighted_normalized_unifrac	0.6601235790100947	cohens_d	empo_3	Animal (non-saline)	Solid (non-saline)
+phylo	weighted_normalized_unifrac	0.6601235790100947	cohens_d	empo_4	Animal surface (non-saline)	Surface (non-saline)
+phylo	weighted_normalized_unifrac	0.6601235790100947	cohens_d	sample_type	cosmetic	skin
+phylo	weighted_normalized_unifrac	0.6601235790100947	cohens_d	env_material	anthropogenic environmental material	sebum material
+phylo	weighted_normalized_unifrac	0.6601235790100947	cohens_d	qiita_sample_type	cosmetic cream	skin of face
+phylo	weighted_normalized_unifrac	0.4958215175078588	cohens_d	sample_type	control blank	skin
+phylo	weighted_normalized_unifrac	0.4958215175078588	cohens_d	qiita_sample_type	control blank	skin of face
+phylo	weighted_normalized_unifrac	0.4909341121623514	cohens_d	zone	Non-lesional	not applicable
+phylo	weighted_normalized_unifrac	0.432236084584577	cohens_d	empo_1	Control	Free-living
+phylo	weighted_normalized_unifrac	0.3987418531271021	cohens_d	empo_2	Negative	Positive
+phylo	weighted_normalized_unifrac	0.3987418531271021	cohens_d	empo_3	Single strain	Sterile water blank
+phylo	weighted_normalized_unifrac	0.3987418531271021	cohens_d	empo_4	Single strain	Sterile water blank
+phylo	weighted_normalized_unifrac	0.3987418531271021	cohens_d	env_material	cell culture	sterile water
+phylo	weighted_normalized_unifrac	0.3984973498094891	cohens_d	sample_type	control	skin
+phylo	weighted_normalized_unifrac	0.3984973498094891	cohens_d	qiita_sample_type	control	skin of face
+phylo	weighted_normalized_unifrac	0.368693949334112	cohens_d	c_zone	C2	not applicable
+phylo	weighted_normalized_unifrac	0.3517293908296234	cohens_d	xebec_sampling_depth	q2	q4
+phylo	weighted_normalized_unifrac	0.3241159814099988	cohens_d	env_feature	human-associated habitat	research facility
+phylo	weighted_normalized_unifrac	0.3241159814099988	cohens_d	env_package	human-skin	misc environment
+phylo	weighted_normalized_unifrac	0.3241159814099988	cohens_d	surface_area	4	not applicable
+phylo	weighted_normalized_unifrac	0.3241159814099988	cohens_d	surface_area_units	not applicable	sq cm
+phylo	weighted_normalized_unifrac	0.3171878275817649	cohens_d	c_zone	C3	not applicable
+phylo	weighted_normalized_unifrac	0.3028679051036739	cohens_d	elevation	78	not provided
+phylo	weighted_normalized_unifrac	0.2969462045641137	cohens_d	empo_2	Host-associated (non-saline)	Negative
+phylo	weighted_normalized_unifrac	0.2969462045641137	cohens_d	empo_3	Animal (non-saline)	Sterile water blank
+phylo	weighted_normalized_unifrac	0.2969462045641137	cohens_d	empo_4	Animal surface (non-saline)	Sterile water blank
+phylo	weighted_normalized_unifrac	0.2969462045641137	cohens_d	env_material	sebum material	sterile water
+phylo	weighted_normalized_unifrac	0.2884430532839364	cohens_d	sample_type	control	cosmetic
+phylo	weighted_normalized_unifrac	0.2884430532839364	cohens_d	qiita_sample_type	control	cosmetic cream
+phylo	weighted_normalized_unifrac	0.2729191815005667	cohens_d	c_zone	C1	not applicable
+phylo	weighted_normalized_unifrac	0.2657412584759631	cohens_d	elevation	193	not provided
+phylo	weighted_normalized_unifrac	0.2646696843803948	cohens_d	zone	Lesional	not applicable
+phylo	weighted_normalized_unifrac	0.2590130291752306	cohens_d	xebec_sampling_depth	q3	q4
+phylo	weighted_normalized_unifrac	0.2199033656700519	cohens_d	sample_type	control blank	control katharoseq
+phylo	weighted_normalized_unifrac	0.2199033656700519	cohens_d	qiita_sample_type	control blank	control positive
+phylo	weighted_normalized_unifrac	0.2032613249536413	cohens_d	xebec_sampling_depth	q1	q2
+phylo	weighted_normalized_unifrac	0.1915007759634651	cohens_d	empo_1	Control	Host-associated
+phylo	weighted_normalized_unifrac	0.1815351138049579	cohens_d	xebec_sampling_depth	q1	q4
+phylo	weighted_normalized_unifrac	0.1636154400757116	cohens_d	zone	Lesional	Non-lesional
+phylo	weighted_normalized_unifrac	0.1492096765000735	cohens_d	scientific_name	human skin metagenome	metagenome
+phylo	weighted_normalized_unifrac	0.101359303088512	cohens_d	c_zone	C1	C2
+phylo	weighted_normalized_unifrac	0.0905569484047886	cohens_d	xebec_sampling_depth	q1	q3
+phylo	weighted_normalized_unifrac	0.0901723282771491	cohens_d	xebec_sampling_depth	q2	q3
+phylo	weighted_normalized_unifrac	0.0638390100180635	cohens_d	c_zone	C1	C3
+phylo	weighted_normalized_unifrac	0.0354325578807821	cohens_d	c_zone	C2	C3
+phylo	weighted_normalized_unifrac	0.0135365984637682	cohens_d	elevation	193	78
+phylo	weighted_normalized_unifrac	0.0080309421218	cohens_d	country	France	USA:CA:San Diego
+phylo	weighted_normalized_unifrac	0.0080309421218	cohens_d	geo_loc_name	France	USA:CA:San Diego
+phylo	weighted_normalized_unifrac	0.0080309421218	cohens_d	collection_date	2023	2023-04-25
+phylo	weighted_normalized_unifrac	0.0080309421218	cohens_d	collection_timestamp	2023	2023-04-25
+phylo	phylo_rpca	1.1711123503263086	cohens_d	sample_type	control blank	cosmetic
+phylo	phylo_rpca	1.1711123503263086	cohens_d	qiita_sample_type	control blank	cosmetic cream
+phylo	phylo_rpca	1.1512267310403326	cohens_d	empo_2	Free-living (non-saline)	Negative
+phylo	phylo_rpca	1.1512267310403326	cohens_d	empo_3	Solid (non-saline)	Sterile water blank
+phylo	phylo_rpca	1.1512267310403326	cohens_d	empo_4	Sterile water blank	Surface (non-saline)
+phylo	phylo_rpca	1.1512267310403326	cohens_d	env_material	anthropogenic environmental material	sterile water
+phylo	phylo_rpca	1.1423335966666757	cohens_d	sample_type	control blank	control katharoseq
+phylo	phylo_rpca	1.1423335966666757	cohens_d	qiita_sample_type	control blank	control positive
+phylo	phylo_rpca	1.1345606114798736	cohens_d	xebec_sampling_depth	q1	q4
+phylo	phylo_rpca	1.0952745737444494	cohens_d	empo_2	Negative	Positive
+phylo	phylo_rpca	1.0952745737444494	cohens_d	empo_3	Single strain	Sterile water blank
+phylo	phylo_rpca	1.0952745737444494	cohens_d	empo_4	Single strain	Sterile water blank
+phylo	phylo_rpca	1.0952745737444494	cohens_d	env_material	cell culture	sterile water
+phylo	phylo_rpca	0.9882584898522832	cohens_d	elevation	78	not provided
+phylo	phylo_rpca	0.9565296102624196	cohens_d	sample_type	control blank	skin
+phylo	phylo_rpca	0.9565296102624196	cohens_d	qiita_sample_type	control blank	skin of face
+phylo	phylo_rpca	0.916368587740476	cohens_d	empo_2	Host-associated (non-saline)	Negative
+phylo	phylo_rpca	0.916368587740476	cohens_d	empo_3	Animal (non-saline)	Sterile water blank
+phylo	phylo_rpca	0.916368587740476	cohens_d	empo_4	Animal surface (non-saline)	Sterile water blank
+phylo	phylo_rpca	0.916368587740476	cohens_d	env_material	sebum material	sterile water
+phylo	phylo_rpca	0.8765904471974818	cohens_d	sample_type	control	skin
+phylo	phylo_rpca	0.8765904471974818	cohens_d	qiita_sample_type	control	skin of face
+phylo	phylo_rpca	0.869570584542624	cohens_d	sample_type	control	control katharoseq
+phylo	phylo_rpca	0.869570584542624	cohens_d	qiita_sample_type	control	control positive
+phylo	phylo_rpca	0.8619674684570523	cohens_d	sample_type	control	cosmetic
+phylo	phylo_rpca	0.8619674684570523	cohens_d	qiita_sample_type	control	cosmetic cream
+phylo	phylo_rpca	0.744020086600039	cohens_d	xebec_sampling_depth	q1	q3
+phylo	phylo_rpca	0.7115072403100507	cohens_d	katharoseq_strain	Lysobacter sp. OAE881	not applicable
+phylo	phylo_rpca	0.7115072403100507	cohens_d	katharoseq_plate_number	5	not applicable
+phylo	phylo_rpca	0.7115072403100507	cohens_d	katharoseq_aliquot_volume_ul	200	not applicable
+phylo	phylo_rpca	0.7115072403100507	cohens_d	katharoseq_batch_information	12/16/2022, 0.5B lysobacter cells in 50mL of 1xDPBS+0.5uM CCCP + 25% glycerol	not applicable
+phylo	phylo_rpca	0.7003668246325615	cohens_d	xebec_sampling_depth	q2	q4
+phylo	phylo_rpca	0.698357436284494	cohens_d	country	France	USA:CA:San Diego
+phylo	phylo_rpca	0.698357436284494	cohens_d	geo_loc_name	France	USA:CA:San Diego
+phylo	phylo_rpca	0.698357436284494	cohens_d	collection_date	2023	2023-04-25
+phylo	phylo_rpca	0.698357436284494	cohens_d	collection_timestamp	2023	2023-04-25
+phylo	phylo_rpca	0.6453086302857481	cohens_d	elevation	193	78
+phylo	phylo_rpca	0.6297650596617878	cohens_d	elevation	193	not provided
+phylo	phylo_rpca	0.609082419464448	cohens_d	scientific_name	human skin metagenome	metagenome
+phylo	phylo_rpca	0.5604048255801808	cohens_d	empo_1	Control	Host-associated
+phylo	phylo_rpca	0.5139624582306477	cohens_d	xebec_sampling_depth	q1	q2
+phylo	phylo_rpca	0.5040417957253515	cohens_d	c_zone	C2	not applicable
+phylo	phylo_rpca	0.4891042742985085	cohens_d	c_zone	C3	not applicable
+phylo	phylo_rpca	0.4670374796275238	cohens_d	c_zone	C1	not applicable
+phylo	phylo_rpca	0.4630448124893518	cohens_d	zone	Lesional	not applicable
+phylo	phylo_rpca	0.4438674386619942	cohens_d	empo_2	Host-associated (non-saline)	Positive
+phylo	phylo_rpca	0.4438674386619942	cohens_d	empo_3	Animal (non-saline)	Single strain
+phylo	phylo_rpca	0.4438674386619942	cohens_d	empo_4	Animal surface (non-saline)	Single strain
+phylo	phylo_rpca	0.4438674386619942	cohens_d	sample_type	control katharoseq	skin
+phylo	phylo_rpca	0.4438674386619942	cohens_d	env_material	cell culture	sebum material
+phylo	phylo_rpca	0.4438674386619942	cohens_d	scientific_name	Lysobacter sp. OAE881	human skin metagenome
+phylo	phylo_rpca	0.4438674386619942	cohens_d	qiita_sample_type	control positive	skin of face
+phylo	phylo_rpca	0.4293771029152828	cohens_d	xebec_sampling_depth	q3	q4
+phylo	phylo_rpca	0.4059765668512242	cohens_d	env_feature	human-associated habitat	research facility
+phylo	phylo_rpca	0.4059765668512242	cohens_d	env_package	human-skin	misc environment
+phylo	phylo_rpca	0.4059765668512242	cohens_d	surface_area	4	not applicable
+phylo	phylo_rpca	0.4059765668512242	cohens_d	surface_area_units	not applicable	sq cm
+phylo	phylo_rpca	0.3977278748621954	cohens_d	empo_1	Free-living	Host-associated
+phylo	phylo_rpca	0.3977278748621954	cohens_d	empo_2	Free-living (non-saline)	Host-associated (non-saline)
+phylo	phylo_rpca	0.3977278748621954	cohens_d	empo_3	Animal (non-saline)	Solid (non-saline)
+phylo	phylo_rpca	0.3977278748621954	cohens_d	empo_4	Animal surface (non-saline)	Surface (non-saline)
+phylo	phylo_rpca	0.3977278748621954	cohens_d	sample_type	cosmetic	skin
+phylo	phylo_rpca	0.3977278748621954	cohens_d	env_material	anthropogenic environmental material	sebum material
+phylo	phylo_rpca	0.3977278748621954	cohens_d	qiita_sample_type	cosmetic cream	skin of face
+phylo	phylo_rpca	0.3821869864750337	cohens_d	zone	Non-lesional	not applicable
+phylo	phylo_rpca	0.2717706487951438	cohens_d	xebec_sampling_depth	q2	q3
+phylo	phylo_rpca	0.2646880137777331	cohens_d	empo_1	Control	Free-living
+phylo	phylo_rpca	0.2569679329968313	cohens_d	scientific_name	Lysobacter sp. OAE881	metagenome
+phylo	phylo_rpca	0.1882983918030285	cohens_d	sample_type	control	control blank
+phylo	phylo_rpca	0.1882983918030285	cohens_d	qiita_sample_type	control	control blank
+phylo	phylo_rpca	0.1233673332400715	cohens_d	zone	Lesional	Non-lesional
+phylo	phylo_rpca	0.0823360754131521	cohens_d	empo_2	Free-living (non-saline)	Positive
+phylo	phylo_rpca	0.0823360754131521	cohens_d	empo_3	Single strain	Solid (non-saline)
+phylo	phylo_rpca	0.0823360754131521	cohens_d	empo_4	Single strain	Surface (non-saline)
+phylo	phylo_rpca	0.0823360754131521	cohens_d	sample_type	control katharoseq	cosmetic
+phylo	phylo_rpca	0.0823360754131521	cohens_d	env_material	anthropogenic environmental material	cell culture
+phylo	phylo_rpca	0.0823360754131521	cohens_d	qiita_sample_type	control positive	cosmetic cream
+phylo	phylo_rpca	0.0803201545165572	cohens_d	c_zone	C2	C3
+phylo	phylo_rpca	0.0464525794814388	cohens_d	c_zone	C1	C2
+phylo	phylo_rpca	0.0366811977914721	cohens_d	c_zone	C1	C3

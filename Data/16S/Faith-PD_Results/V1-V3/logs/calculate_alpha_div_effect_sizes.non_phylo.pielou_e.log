@@ -1,0 +1,16 @@
+[2024-11-02 19:45:29,162 - xebec_calculate_alpha_div_effect_sizes] :: Diversity Type: alpha
+[2024-11-02 19:45:29,162 - xebec_calculate_alpha_div_effect_sizes] :: Pairwise: False
+[2024-11-02 19:45:29,175 - xebec_calculate_alpha_div_effect_sizes] :: /Users/yac027/mambaforge3/envs/xebec_python39/lib/python3.9/site-packages/evident/utils.py:20: UserWarning: Data and metadata do not have the same sample IDs. Using 313 samples common to both.
+  warn(msg)
+
+[2024-11-02 19:45:29,201 - xebec_calculate_alpha_div_effect_sizes] :: Diversity Metric: pielou_e
+[2024-11-02 19:45:29,201 - xebec_calculate_alpha_div_effect_sizes] :: Calculating effect sizes...
+[2024-11-02 19:45:29,271 - xebec_calculate_alpha_div_effect_sizes] :: Finished calculating effect sizes!
+[2024-11-02 19:45:29,277 - xebec_calculate_alpha_div_effect_sizes] :: 
+   effect_size    metric              column
+0     1.263975  cohens_d         env_feature
+1     1.263975  cohens_d         env_package
+2     1.263975  cohens_d        surface_area
+3     1.263975  cohens_d  surface_area_units
+4     0.833465  cohens_d             country
+[2024-11-02 19:45:29,279 - xebec_calculate_alpha_div_effect_sizes] :: Saved to results/alpha_div/non_phylo/pielou_e/effect_sizes.tsv!

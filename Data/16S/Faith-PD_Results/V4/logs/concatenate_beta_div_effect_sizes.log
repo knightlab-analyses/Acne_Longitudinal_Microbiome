@@ -1,0 +1,10 @@
+[2024-11-02 19:49:22,182 - xebec_concatenate_beta_div_effect_sizes] :: Concatenating...
+[2024-11-02 19:49:22,195 - xebec_concatenate_beta_div_effect_sizes] :: Finished concatenating!
+[2024-11-02 19:49:22,202 - xebec_concatenate_beta_div_effect_sizes] :: 
+  phylogenetic diversity_metric  effect_size    metric                        column
+0    non_phylo       braycurtis     1.888264  cohens_d             katharoseq_strain
+1    non_phylo       braycurtis     1.888264  cohens_d       katharoseq_plate_number
+2    non_phylo       braycurtis     1.888264  cohens_d  katharoseq_aliquot_volume_ul
+3    non_phylo       braycurtis     1.888264  cohens_d  katharoseq_batch_information
+4    non_phylo       braycurtis     0.666022  cohens_d                   env_feature
+[2024-11-02 19:49:22,204 - xebec_concatenate_beta_div_effect_sizes] :: Saved to results/beta_div/all_metrics_effect_sizes.tsv!

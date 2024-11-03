@@ -1,0 +1,16 @@
+[2024-11-02 19:45:22,653 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Diversity Type: beta
+[2024-11-02 19:45:22,653 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Pairwise: True
+[2024-11-02 19:45:22,706 - xebec_calculate_beta_div_pairwise_effect_sizes] :: /Users/yac027/mambaforge3/envs/xebec_python39/lib/python3.9/site-packages/evident/utils.py:20: UserWarning: Data and metadata do not have the same sample IDs. Using 313 samples common to both.
+  warn(msg)
+
+[2024-11-02 19:45:22,725 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Diversity Metric: braycurtis
+[2024-11-02 19:45:22,725 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Calculating effect sizes...
+[2024-11-02 19:45:23,074 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Finished calculating effect sizes!
+[2024-11-02 19:45:23,082 - xebec_calculate_beta_div_pairwise_effect_sizes] :: 
+   effect_size    metric           column                   group_1            group_2
+0     2.836692  cohens_d             zone                  Lesional     not applicable
+1     2.520866  cohens_d  scientific_name     human skin metagenome         metagenome
+2     2.517409  cohens_d           c_zone                        C3     not applicable
+3     2.482575  cohens_d  scientific_name     Lysobacter sp. OAE881         metagenome
+4     2.480652  cohens_d      env_feature  human-associated habitat  research facility
+[2024-11-02 19:45:23,083 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Saved to results/beta_div/non_phylo/braycurtis/pairwise_effect_sizes.tsv!

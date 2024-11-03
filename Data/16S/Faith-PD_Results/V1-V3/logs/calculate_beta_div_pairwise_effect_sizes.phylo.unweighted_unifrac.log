@@ -1,0 +1,16 @@
+[2024-11-02 19:45:39,570 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Diversity Type: beta
+[2024-11-02 19:45:39,570 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Pairwise: True
+[2024-11-02 19:45:39,622 - xebec_calculate_beta_div_pairwise_effect_sizes] :: /Users/yac027/mambaforge3/envs/xebec_python39/lib/python3.9/site-packages/evident/utils.py:20: UserWarning: Data and metadata do not have the same sample IDs. Using 313 samples common to both.
+  warn(msg)
+
+[2024-11-02 19:45:39,641 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Diversity Metric: unweighted_unifrac
+[2024-11-02 19:45:39,641 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Calculating effect sizes...
+[2024-11-02 19:45:40,000 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Finished calculating effect sizes!
+[2024-11-02 19:45:40,007 - xebec_calculate_beta_div_pairwise_effect_sizes] :: 
+   effect_size    metric             column                   group_1         group_2
+0     1.373519  cohens_d        sample_type             control blank        cosmetic
+1     1.373519  cohens_d  qiita_sample_type             control blank  cosmetic cream
+2     1.280263  cohens_d        sample_type                   control   control blank
+3     1.280263  cohens_d  qiita_sample_type                   control   control blank
+4     0.903456  cohens_d             empo_2  Free-living (non-saline)        Positive
+[2024-11-02 19:45:40,009 - xebec_calculate_beta_div_pairwise_effect_sizes] :: Saved to results/beta_div/phylo/unweighted_unifrac/pairwise_effect_sizes.tsv!

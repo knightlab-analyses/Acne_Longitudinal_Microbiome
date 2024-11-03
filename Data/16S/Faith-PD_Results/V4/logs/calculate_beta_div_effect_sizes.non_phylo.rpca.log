@@ -1,0 +1,13 @@
+[2024-11-02 19:49:00,064 - xebec_calculate_beta_div_effect_sizes] :: Diversity Type: beta
+[2024-11-02 19:49:00,064 - xebec_calculate_beta_div_effect_sizes] :: Pairwise: False
+[2024-11-02 19:49:00,158 - xebec_calculate_beta_div_effect_sizes] :: Diversity Metric: rpca
+[2024-11-02 19:49:00,158 - xebec_calculate_beta_div_effect_sizes] :: Calculating effect sizes...
+[2024-11-02 19:49:00,631 - xebec_calculate_beta_div_effect_sizes] :: Finished calculating effect sizes!
+[2024-11-02 19:49:00,637 - xebec_calculate_beta_div_effect_sizes] :: 
+   effect_size    metric                        column
+0     0.389746  cohens_d             katharoseq_strain
+1     0.389746  cohens_d       katharoseq_plate_number
+2     0.389746  cohens_d  katharoseq_aliquot_volume_ul
+3     0.389746  cohens_d  katharoseq_batch_information
+4     0.162341  cohens_d                       country
+[2024-11-02 19:49:00,638 - xebec_calculate_beta_div_effect_sizes] :: Saved to results/beta_div/non_phylo/rpca/effect_sizes.tsv!

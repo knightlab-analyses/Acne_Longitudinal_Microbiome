@@ -1,0 +1,6 @@
+
+Gurobi 8.1.0 (mac64) logging started Sat Nov  2 19:46:45 2024
+
+
+ERROR 10009: No Gurobi license found (user yac027, host KL-8-MacBook-Pro.local, hostid 327df6df, cores 4)
+

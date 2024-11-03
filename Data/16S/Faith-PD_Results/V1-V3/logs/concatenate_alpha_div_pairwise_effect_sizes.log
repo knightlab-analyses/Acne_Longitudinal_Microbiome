@@ -1,0 +1,10 @@
+[2024-11-02 19:45:46,327 - xebec_concatenate_alpha_div_pairwise_effect_sizes] :: Concatenating...
+[2024-11-02 19:45:46,341 - xebec_concatenate_alpha_div_pairwise_effect_sizes] :: Finished concatenating!
+[2024-11-02 19:45:46,349 - xebec_concatenate_alpha_div_pairwise_effect_sizes] :: 
+  phylogenetic diversity_metric  effect_size    metric             column        group_1             group_2
+0    non_phylo    observed_otus     1.905879  cohens_d        sample_type        control  control katharoseq
+1    non_phylo    observed_otus     1.905879  cohens_d  qiita_sample_type        control    control positive
+2    non_phylo    observed_otus     1.887948  cohens_d        sample_type  control blank  control katharoseq
+3    non_phylo    observed_otus     1.887948  cohens_d  qiita_sample_type  control blank    control positive
+4    non_phylo    observed_otus     1.640269  cohens_d             empo_2       Negative            Positive
+[2024-11-02 19:45:46,353 - xebec_concatenate_alpha_div_pairwise_effect_sizes] :: Saved to results/alpha_div/all_metrics_pairwise_effect_sizes.tsv!
