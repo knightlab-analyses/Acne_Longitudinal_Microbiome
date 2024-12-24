@@ -1,0 +1,182 @@
+Analysis for Intersection 110:
+Taxon:  g__Streptococcus
+  Median in Healthy: 1.496250303559557
+  Median in Acne_NL: -0.8261374167306679
+
+Taxon:  g__Micrococcus
+  Median in Healthy: 1.1725920285946447
+  Median in Acne_NL: -0.9068495130851906
+
+Taxon:  g__Limnobacter
+  Median in Healthy: 1.1112750548228574
+  Median in Acne_NL: -0.4981628576112431
+
+Taxon:  g__Caulobacter
+  Median in Healthy: 0.44144507434856894
+  Median in Acne_NL: -0.25170210621137645
+
+Taxon:  g__Nocardioides
+  Median in Healthy: 0.6314259155408584
+  Median in Acne_NL: -0.46718637312725075
+
+Taxon:  g__Corynebacterium
+  Median in Healthy: 0.7691283311948274
+  Median in Acne_NL: -0.3013130805065867
+
+Taxon:  g__Staphylococcus
+  Median in Healthy: 0.6723936741914169
+  Median in Acne_NL: -0.5932726991398587
+
+Taxon:  g__Lawsonella
+  Median in Healthy: 0.7978002663242947
+  Median in Acne_NL: -0.41522237352155944
+
+Taxon:  g__Rothia
+  Median in Healthy: 0.7873370960347073
+  Median in Acne_NL: -0.5989572650851827
+
+Taxon:  g__Gemella
+  Median in Healthy: 0.048555555683956086
+  Median in Acne_NL: -0.6445916248759893
+
+==================================================
+
+Analysis for Intersection 101:
+Taxon:  g__Corynebacterium
+  Median in Healthy: 0.7691283311948274
+  Median in Acne_L: -0.14716240067932773
+
+Taxon:  g__Cutibacterium
+  Median in Healthy: 0.014974503716852716
+  Median in Acne_L: 0.11732695679801664
+
+Taxon:  g__Reyranella
+  Median in Healthy: -0.13942988274401813
+  Median in Acne_L: -0.13942988274401813
+
+Taxon:  g__Nocardioides
+  Median in Healthy: 0.6314259155408584
+  Median in Acne_L: -0.46718637312725075
+
+Taxon:  g__Micrococcus
+  Median in Healthy: 1.1725920285946447
+  Median in Acne_L: -0.9068495130851906
+
+Taxon:  g__Limnobacter
+  Median in Healthy: 1.1112750548228574
+  Median in Acne_L: -0.4981628576112431
+
+Taxon:  g__Pseudomonas
+  Median in Healthy: 0.38643159081091394
+  Median in Acne_L: -0.30671558974903146
+
+Taxon:  g__Rothia
+  Median in Healthy: 0.7873370960347073
+  Median in Acne_L: -0.5989572650851827
+
+Taxon:  g__Streptococcus
+  Median in Healthy: 1.496250303559557
+  Median in Acne_L: -0.4896651801094549
+
+Taxon:  g__Kocuria
+  Median in Healthy: -0.32260752997980013
+  Median in Acne_L: -0.32260752997980013
+
+==================================================
+
+Analysis for Intersection 011:
+Taxon:  g__Cutibacterium
+  Median in Acne_NL: 0.14878240678140653
+  Median in Acne_L: 0.11732695679801664
+
+Taxon:  g__Lawsonella
+  Median in Acne_NL: -0.41522237352155944
+  Median in Acne_L: 0.13132133284651015
+
+Taxon:  g__uncultured
+  Median in Acne_NL: -0.1900537270158118
+  Median in Acne_L: -0.7423272391097733
+
+Taxon:  g__Streptococcus
+  Median in Acne_NL: -0.8261374167306679
+  Median in Acne_L: -0.4896651801094549
+
+Taxon:  g__Corynebacterium
+  Median in Acne_NL: -0.3013130805065867
+  Median in Acne_L: -0.14716240067932773
+
+Taxon:  g__Staphylococcus
+  Median in Acne_NL: -0.5932726991398587
+  Median in Acne_L: -0.23445359885573858
+
+Taxon:  g__Micrococcus
+  Median in Acne_NL: -0.9068495130851906
+  Median in Acne_L: -0.9068495130851906
+
+Taxon:  g__Veillonella
+  Median in Acne_NL: -0.975303301445444
+  Median in Acne_L: -0.975303301445444
+
+Taxon:  g__Lactobacillus
+  Median in Acne_NL: -0.7601567894457624
+  Median in Acne_L: -0.7601567894457624
+
+Taxon:  g__Prevotella
+  Median in Acne_NL: -0.42757539309632975
+  Median in Acne_L: -0.42757539309632975
+
+==================================================
+
+Analysis for Intersection 111:
+Taxon:  g__Cutibacterium
+  Median in Healthy: 0.014974503716852716
+  Median in Acne_NL: 0.14878240678140653
+  Median in Acne_L: 0.11732695679801664
+
+Taxon:  g__Corynebacterium
+  Median in Healthy: 0.7691283311948274
+  Median in Acne_NL: -0.3013130805065867
+  Median in Acne_L: -0.14716240067932773
+
+Taxon:  g__Lawsonella
+  Median in Healthy: 0.7978002663242947
+  Median in Acne_NL: -0.41522237352155944
+  Median in Acne_L: 0.13132133284651015
+
+Taxon:  g__Streptococcus
+  Median in Healthy: 1.496250303559557
+  Median in Acne_NL: -0.8261374167306679
+  Median in Acne_L: -0.4896651801094549
+
+Taxon:  g__Staphylococcus
+  Median in Healthy: 0.6723936741914169
+  Median in Acne_NL: -0.5932726991398587
+  Median in Acne_L: -0.23445359885573858
+
+Taxon:  g__Limnobacter
+  Median in Healthy: 1.1112750548228574
+  Median in Acne_NL: -0.4981628576112431
+  Median in Acne_L: -0.4981628576112431
+
+Taxon:  g__Micrococcus
+  Median in Healthy: 1.1725920285946447
+  Median in Acne_NL: -0.9068495130851906
+  Median in Acne_L: -0.9068495130851906
+
+Taxon:  g__Nocardioides
+  Median in Healthy: 0.6314259155408584
+  Median in Acne_NL: -0.46718637312725075
+  Median in Acne_L: -0.46718637312725075
+
+Taxon:  g__uncultured
+  Median in Healthy: -0.5577785071411281
+  Median in Acne_NL: -0.1900537270158118
+  Median in Acne_L: -0.7423272391097733
+
+Taxon:  g__Rothia
+  Median in Healthy: 0.7873370960347073
+  Median in Acne_NL: -0.5989572650851827
+  Median in Acne_L: -0.5989572650851827
+
+==================================================
+
