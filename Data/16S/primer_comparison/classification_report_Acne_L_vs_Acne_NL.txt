@@ -1,7 +1,8 @@
+Comparison: Acne_L vs Acne_NL
               precision    recall  f1-score   support
 
-     Acne_NL       0.81      0.93      0.87        45
-      Acne_L       0.40      0.17      0.24        12
+      Acne_L       0.81      0.93      0.87        45
+     Acne_NL       0.40      0.17      0.24        12
 
     accuracy                           0.77        57
    macro avg       0.60      0.55      0.55        57

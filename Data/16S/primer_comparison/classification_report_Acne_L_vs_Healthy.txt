@@ -1,7 +1,8 @@
+Comparison: Acne_L vs Healthy
               precision    recall  f1-score   support
 
-     Healthy       0.84      0.97      0.90        39
-      Acne_L       0.92      0.61      0.73        18
+      Acne_L       0.84      0.97      0.90        39
+     Healthy       0.92      0.61      0.73        18
 
     accuracy                           0.86        57
    macro avg       0.88      0.79      0.82        57
