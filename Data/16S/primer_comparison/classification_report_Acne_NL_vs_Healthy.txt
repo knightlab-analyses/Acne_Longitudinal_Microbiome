@@ -1,9 +1,0 @@
-Comparison: Acne_NL vs Healthy
-              precision    recall  f1-score   support
-
-     Acne_NL       0.92      0.86      0.89        14
-     Healthy       0.88      0.93      0.90        15
-
-    accuracy                           0.90        29
-   macro avg       0.90      0.90      0.90        29
-weighted avg       0.90      0.90      0.90        29
