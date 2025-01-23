@@ -1,0 +1,1332 @@
+Compound_ID,Category,Matched_Size,Humans,Human Skin
+10339,plants,1,0,0
+10339,global,5,1,1
+10448,plants,21,0,0
+10448,global,6,1,1
+1060,food,14,0,0
+1060,microbes,13,0,0
+1060,plants,19,0,0
+1060,global,343,1,1
+1060,microbiome,1,0,0
+1067,microbes,2,0,0
+1067,plants,1,0,0
+108,microbes,13,0,0
+108,plants,5,0,0
+108,global,29,1,0
+10868,microbes,3,0,0
+10868,plants,1,0,0
+10868,global,4,1,0
+10868,personal care product,1,0,0
+10878,food,9,0,0
+10878,microbes,118,0,0
+10878,plants,78,0,0
+10878,global,73,1,1
+10878,personal care product,6,0,0
+1088,food,3,0,0
+1088,microbes,120,0,0
+1088,plants,51,0,0
+1088,global,37,1,1
+1088,personal care product,4,0,0
+1088,microbiome,5,0,0
+11096,food,7,0,0
+11096,plants,34,0,0
+11096,global,2,1,0
+1119,food,1655,0,0
+1119,microbes,3292,0,0
+1119,plants,2905,0,0
+1119,global,8597,1,1
+1119,personal care product,32,0,0
+1119,microbiome,208,0,0
+11228,plants,4,0,0
+11228,global,61,1,1
+11446,microbes,42,0,0
+11446,plants,3,0,0
+11446,global,130,1,0
+11446,personal care product,107,0,0
+1150,global,4,1,0
+1150,personal care product,30,0,0
+11588,microbes,26,0,0
+11588,plants,2,0,0
+11588,global,16,1,0
+11588,personal care product,39,0,0
+11637,food,32,0,0
+11637,microbes,3,0,0
+11637,plants,12,0,0
+11637,global,38,1,1
+11637,personal care product,105,0,0
+11764,microbes,30,0,0
+11764,plants,5,0,0
+11764,global,288,1,1
+11764,personal care product,158,0,0
+1178,food,423,0,0
+1178,microbes,1826,0,0
+1178,plants,928,0,0
+1178,global,1961,1,1
+1178,personal care product,15,0,0
+1178,microbiome,157,0,0
+11856,microbes,54,0,0
+11856,plants,24,0,0
+11856,global,19,1,1
+11856,personal care product,1,0,0
+11925,food,65,0,0
+11925,microbes,1,0,0
+11925,plants,209,0,0
+11925,global,214,1,1
+11957,microbes,55,0,0
+11957,plants,5,0,0
+11957,global,319,1,0
+11957,personal care product,160,0,0
+1197,food,2,0,0
+1197,microbes,547,0,0
+1197,plants,447,0,0
+1197,global,37,1,1
+1197,microbiome,67,0,0
+11982,microbes,87,0,0
+11982,plants,4,0,0
+11982,global,469,1,1
+11982,personal care product,149,0,0
+12148,microbes,51,0,0
+12148,plants,7,0,0
+12148,global,394,1,0
+12148,personal care product,169,0,0
+12162,microbes,98,0,0
+12162,plants,7,0,0
+12162,global,563,1,1
+12162,personal care product,198,0,0
+12286,microbes,120,0,0
+12286,plants,2,0,0
+12286,global,188,1,1
+12286,personal care product,25,0,0
+12304,microbes,102,0,0
+12304,plants,6,0,0
+12304,global,534,1,1
+12304,personal care product,233,0,0
+12310,microbes,40,0,0
+12310,plants,5,0,0
+12310,global,353,1,0
+12310,personal care product,135,0,0
+12419,microbes,86,0,0
+12419,plants,5,0,0
+12419,global,585,1,1
+12419,personal care product,212,0,0
+12551,microbes,82,0,0
+12551,plants,6,0,0
+12551,global,555,1,1
+12551,personal care product,198,0,0
+12678,microbes,70,0,0
+12678,plants,6,0,0
+12678,global,644,1,1
+12678,personal care product,198,0,0
+12715,food,2,0,0
+12715,microbes,9,0,0
+12715,plants,1,0,0
+12715,global,48,1,1
+12715,personal care product,1,0,0
+1275,microbes,19,0,0
+1275,plants,3,0,0
+1275,global,84,1,0
+12785,microbes,55,0,0
+12785,plants,8,0,0
+12785,global,3,1,0
+12808,microbes,64,0,0
+12808,global,540,1,1
+12808,personal care product,207,0,0
+12931,microbes,57,0,0
+12931,plants,1,0,0
+12931,global,552,1,1
+12931,personal care product,189,0,0
+12982,microbes,374,0,0
+12982,plants,22,0,0
+12982,global,2359,1,1
+12982,personal care product,305,0,0
+12982,microbiome,45,0,0
+13024,plants,6,0,0
+13024,global,158,1,1
+13049,microbes,52,0,0
+13049,global,524,1,1
+13049,personal care product,185,0,0
+13083,microbes,4,0,0
+13083,global,96,1,1
+13083,personal care product,135,0,0
+13144,microbes,37,0,0
+13144,global,507,1,1
+13144,personal care product,196,0,0
+13173,microbes,46,0,0
+13173,global,480,1,1
+13173,personal care product,148,0,0
+13269,microbes,37,0,0
+13269,global,175,1,0
+13269,personal care product,122,0,0
+13288,microbes,81,0,0
+13288,plants,6,0,0
+13288,global,481,1,1
+13288,personal care product,165,0,0
+13324,microbes,164,0,0
+13324,plants,11,0,0
+13324,global,2191,1,1
+13324,personal care product,288,0,0
+13324,microbiome,72,0,0
+13332,microbes,584,0,0
+13332,plants,29,0,0
+13332,global,2228,1,1
+13332,personal care product,357,0,0
+13332,microbiome,34,0,0
+13353,microbes,41,0,0
+13353,global,223,1,1
+13353,personal care product,179,0,0
+13359,plants,22,0,0
+13359,global,1,0,0
+13558,food,15,0,0
+13558,microbes,6,0,0
+13558,plants,3,0,0
+13558,global,82,1,1
+1363,microbes,7,0,0
+1363,global,87,1,1
+1368,food,51,0,0
+1368,microbes,2305,0,0
+1368,plants,1024,0,0
+1368,global,1631,1,0
+1368,personal care product,91,0,0
+1368,microbiome,370,0,0
+13954,microbes,187,0,0
+13954,plants,14,0,0
+13954,global,2184,1,1
+13954,personal care product,291,0,0
+13954,microbiome,75,0,0
+14052,microbes,15,0,0
+14052,plants,1,0,0
+14052,global,1060,1,1
+14052,personal care product,221,0,0
+14052,microbiome,4,0,0
+141,food,12,0,0
+141,microbes,288,0,0
+141,plants,354,0,0
+141,global,152,1,0
+141,personal care product,12,0,0
+141,microbiome,167,0,0
+14130,microbes,57,0,0
+14130,global,866,1,1
+14130,personal care product,301,0,0
+14130,microbiome,74,0,0
+14175,microbes,2,0,0
+14175,plants,12,0,0
+14175,global,30,1,1
+14195,microbes,1,0,0
+14195,global,21,1,1
+14195,personal care product,92,0,0
+14385,microbes,146,0,0
+14385,global,811,1,1
+14385,personal care product,266,0,0
+14385,microbiome,55,0,0
+14390,microbes,317,0,0
+14390,plants,67,0,0
+14390,global,358,1,0
+14390,personal care product,11,0,0
+14390,microbiome,27,0,0
+14468,microbes,208,0,0
+14468,global,712,1,1
+14468,personal care product,288,0,0
+14468,microbiome,108,0,0
+14526,microbes,1,0,0
+14526,global,5,1,0
+14526,personal care product,42,0,0
+14533,microbes,37,0,0
+14533,plants,1,0,0
+14533,global,5,1,0
+14533,personal care product,5,0,0
+14573,microbes,5,0,0
+14573,global,9,1,1
+14573,personal care product,2,0,0
+14581,microbes,247,0,0
+14581,global,595,1,1
+14581,personal care product,265,0,0
+14581,microbiome,122,0,0
+14590,microbes,99,0,0
+14590,plants,6,0,0
+14590,global,1757,1,1
+14590,personal care product,273,0,0
+14590,microbiome,54,0,0
+1462,microbes,3,0,0
+1462,plants,5,0,0
+1462,global,24,1,0
+1462,personal care product,1,0,0
+147,food,1,0,0
+147,plants,5,0,0
+147,global,5,1,1
+1470,food,267,0,0
+1470,microbes,421,0,0
+1470,plants,154,0,0
+1470,global,1907,1,1
+1470,personal care product,1,0,0
+1470,microbiome,13,0,0
+14802,microbes,4,0,0
+14802,global,30,1,1
+14802,personal care product,7,0,0
+1485,microbes,161,0,0
+1485,global,5,1,0
+1485,personal care product,2,0,0
+1485,microbiome,43,0,0
+14953,microbes,793,0,0
+14953,plants,310,0,0
+14953,global,2033,1,1
+14953,personal care product,15,0,0
+15063,food,0,0,0
+15063,microbes,109,0,0
+15063,plants,78,0,0
+15063,global,951,1,1
+15063,personal care product,67,0,0
+15224,microbes,2,0,0
+15224,global,44,1,0
+15224,personal care product,1,0,0
+15224,microbiome,7,0,0
+1546,food,3,0,0
+1546,microbes,168,0,0
+1546,plants,2,0,0
+1546,global,6,1,0
+1546,microbiome,1,0,0
+15519,microbes,79,0,0
+15519,plants,2,0,0
+15519,global,3,1,0
+15519,personal care product,3,0,0
+15653,microbes,5,0,0
+15653,global,4,1,0
+15653,personal care product,11,0,0
+15670,microbes,1,0,0
+15670,plants,3,0,0
+15670,global,334,1,1
+1573,food,382,0,0
+1573,microbes,801,0,0
+1573,plants,818,0,0
+1573,global,1042,1,1
+1573,personal care product,11,0,0
+1573,microbiome,134,0,0
+15743,microbes,5,0,0
+15743,global,32,1,1
+15743,personal care product,33,0,0
+15743,microbiome,45,0,0
+15770,food,5,0,0
+15770,microbes,406,0,0
+15770,plants,14,0,0
+15770,global,948,1,1
+15866,microbes,2,0,0
+15866,global,2,1,0
+15866,personal care product,2,0,0
+15873,plants,29,0,0
+15873,global,118,1,1
+15873,personal care product,17,0,0
+16027,food,2,0,0
+16027,plants,5,0,0
+16027,global,13,1,1
+16027,personal care product,6,0,0
+16243,global,11,1,0
+16243,microbiome,2,0,0
+16443,microbes,19,0,0
+16443,global,18,1,0
+16443,personal care product,39,0,0
+16443,microbiome,32,0,0
+1661,plants,1,0,0
+1661,global,10,1,1
+1662,food,2,0,0
+1662,microbes,3,0,0
+1662,global,38,1,1
+17079,microbes,1,0,0
+17079,plants,8,0,0
+17079,global,1187,1,1
+17141,global,1,1,0
+17141,personal care product,1,0,0
+17958,food,15,0,0
+17958,plants,622,0,0
+17958,personal care product,8,0,0
+17972,microbes,1,0,0
+17972,plants,3,0,0
+17972,global,793,1,1
+18141,plants,6,0,0
+18141,global,209,1,1
+18152,food,1,0,0
+18152,microbes,2,0,0
+18152,plants,315,0,0
+18152,global,339,1,1
+18152,personal care product,35,0,0
+1821,food,12,0,0
+1821,microbes,130,0,0
+1821,plants,34,0,0
+1821,global,414,1,1
+1821,personal care product,3,0,0
+1821,microbiome,12,0,0
+18373,food,61,0,0
+18373,microbes,74,0,0
+18373,plants,68,0,0
+18373,global,280,1,1
+18373,personal care product,177,0,0
+18373,microbiome,4,0,0
+18481,food,6,0,0
+18481,microbes,440,0,0
+18481,plants,886,0,0
+18481,global,1922,1,1
+18481,personal care product,262,0,0
+18481,microbiome,159,0,0
+18499,food,2,0,0
+18499,microbes,83,0,0
+18499,plants,98,0,0
+18499,global,67,1,1
+18499,personal care product,19,0,0
+18532,food,3,0,0
+18532,microbes,4,0,0
+18532,plants,1,0,0
+18532,global,1218,1,1
+18862,personal care product,1,0,0
+18862,microbiome,1,0,0
+1894,plants,27,0,0
+1894,global,2,1,1
+18961,food,1,0,0
+18961,microbes,176,0,0
+18961,plants,45,0,0
+18961,global,1556,1,1
+18961,personal care product,28,0,0
+18961,microbiome,171,0,0
+19003,plants,6,0,0
+19003,global,63,1,1
+19003,personal care product,6,0,0
+1903,food,3,0,0
+1903,microbes,350,0,0
+1903,plants,80,0,0
+1903,global,744,1,0
+1903,personal care product,1,0,0
+1903,microbiome,38,0,0
+19183,microbes,14,0,0
+19183,plants,2,0,0
+19183,global,10,1,0
+19366,food,1,0,0
+19366,global,9,1,1
+19386,microbes,6,0,0
+19386,plants,6,0,0
+19386,global,1778,1,1
+19386,personal care product,1,0,0
+19517,microbes,5,0,0
+19517,plants,20,0,0
+19517,global,5,1,0
+19710,microbes,3,0,0
+19710,plants,65,0,0
+19710,personal care product,6,0,0
+19926,food,3,0,0
+19926,microbes,100,0,0
+19926,plants,89,0,0
+19926,global,34,1,1
+19926,personal care product,14,0,0
+1996,global,4,1,1
+1996,personal care product,1,0,0
+20282,plants,1,0,0
+20282,global,249,1,1
+2030,global,1,1,0
+2030,microbiome,2,0,0
+20515,plants,92,0,0
+20515,global,72,1,1
+20515,personal care product,25,0,0
+20532,microbes,1,0,0
+20532,global,131,1,1
+20532,personal care product,4,0,0
+20623,food,1,0,0
+20623,microbes,109,0,0
+20623,plants,38,0,0
+20623,global,1040,1,1
+20623,personal care product,12,0,0
+20623,microbiome,1,0,0
+2078,food,543,0,0
+2078,microbes,1381,0,0
+2078,plants,1560,0,0
+2078,global,4971,1,1
+2078,personal care product,1,0,0
+2078,microbiome,161,0,0
+21324,plants,1,0,0
+21324,global,76,1,1
+21377,global,3,1,0
+21377,personal care product,24,0,0
+21421,food,20,0,0
+21421,microbes,8,0,0
+21421,plants,10,0,0
+21421,global,62,1,1
+215,plants,38,0,0
+215,global,4,1,1
+2153,plants,1,0,0
+2153,global,91,1,1
+21634,microbes,1,0,0
+21634,global,240,1,1
+21638,microbes,8,0,0
+21638,plants,2,0,0
+21638,global,1077,1,1
+21641,microbes,6,0,0
+21641,plants,2,0,0
+21641,global,709,1,1
+2167,food,1,0,0
+2167,microbes,1,0,0
+2167,plants,2,0,0
+2167,global,200,1,1
+21714,plants,1,0,0
+21714,global,701,1,1
+21740,microbes,1,0,0
+21740,global,6,1,1
+21746,food,37,0,0
+21746,microbes,547,0,0
+21746,plants,40,0,0
+21746,global,1290,1,1
+21794,food,1,0,0
+21794,microbes,2,0,0
+21794,plants,25,0,0
+21794,global,120,1,1
+22234,food,8,0,0
+22234,microbes,20,0,0
+22234,plants,1,0,0
+22234,global,1110,1,1
+224,microbes,68,0,0
+224,plants,709,0,0
+224,global,103,1,1
+224,microbiome,19,0,0
+22924,food,1,0,0
+22924,microbes,69,0,0
+22924,plants,32,0,0
+22924,global,976,1,1
+22924,personal care product,12,0,0
+22958,food,156,0,0
+22958,microbes,2155,0,0
+22958,plants,1854,0,0
+22958,global,5200,1,1
+22958,personal care product,19,0,0
+22958,microbiome,45,0,0
+23155,plants,9,0,0
+23155,global,111,1,1
+23155,personal care product,17,0,0
+23230,microbes,115,0,0
+23230,plants,1120,0,0
+23230,global,188,1,1
+23230,personal care product,114,0,0
+23230,microbiome,198,0,0
+23549,microbes,117,0,0
+23549,plants,566,0,0
+23549,global,105,1,0
+23549,personal care product,37,0,0
+2372,food,76,0,0
+2372,microbes,306,0,0
+2372,plants,259,0,0
+2372,global,679,1,1
+2372,personal care product,1,0,0
+2372,microbiome,43,0,0
+23737,food,1,0,0
+23737,microbes,47,0,0
+23737,plants,16,0,0
+23737,global,942,1,1
+23737,personal care product,12,0,0
+23756,microbes,1,0,0
+23756,plants,1,0,0
+23756,global,20,1,1
+23839,food,10,0,0
+23839,microbes,1070,0,0
+23839,plants,1835,0,0
+23839,global,3368,1,1
+23937,food,1,0,0
+23937,microbes,81,0,0
+23937,plants,182,0,0
+23937,global,277,1,1
+23937,personal care product,4,0,0
+23947,microbes,6,0,0
+23947,global,4,1,0
+23947,personal care product,19,0,0
+24042,food,12,0,0
+24042,microbes,715,0,0
+24042,plants,666,0,0
+24042,global,691,1,1
+24042,personal care product,3,0,0
+24042,microbiome,258,0,0
+24065,microbes,24,0,0
+24065,global,83,1,1
+24091,food,2,0,0
+24091,microbes,13,0,0
+24091,plants,12,0,0
+24091,global,278,1,1
+24091,personal care product,56,0,0
+24184,microbes,38,0,0
+24184,global,146,1,1
+24353,microbes,129,0,0
+24353,plants,37,0,0
+24353,global,67,1,1
+24353,personal care product,2,0,0
+24353,microbiome,5,0,0
+24391,food,1,0,0
+24391,microbes,499,0,0
+24391,plants,91,0,0
+24391,global,481,1,1
+24391,personal care product,14,0,0
+24429,microbes,66,0,0
+24429,plants,1,0,0
+24429,global,1475,1,1
+24484,microbes,265,0,0
+24484,plants,101,0,0
+24484,global,141,1,1
+24484,personal care product,3,0,0
+24484,microbiome,88,0,0
+24497,microbes,542,0,0
+24497,plants,3,0,0
+24497,global,1459,1,1
+24584,microbes,347,0,0
+24584,plants,175,0,0
+24584,global,193,1,1
+24584,personal care product,4,0,0
+24584,microbiome,181,0,0
+24632,microbes,20,0,0
+24632,global,5,1,0
+24632,personal care product,10,0,0
+24653,food,1,0,0
+24653,microbes,223,0,0
+24653,global,94,1,1
+24653,personal care product,50,0,0
+24765,microbes,46,0,0
+24765,global,40,1,1
+24765,personal care product,4,0,0
+24828,food,1,0,0
+24828,microbes,186,0,0
+24828,global,182,1,1
+24828,personal care product,36,0,0
+24867,food,1,0,0
+24867,microbes,1520,0,0
+24867,plants,1628,0,0
+24867,global,2802,1,1
+24867,personal care product,8,0,0
+24867,microbiome,78,0,0
+24906,microbes,1122,0,0
+24906,plants,690,0,0
+24906,global,2177,1,1
+24906,personal care product,10,0,0
+24906,microbiome,6,0,0
+24979,microbes,12,0,0
+24979,global,3,1,0
+24992,microbes,558,0,0
+24992,plants,453,0,0
+24992,global,529,1,1
+24992,personal care product,4,0,0
+24992,microbiome,252,0,0
+25229,microbes,14,0,0
+25229,global,946,1,1
+25229,personal care product,1,0,0
+25256,global,2,1,0
+25256,personal care product,8,0,0
+25280,microbes,28,0,0
+25280,plants,10,0,0
+25280,global,276,1,1
+25280,personal care product,1,0,0
+25285,food,0,0,0
+25285,microbes,1521,0,0
+25285,plants,1471,0,0
+25285,global,2535,1,1
+25285,personal care product,12,0,0
+25285,microbiome,20,0,0
+25288,food,1,0,0
+25288,microbes,559,0,0
+25288,plants,105,0,0
+25288,global,701,1,1
+25288,personal care product,13,0,0
+25288,microbiome,1,0,0
+25374,microbes,122,0,0
+25374,global,1,1,0
+25421,microbes,14,0,0
+25421,global,13,1,1
+25423,microbes,59,0,0
+25423,global,138,1,1
+25423,personal care product,58,0,0
+25640,global,267,1,1
+25640,personal care product,13,0,0
+25665,plants,1,0,0
+25665,global,689,1,1
+25665,personal care product,14,0,0
+25743,microbes,49,0,0
+25743,global,444,1,1
+261,microbes,271,0,0
+261,plants,26,0,0
+261,global,29,1,1
+261,personal care product,237,0,0
+2617,food,1198,0,0
+2617,microbes,2785,0,0
+2617,plants,1170,0,0
+2617,global,2262,1,1
+2617,personal care product,12,0,0
+2617,microbiome,158,0,0
+26277,food,1,0,0
+26277,microbes,251,0,0
+26277,plants,7,0,0
+26277,global,763,1,1
+26277,personal care product,75,0,0
+26314,plants,1,0,0
+26314,global,18,1,1
+26314,personal care product,7,0,0
+26441,microbes,4,0,0
+26441,plants,1,0,0
+26441,global,1225,1,1
+26441,personal care product,25,0,0
+26782,microbes,2,0,0
+26782,global,458,1,1
+26782,personal care product,46,0,0
+26788,microbes,44,0,0
+26788,plants,10,0,0
+26788,global,176,1,1
+26788,personal care product,67,0,0
+27087,microbes,3,0,0
+27087,plants,2,0,0
+27087,global,42,1,0
+27139,microbes,292,0,0
+27139,plants,66,0,0
+27139,global,2058,1,1
+27139,personal care product,26,0,0
+27353,food,1,0,0
+27353,microbes,33,0,0
+27353,plants,1,0,0
+27353,global,320,1,1
+27455,microbes,52,0,0
+27455,plants,3,0,0
+27455,global,681,1,1
+27455,personal care product,40,0,0
+27506,food,1,0,0
+27506,microbes,80,0,0
+27506,global,255,1,1
+27506,personal care product,51,0,0
+27585,microbes,10,0,0
+27585,global,79,1,1
+27585,personal care product,9,0,0
+27650,microbes,19,0,0
+27650,global,72,1,1
+27650,personal care product,7,0,0
+27716,food,1,0,0
+27716,microbes,8,0,0
+27716,global,1229,1,1
+27716,personal care product,5,0,0
+27758,microbes,633,0,0
+27758,plants,649,0,0
+27758,global,2513,1,1
+27758,personal care product,39,0,0
+27768,food,2,0,0
+27768,microbes,183,0,0
+27768,plants,9,0,0
+27768,global,207,1,1
+27768,personal care product,31,0,0
+27809,microbes,53,0,0
+27809,plants,6,0,0
+27809,global,544,1,1
+27809,personal care product,9,0,0
+27827,microbes,57,0,0
+27827,plants,616,0,0
+27827,global,84,1,1
+27906,microbes,9,0,0
+27906,global,138,1,1
+27906,personal care product,1,0,0
+28032,food,45,0,0
+28032,microbes,81,0,0
+28032,plants,35,0,0
+28032,global,1040,1,1
+28040,food,2,0,0
+28040,microbes,44,0,0
+28040,plants,951,0,0
+28040,global,563,1,0
+28091,microbes,3,0,0
+28091,global,1,1,0
+28112,microbes,429,0,0
+28112,plants,159,0,0
+28112,global,2444,1,1
+28112,personal care product,67,0,0
+28143,food,1,0,0
+28143,microbes,193,0,0
+28143,plants,343,0,0
+28143,global,492,1,1
+28159,food,1,0,0
+28159,microbes,17,0,0
+28159,plants,2,0,0
+28159,global,396,1,1
+28159,personal care product,1,0,0
+28178,microbes,4,0,0
+28178,global,3,1,1
+28185,microbes,9,0,0
+28185,global,37,1,1
+28185,personal care product,38,0,0
+28239,microbes,4,0,0
+28239,global,54,1,1
+28239,personal care product,3,0,0
+28239,microbiome,56,0,0
+28271,microbes,14,0,0
+28271,global,58,1,1
+28271,personal care product,39,0,0
+28290,food,1,0,0
+28290,microbes,600,0,0
+28290,plants,433,0,0
+28290,global,3079,1,1
+28290,personal care product,80,0,0
+28290,microbiome,0,0,0
+28301,food,1,0,0
+28301,microbes,170,0,0
+28301,plants,43,0,0
+28301,global,1231,1,1
+28301,personal care product,57,0,0
+28335,microbes,5,0,0
+28335,global,3,1,1
+28335,personal care product,1,0,0
+28356,food,1,0,0
+28356,microbes,6,0,0
+28356,global,168,1,1
+28356,personal care product,1,0,0
+28366,microbes,7,0,0
+28366,global,65,1,1
+28366,personal care product,39,0,0
+28434,microbes,175,0,0
+28434,plants,33,0,0
+28434,global,1290,1,1
+28434,personal care product,51,0,0
+28443,microbes,6,0,0
+28443,global,61,1,1
+28443,personal care product,45,0,0
+28493,microbes,10,0,0
+28493,global,3,1,0
+28493,personal care product,1,0,0
+28566,microbes,6,0,0
+28566,global,1,1,0
+28566,personal care product,1,0,0
+28683,microbes,6,0,0
+28683,global,4,1,1
+28683,personal care product,4,0,0
+28709,microbes,11,0,0
+28709,global,75,1,1
+28709,personal care product,49,0,0
+28714,plants,1,0,0
+28714,global,5,1,1
+28809,global,58,1,1
+28809,personal care product,1,0,0
+28815,microbes,31,0,0
+28815,global,3,1,0
+28815,personal care product,54,0,0
+28856,microbes,2,0,0
+28856,global,2,1,0
+28856,personal care product,1,0,0
+28910,microbes,5,0,0
+28910,global,120,1,0
+29029,microbes,13,0,0
+29029,plants,1,0,0
+29029,global,160,1,0
+29029,personal care product,4,0,0
+29043,microbes,27,0,0
+29043,global,11,1,0
+29043,personal care product,34,0,0
+29058,food,71,0,0
+29058,microbes,1,0,0
+29058,plants,50,0,0
+29058,global,512,1,1
+29059,microbes,73,0,0
+29059,plants,100,0,0
+29059,global,532,1,1
+29065,microbes,2,0,0
+29065,global,5,1,1
+29065,personal care product,1,0,0
+29127,plants,1,0,0
+29127,global,255,1,0
+29127,personal care product,4,0,0
+29130,plants,1,0,0
+29130,global,71,1,1
+29160,microbes,1,0,0
+29160,global,10,1,1
+29160,personal care product,1,0,0
+29236,global,11,1,0
+29236,personal care product,9,0,0
+29240,microbes,44,0,0
+29240,global,33,1,1
+29240,personal care product,38,0,0
+29244,global,53,1,1
+29244,personal care product,37,0,0
+29246,global,19,1,0
+29246,personal care product,4,0,0
+29351,global,33,1,0
+29351,personal care product,13,0,0
+29376,microbes,4,0,0
+29376,global,114,1,1
+29376,personal care product,56,0,0
+29416,microbes,69,0,0
+29416,global,87,1,0
+29416,personal care product,1,0,0
+29424,microbes,48,0,0
+29424,global,260,1,0
+29424,personal care product,9,0,0
+29440,microbes,22,0,0
+29440,plants,31,0,0
+29440,global,42,1,1
+29567,plants,1,0,0
+29567,global,46,1,1
+29604,food,1,0,0
+29604,microbes,6,0,0
+29604,global,1645,1,1
+29604,personal care product,10,0,0
+29625,microbes,11,0,0
+29625,plants,2,0,0
+29625,global,21,1,1
+29625,personal care product,28,0,0
+29687,food,2,0,0
+29687,microbes,103,0,0
+29687,plants,15,0,0
+29687,global,164,1,1
+29687,personal care product,63,0,0
+2969,food,2573,0,0
+2969,microbes,7905,0,0
+2969,plants,4132,0,0
+2969,global,14623,1,1
+2969,personal care product,85,0,0
+2969,microbiome,371,0,0
+29765,microbes,3,0,0
+29765,global,3,1,1
+29819,microbes,19,0,0
+29819,global,2,1,0
+29819,personal care product,10,0,0
+29821,food,2,0,0
+29821,microbes,153,0,0
+29821,plants,13,0,0
+29821,global,288,1,1
+29821,personal care product,53,0,0
+29896,food,1,0,0
+29896,microbes,2,0,0
+29896,plants,4,0,0
+29896,global,5,1,0
+29896,personal care product,6,0,0
+29954,microbes,80,0,0
+29954,global,246,1,0
+29954,personal care product,1,0,0
+30061,microbes,12,0,0
+30061,plants,1,0,0
+30061,global,18,1,1
+30061,personal care product,1,0,0
+30095,global,4,1,0
+30095,personal care product,4,0,0
+30145,plants,52,0,0
+30145,global,16,1,0
+30218,microbes,99,0,0
+30218,plants,2,0,0
+30218,global,111,1,1
+30218,personal care product,1,0,0
+30426,food,1,0,0
+30426,microbes,21,0,0
+30426,plants,5,0,0
+30426,global,667,1,1
+30426,microbiome,1,0,0
+30441,plants,140,0,0
+30441,global,13,1,1
+30538,microbes,20,0,0
+30538,global,105,1,1
+30635,microbes,11,0,0
+30635,plants,5,0,0
+30635,global,45,1,1
+30635,personal care product,39,0,0
+30644,microbes,4,0,0
+30644,global,24,1,0
+30668,microbes,1,0,0
+30668,global,13,1,0
+30669,food,1,0,0
+30669,microbes,250,0,0
+30669,plants,24,0,0
+30669,global,1587,1,1
+30669,personal care product,31,0,0
+30756,microbes,8,0,0
+30756,plants,1,0,0
+30756,global,147,1,1
+30756,personal care product,1,0,0
+30794,microbes,23,0,0
+30794,plants,2,0,0
+30794,global,79,1,1
+30794,personal care product,1,0,0
+30901,food,1,0,0
+30901,microbes,1108,0,0
+30901,plants,116,0,0
+30901,global,2361,1,1
+30901,personal care product,42,0,0
+30901,microbiome,3,0,0
+30906,plants,1,0,0
+30906,global,13,1,1
+31119,microbes,24,0,0
+31119,global,32,1,1
+31119,personal care product,1,0,0
+31134,microbes,24,0,0
+31134,plants,140,0,0
+31134,global,537,1,1
+31134,personal care product,112,0,0
+31272,food,3,0,0
+31272,microbes,125,0,0
+31272,plants,226,0,0
+31272,global,839,1,1
+31287,food,1,0,0
+31287,microbes,19,0,0
+31287,global,6,1,1
+31292,plants,4,0,0
+31292,global,1,0,0
+31386,microbes,147,0,0
+31386,plants,139,0,0
+31386,global,326,1,1
+31386,personal care product,98,0,0
+31479,microbes,215,0,0
+31479,plants,151,0,0
+31479,global,417,1,1
+31479,personal care product,100,0,0
+31531,microbes,425,0,0
+31531,plants,218,0,0
+31531,global,743,1,1
+31531,personal care product,114,0,0
+31627,food,1,0,0
+31627,microbes,662,0,0
+31627,plants,357,0,0
+31627,global,683,1,1
+31627,personal care product,129,0,0
+31633,microbes,341,0,0
+31633,plants,291,0,0
+31633,global,239,1,1
+31633,personal care product,109,0,0
+31664,food,0,0,0
+31664,microbes,821,0,0
+31664,plants,285,0,0
+31664,global,661,1,1
+31664,personal care product,142,0,0
+31664,microbiome,1,0,0
+31793,microbes,227,0,0
+31793,plants,263,0,0
+31793,global,540,1,1
+31793,personal care product,115,0,0
+31961,microbes,4,0,0
+31961,global,9,1,1
+31961,personal care product,2,0,0
+32037,food,1,0,0
+32037,microbes,768,0,0
+32037,plants,296,0,0
+32037,global,408,1,1
+32037,personal care product,181,0,0
+32037,microbiome,2,0,0
+3208,food,195,0,0
+3208,microbes,128,0,0
+3208,plants,102,0,0
+3208,global,716,1,1
+3208,microbiome,27,0,0
+32099,microbes,13,0,0
+32099,global,267,1,1
+32137,microbes,33,0,0
+32137,global,145,1,1
+32137,personal care product,40,0,0
+32196,microbes,26,0,0
+32196,global,160,1,1
+32196,personal care product,39,0,0
+32242,microbes,2,0,0
+32242,global,4,1,0
+32254,microbes,12,0,0
+32254,global,106,1,1
+32254,personal care product,37,0,0
+32255,food,0,0,0
+32255,microbes,11,0,0
+32255,plants,1,0,0
+32255,global,2348,1,1
+32255,personal care product,10,0,0
+32259,microbes,22,0,0
+32259,global,81,1,1
+32259,personal care product,40,0,0
+32320,microbes,30,0,0
+32320,global,168,1,1
+32320,personal care product,45,0,0
+32377,microbes,33,0,0
+32377,plants,2,0,0
+32377,global,193,1,1
+32377,personal care product,55,0,0
+32502,microbes,39,0,0
+32502,global,367,1,1
+32502,personal care product,56,0,0
+3252,microbes,1,0,0
+3252,plants,5,0,0
+32527,microbes,2,0,0
+32527,global,46,1,1
+32527,personal care product,2,0,0
+3256,microbes,1,0,0
+3256,plants,1,0,0
+3256,personal care product,5,0,0
+3256,microbiome,1,0,0
+32564,microbes,59,0,0
+32564,plants,3,0,0
+32564,global,622,1,1
+32564,personal care product,56,0,0
+3259,food,61,0,0
+3259,microbes,83,0,0
+3259,plants,417,0,0
+3259,global,793,1,1
+3259,personal care product,1,0,0
+32637,microbes,81,0,0
+32637,plants,5,0,0
+32637,global,711,1,1
+32637,personal care product,74,0,0
+32684,microbes,19,0,0
+32684,global,551,1,1
+32700,microbes,96,0,0
+32700,plants,25,0,0
+32700,global,810,1,1
+32700,personal care product,76,0,0
+32758,microbes,125,0,0
+32758,plants,47,0,0
+32758,global,720,1,1
+32758,personal care product,84,0,0
+32825,microbes,34,0,0
+32825,global,6,1,1
+32888,microbes,174,0,0
+32888,plants,70,0,0
+32888,global,1281,1,1
+32888,personal care product,82,0,0
+32898,microbes,423,0,0
+32898,plants,1,0,0
+32898,global,31,1,0
+32898,personal care product,4,0,0
+32898,microbiome,0,0,0
+32914,food,0,0,0
+32914,microbes,17,0,0
+32914,plants,30,0,0
+32914,global,167,1,1
+32914,personal care product,1,0,0
+32952,microbes,160,0,0
+32952,plants,71,0,0
+32952,global,1209,1,1
+32952,personal care product,78,0,0
+32999,microbes,175,0,0
+32999,plants,64,0,0
+32999,global,1387,1,1
+32999,personal care product,95,0,0
+33060,microbes,19,0,0
+33060,plants,1,0,0
+33060,global,134,1,1
+33060,personal care product,50,0,0
+3400,microbes,1309,0,0
+3400,plants,500,0,0
+3400,global,1282,1,1
+3401,microbes,5,0,0
+3401,global,212,1,1
+3401,personal care product,1,0,0
+3496,microbes,60,0,0
+3496,plants,49,0,0
+3496,global,300,1,1
+3496,personal care product,426,0,0
+3496,microbiome,21,0,0
+3545,global,3,1,0
+3545,personal care product,98,0,0
+379,food,3,0,0
+379,microbes,206,0,0
+379,plants,81,0,0
+379,global,27,1,0
+379,microbiome,5,0,0
+3901,food,6,0,0
+3901,microbes,135,0,0
+3901,plants,39,0,0
+3901,global,50,1,0
+3936,microbes,6,0,0
+3936,global,5,1,0
+419,food,1,0,0
+419,microbes,23,0,0
+419,plants,9,0,0
+419,personal care product,2,0,0
+4546,food,26,0,0
+4546,microbes,1148,0,0
+4546,plants,25,0,0
+4546,global,945,1,1
+4546,personal care product,2,0,0
+4546,microbiome,162,0,0
+4737,food,1,0,0
+4737,microbes,4,0,0
+4775,plants,5,0,0
+4775,global,2,1,1
+4782,food,595,0,0
+4782,microbes,2849,0,0
+4782,plants,492,0,0
+4782,global,4397,1,1
+4782,personal care product,3,0,0
+4782,microbiome,293,0,0
+5021,microbes,8,0,0
+5021,plants,19,0,0
+5021,global,9,1,0
+5062,microbes,3,0,0
+5062,global,14,1,0
+5062,personal care product,1,0,0
+514,food,6,0,0
+514,microbes,4,0,0
+514,plants,1,0,0
+514,global,46,1,1
+5140,food,1,0,0
+5140,global,19,1,0
+5220,food,8,0,0
+5220,plants,11,0,0
+5220,global,160,1,1
+5259,food,2,0,0
+5259,plants,9,0,0
+5259,global,117,1,1
+5389,microbes,14,0,0
+5389,global,9,1,0
+5389,personal care product,2,0,0
+5856,food,3,0,0
+5856,microbes,92,0,0
+5856,plants,13,0,0
+5856,global,89,1,0
+5856,personal care product,7,0,0
+5873,food,9,0,0
+5873,microbes,1145,0,0
+5873,plants,34,0,0
+5873,global,286,1,1
+5873,personal care product,9,0,0
+5873,microbiome,101,0,0
+588,microbes,2,0,0
+588,personal care product,10,0,0
+5900,plants,1,0,0
+5900,global,25,1,0
+5919,food,1,0,0
+5919,microbes,1,0,0
+5919,plants,1,0,0
+5919,global,37,1,1
+5930,food,2444,0,0
+5930,microbes,8665,0,0
+5930,plants,4556,0,0
+5930,global,10467,1,1
+5930,personal care product,7,0,0
+5930,microbiome,188,0,0
+5931,food,2306,0,0
+5931,microbes,8084,0,0
+5931,plants,4077,0,0
+5931,global,10771,1,1
+5931,microbiome,175,0,0
+5962,food,631,0,0
+5962,microbes,2842,0,0
+5962,plants,558,0,0
+5962,global,5813,1,1
+5962,personal care product,3,0,0
+5962,microbiome,245,0,0
+616,food,1,0,0
+616,microbes,164,0,0
+616,plants,85,0,0
+616,global,82,1,1
+616,personal care product,3,0,0
+616,microbiome,22,0,0
+6271,food,3,0,0
+6271,microbes,51,0,0
+6271,plants,98,0,0
+6271,global,700,1,1
+6307,food,133,0,0
+6307,microbes,1,0,0
+6307,plants,237,0,0
+6307,global,100,1,1
+6307,personal care product,2,0,0
+6317,food,26,0,0
+6317,plants,22,0,0
+6317,global,36,1,1
+6323,microbes,6,0,0
+6323,plants,2,0,0
+6323,global,66,1,1
+6323,personal care product,2,0,0
+6387,food,7,0,0
+6387,plants,6,0,0
+6387,global,4,0,0
+645,food,1,0,0
+645,microbes,71,0,0
+645,plants,17,0,0
+645,global,224,1,1
+645,personal care product,1,0,0
+645,microbiome,59,0,0
+675,food,1,0,0
+675,microbes,180,0,0
+675,plants,48,0,0
+675,global,140,1,0
+675,personal care product,2,0,0
+675,microbiome,1,0,0
+6854,microbes,8,0,0
+6854,global,35,1,0
+6871,plants,5,0,0
+6871,global,6,1,1
+7083,microbes,13,0,0
+7083,plants,5,0,0
+7083,global,103,1,1
+7083,personal care product,35,0,0
+7356,microbes,1,0,0
+7356,plants,14,0,0
+7356,global,359,1,1
+7356,microbiome,1,0,0
+7415,microbes,1,0,0
+7415,global,11,1,1
+7417,food,1,0,0
+7417,microbes,14,0,0
+7417,global,131,1,1
+7417,personal care product,1,0,0
+760,microbes,3,0,0
+760,plants,69,0,0
+760,global,21,1,0
+760,personal care product,11,0,0
+7623,food,52,0,0
+7623,plants,33,0,0
+7623,global,15,1,1
+771,microbes,10,0,0
+771,plants,3,0,0
+771,global,35,1,0
+771,personal care product,3,0,0
+777,microbes,2,0,0
+777,plants,128,0,0
+777,global,154,1,0
+7778,food,1,0,0
+7778,microbes,2,0,0
+7778,plants,3,0,0
+7778,global,8,1,1
+7778,personal care product,70,0,0
+7951,microbes,1,0,0
+7951,plants,8,0,0
+7951,global,230,1,1
+7951,personal care product,4,0,0
+7987,microbes,13,0,0
+7987,global,61,1,1
+7987,personal care product,22,0,0
+8187,plants,1,0,0
+8187,global,29,1,1
+8225,food,2,0,0
+8225,microbes,8,0,0
+8225,plants,3,0,0
+8225,global,71,1,1
+8225,personal care product,1,0,0
+823,food,2,0,0
+823,plants,89,0,0
+823,global,2,1,0
+8265,microbes,123,0,0
+8265,plants,5,0,0
+8265,global,172,1,1
+8265,personal care product,1,0,0
+8280,microbes,29,0,0
+8280,plants,12,0,0
+8280,global,246,1,1
+8280,personal care product,1,0,0
+862,food,15,0,0
+862,microbes,3903,0,0
+862,plants,21,0,0
+862,global,797,1,1
+862,personal care product,5,0,0
+862,microbiome,322,0,0
+8757,plants,19,0,0
+8757,global,7,1,1
+888,food,1,0,0
+888,microbes,6,0,0
+888,plants,2,0,0
+888,global,5,1,0
+8937,food,37,0,0
+8937,plants,155,0,0
+8937,global,3,rwer,1
+8937,personal care product,1,0,0
+8993,food,3,0,0
+8993,microbes,4,0,0
+8993,plants,2,0,0
+8993,global,3,1,0
+9352,food,21,0,0
+9352,microbes,111,0,0
+9352,plants,15,0,0
+9352,global,136,1,0
+9352,personal care product,13,0,0
+9353,food,5,0,0
+9353,microbes,18,0,0
+9353,global,10,1,0
+9353,personal care product,2,0,0
+9382,food,2,0,0
+9382,microbes,49,0,0
+9382,plants,8,0,0
+9382,global,254,1,1
+9382,personal care product,32,0,0
+941,food,15,0,0
+941,microbes,34,0,0
+941,plants,4,0,0
+941,global,347,1,1
+941,microbiome,3,0,0

@@ -9,6 +9,9 @@
    id="svg691"
    sodipodi:docname="metabolomics_sankey_plot.svg"
    inkscape:version="1.4 (e7c3feb1, 2024-10-09)"
+   inkscape:export-filename="metabolomics_sankey_plot_text-edited.svg"
+   inkscape:export-xdpi="600"
+   inkscape:export-ydpi="600"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -22,15 +25,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.3065141"
-     inkscape:cx="474.1625"
-     inkscape:cy="228.47055"
-     inkscape:window-width="1728"
-     inkscape:window-height="932"
-     inkscape:window-x="1"
-     inkscape:window-y="38"
+     inkscape:zoom="1.61"
+     inkscape:cx="528.26087"
+     inkscape:cy="292.23602"
+     inkscape:window-width="2672"
+     inkscape:window-height="1186"
+     inkscape:window-x="408"
+     inkscape:window-y="36"
      inkscape:window-maximized="0"
-     inkscape:current-layer="svg691" />
+     inkscape:current-layer="g689" />
   <rect
      x="0"
      y="0"
@@ -39,7 +42,7 @@
      style="fill: rgb(255, 255, 255); fill-opacity: 1;"
      id="rect1" />
   <defs
-     id="defs-2be6f7">
+     id="defs-58af6f">
     <g
        class="clips"
        id="g1" />
@@ -3259,15 +3262,21 @@
         <text
            class="node-label"
            data-notex="1"
-           x="13.25"
-           y="59.883331"
+           x="93.433594"
+           y="67.466667"
            text-anchor="start"
            style="font-size:13px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#2a3f5f;fill-opacity:1"
            id="text644"><tspan
              sodipodi:role="line"
-             id="tspan698"
-             x="13.25"
-             y="59.883331">All classified annotations (n=209)</tspan></text>
+             id="tspan691"
+             x="93.433594"
+             y="67.466667"
+             style="text-align:center;text-anchor:middle">All classified annotations</tspan><tspan
+             sodipodi:role="line"
+             id="tspan692"
+             x="93.433594"
+             y="83.716667"
+             style="text-align:center;text-anchor:middle">(n=250)</tspan></text>
       </g>
       <g
          class="sankey-node"
@@ -3284,7 +3293,7 @@
            class="node-label"
            data-notex="1"
            x="13.25"
-           y="24.69035"
+           y="23.644896"
            text-anchor="start"
            style="font-size:13px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#2a3f5f;fill-opacity:1"
            id="text645">Lipids &amp; lipid-like molecules</text>
@@ -3417,33 +3426,31 @@
       </g>
       <g
          class="sankey-node"
-         transform="translate(503.333,169.364)"
-         style="opacity:1"
+         transform="translate(503.333,167.364)"
+         style="opacity: 1;"
          id="g653">
         <rect
            class="node-rect"
-           width="10"
-           height="18.947369"
-           style="fill:#2ca02c;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-opacity:1"
-           id="rect652"
-           x="0"
-           y="0" />
+           width="9.999999999999943"
+           height="18.94736842105266"
+           style="stroke-width: 0.5; stroke: rgb(0, 0, 0); stroke-opacity: 1; fill: rgb(44, 160, 44); fill-opacity: 1;"
+           id="rect652" />
         <text
            class="node-label"
            data-notex="1"
-           x="14.015395"
-           y="1.7773564"
+           x="20.082298"
+           y="4.7069139"
            text-anchor="start"
            style="font-size:13px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#2a3f5f;fill-opacity:1"
            id="text652"><tspan
              sodipodi:role="line"
-             id="tspan701"
-             x="14.015395"
-             y="1.7773564">Carboxylic acids</tspan><tspan
+             id="tspan696"
+             x="20.082298"
+             y="4.7069139">Carboxylic acids</tspan><tspan
              sodipodi:role="line"
-             id="tspan702"
-             x="14.015395"
-             y="18.027357"> &amp; derivatives</tspan></text>
+             id="tspan697"
+             x="20.082298"
+             y="20.956913">&amp; derivatives</tspan></text>
       </g>
       <g
          class="sankey-node"
@@ -3522,19 +3529,12 @@
         <text
            class="node-label"
            data-notex="1"
-           x="14.015395"
-           y="12.523863"
+           x="0"
+           y="0"
            text-anchor="start"
-           style="font-size:13px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#2a3f5f;fill-opacity:1"
-           id="text656"><tspan
-             sodipodi:role="line"
-             id="tspan699"
-             x="14.015395"
-             y="12.523863">Benzene &amp; substituted</tspan><tspan
-             sodipodi:role="line"
-             id="tspan700"
-             x="14.015395"
-             y="28.773863">derivatives</tspan></text>
+           transform="translate(13.25,9.46228070175427)"
+           style="cursor: default; font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 13px; fill: rgb(42, 63, 95); fill-opacity: 1; text-shadow: rgb(255, 255, 255) 1px 1px 1px, rgb(255, 255, 255) -1px -1px 1px, rgb(255, 255, 255) 1px -1px 1px, rgb(255, 255, 255) -1px 1px 1px; white-space: pre;"
+           id="text656">Benzene &amp; substituted derivatives</text>
       </g>
       <g
          class="sankey-node"
@@ -3622,31 +3622,33 @@
       </g>
       <g
          class="sankey-node"
-         transform="translate(755.000,37.825)"
-         style="opacity: 1;"
+         transform="translate(1163.1439,120.21136)"
+         style="opacity:1"
          id="g662">
         <rect
            class="node-rect"
            width="10"
-           height="18.947368421052502"
-           style="stroke-width: 0.5; stroke: rgb(0, 0, 0); stroke-opacity: 1; fill: rgb(44, 160, 44); fill-opacity: 1;"
-           id="rect661" />
+           height="18.947369"
+           style="fill:#2ca02c;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-opacity:1"
+           id="rect661"
+           x="-407.60849"
+           y="-82.567902" />
         <text
            class="node-label"
            data-notex="1"
-           x="167.80232"
-           y="13.494675"
+           x="-241.52161"
+           y="-68.692368"
            text-anchor="end"
            style="font-size:13px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#2a3f5f;fill-opacity:1"
            id="text661"><tspan
              sodipodi:role="line"
-             id="tspan695"
-             x="167.80232"
-             y="13.494675">Amino acids, peptides, </tspan><tspan
+             id="tspan693"
+             x="-241.52161"
+             y="-68.692368">Amino acids, peptides, </tspan><tspan
              sodipodi:role="line"
-             id="tspan696"
-             x="167.80232"
-             y="29.744677">&amp; analogues</tspan></text>
+             id="tspan694"
+             x="-241.52161"
+             y="-52.442364">&amp; analogues</tspan></text>
       </g>
       <g
          class="sankey-node"
@@ -3662,41 +3664,39 @@
         <text
            class="node-label"
            data-notex="1"
-           x="13.423103"
-           y="12.493779"
+           x="12.838477"
+           y="7.8984947"
            text-anchor="start"
            style="font-size:13px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#2a3f5f;fill-opacity:1"
            id="text662">Carbohydrates &amp; conjugates</text>
       </g>
       <g
          class="sankey-node"
-         transform="translate(681.71813,39.799)"
-         style="opacity:1"
+         transform="translate(683.500,39.799)"
+         style="opacity: 1;"
          id="g664">
         <rect
            class="node-rect"
            width="10"
-           height="4.2105265"
-           style="fill:#ff7f0e;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-opacity:1"
-           id="rect663"
-           x="0"
-           y="0" />
+           height="4.21052631578948"
+           style="stroke-width: 0.5; stroke: rgb(0, 0, 0); stroke-opacity: 1; fill: rgb(255, 127, 14); fill-opacity: 1;"
+           id="rect663" />
         <text
            class="node-label"
            data-notex="1"
-           x="13.892702"
-           y="0.027629657"
+           x="12.426955"
+           y="-4.0443254"
            text-anchor="start"
            style="font-size:13px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#2a3f5f;fill-opacity:1"
-           id="text663"><tspan
+           id="text663">Fatty alcohols</text>
+        <text
+           xml:space="preserve"
+           style="font-size:16px;font-family:Arial;-inkscape-font-specification:Arial;text-align:center;writing-mode:lr-tb;direction:ltr;text-anchor:middle;fill:#000000"
+           x="237.3642"
+           y="83.040504"
+           id="text695"><tspan
              sodipodi:role="line"
-             id="tspan693"
-             x="13.892702"
-             y="0.027629657">Fatty</tspan><tspan
-             sodipodi:role="line"
-             x="13.892702"
-             y="16.277628"
-             id="tspan694">alcohols</tspan></text>
+             id="tspan695"></tspan></text>
       </g>
       <g
          class="sankey-node"
@@ -3712,10 +3712,11 @@
         <text
            class="node-label"
            data-notex="1"
-           x="12.903793"
-           y="10.121999"
+           x="0"
+           y="0"
            text-anchor="start"
-           style="font-size:13px;font-family:'Open Sans', verdana, arial, sans-serif;white-space:pre;fill:#2a3f5f;fill-opacity:1"
+           transform="translate(13.25,7.006140350877209)"
+           style="cursor: default; font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 13px; fill: rgb(42, 63, 95); fill-opacity: 1; text-shadow: rgb(255, 255, 255) 1px 1px 1px, rgb(255, 255, 255) -1px -1px 1px, rgb(255, 255, 255) 1px -1px 1px, rgb(255, 255, 255) -1px 1px 1px; white-space: pre;"
            id="text664">Diterpenoids</text>
       </g>
       <g
@@ -4078,7 +4079,7 @@
     </g>
   </g>
   <defs
-     id="topdefs-2be6f7">
+     id="topdefs-58af6f">
     <g
        class="clips"
        id="g685" />
@@ -4105,8 +4106,10 @@
          y="25"
          text-anchor="middle"
          dy="0em"
-         style="opacity: 1; font-family: 'Open Sans', verdana, arial, sans-serif; font-size: 20px; fill: rgb(0, 0, 0); fill-opacity: 1; white-space: pre;"
-         id="text688">Annotated GNPS2 metabolites (without suspects library) at Superclass, Class, and Subclass levels</text>
+         style="font-size:20px;font-family:'Open Sans', verdana, arial, sans-serif;text-anchor:middle;white-space:pre;opacity:1;fill:#000000;fill-opacity:1"
+         id="text688"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24px;font-family:'Open Sans', verdana, arial, sans-serif;-inkscape-font-specification:'Open Sans, verdana, arial, sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal"
+           id="tspan698">Annotated Categories of GNPS2 Metabolites</tspan></text>
     </g>
     <g
        class="first-render"
