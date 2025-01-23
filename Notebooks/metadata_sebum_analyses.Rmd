@@ -1,0 +1,150 @@
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(ggdist)
+library(dplyr)
+```
+
+```{r}
+# Define the file path for the metadata file
+metadata_file <- "../Metadata/metadata_df.csv"
+
+# Read the metadata file
+metadata_df <- read.csv(metadata_file)
+
+# Define a custom color palette (update `palette` with your desired colors)
+palette <- c("Healthy" = "#423fa6", "Acne" = "#df7963")
+
+# Perform Wilcoxon test
+p_value <- wilcox.test(
+  sebumeter_casual_level_mean_forehead_left ~ class,
+  data = metadata_df
+)$p.value
+
+# Format the p-value
+formatted_p <- paste("p =", format(p_value, digits = 3))
+print(formatted_p)
+
+# Add the plot
+plot <- metadata_df %>%
+  ggplot(aes(
+    x = sebumeter_casual_level_mean_forehead_left,
+    y = class,
+    fill = class
+  )) +
+  
+  # Add half-violin plots for density with vertical offset
+  stat_halfeye(
+    data = . %>% filter(class == "Healthy"),
+    adjust = 0.8,
+    width = 0.6,
+    .width = 0,
+    justification = 0,
+    point_colour = NA,
+    slab_alpha = 0.6,
+    position = position_nudge(y = -1.4),
+    aes(fill = class)
+  ) +
+  stat_halfeye(
+    data = . %>% filter(class == "Acne"),
+    adjust = 0.8,
+    width = 0.6,
+    .width = 0,
+    justification = 0,
+    point_colour = NA,
+    slab_alpha = 0.6,
+    position = position_nudge(y = 1.4),
+    aes(fill = class)
+  ) +
+  
+  # Add boxplots with vertical offsets
+  geom_boxplot(
+    data = . %>% filter(class == "Healthy"),
+    width = 0.15,
+    outlier.shape = NA,
+    alpha = 0.7,
+    position = position_nudge(y = -1.4),
+    aes(fill = class)
+  ) +
+  geom_boxplot(
+    data = . %>% filter(class == "Acne"),
+    width = 0.15,
+    outlier.shape = NA,
+    alpha = 0.7,
+    position = position_nudge(y = 1.4),
+    aes(fill = class)
+  ) +
+  
+  # Add dot histogram with downward stacking
+  geom_dots(
+    data = . %>% filter(class == "Healthy"),
+    aes(color = class),
+    side = "bottom",
+    binwidth = 2,
+    justification = 0.1,
+    position = position_nudge(y = -2.4)
+  ) +
+  geom_dots(
+    data = . %>% filter(class == "Acne"),
+    aes(color = class),
+    side = "bottom",
+    binwidth = 2,
+    justification = 0.1,
+    position = position_nudge(y = 0.4)
+  ) +
+  
+  # Customize colors
+  scale_fill_manual(values = palette) +
+  scale_color_manual(values = palette) +
+  
+  # Add p-value annotation
+  geom_text(
+    aes(
+      x = max(metadata_df$sebumeter_casual_level_mean_forehead_left) -30, 
+      y = 3.2, 
+      label = formatted_p,
+      size = 12,
+      color = "grey"
+    ),
+    inherit.aes = FALSE,
+    size = 6,
+    hjust = 0
+  ) +
+  
+  # Customize labels and theme
+  labs(
+    title = "Per-sample Sebum Levels by Acne Status",
+    x = "Sebum Level (\u03bcg/cm\u00b2)",  # Unicode for µg/cm²
+    y = NULL
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(size = 20, hjust = 0.75, margin = margin(b = 20)),
+    axis.title.x = element_text(size = 18, margin = margin(t = 15)),
+    axis.text.x = element_text(size = 14),
+    legend.position = "none",
+    axis.text.y = element_blank(),
+    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+    plot.background = element_rect(fill = "white", color = NA)
+  ) + 
+  
+  # Add custom labels with manual positions
+  geom_text(
+    data = data.frame(x = c(-15, -15), y = c(2.43, 0.67), label = c("Acne", "Healthy")),
+    aes(x = x, y = y, label = label),
+    inherit.aes = FALSE,
+    size = 6,
+    hjust = 0
+  )
+
+  # Save the figure
+  ggsave(
+    "../Figures/clinical_metadata_Figures/sebum_levels_raincloud-plot.png", 
+    plot = plot,
+    width = 10, height = 6, dpi = 600, 
+    units = "in", device = "png"
+  )
+
+```
+
