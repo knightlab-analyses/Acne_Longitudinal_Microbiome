@@ -849,6 +849,7 @@ feature_to_remove_ctl <- CTLs_feature_info %>% left_join(pools_feature_info) %>%
 data_clean3 <- data_clean2 %>% dplyr::select(-c(feature_to_remove_ctl$Feature))
 ```
 
+
 ```{r}
 # Define the color palette for six Sample_Type categories
 sample_type_colors <- c("samples" = "#1f77b4",  # Blue
@@ -858,9 +859,12 @@ sample_type_colors <- c("samples" = "#1f77b4",  # Blue
                         "6mix" = "#9467bd",  # Purple
                         "Wash" = "#8c564b")  # Brown
 
+
+
 # PCA raw data
 PCA_raw <- mixOmics::pca(data_clean2 %>% select_at(vars(-one_of(nearZeroVar(., names = TRUE)))) %>%
                            column_to_rownames("SampleID"), ncomp = 2, center = TRUE, scale = TRUE)
+
 PCA_raw_scores <- data.frame(PCA_raw$variates$X) %>% rownames_to_column("SampleID") %>% left_join(metadata_final)
 
 i <- "Sample_Type"
@@ -1234,13 +1238,11 @@ data_sample_filtered <- data_sample %>%
   filter(!SampleID %in% exclude_samples)
 
 # Now, 'data_sample_filtered' contains only the rows where SampleID is not from Plate 2
-```
-```{r}
+
 # Filter out rows where Plate_Number is equal to 2
 metadata_filtered <- metadata_final %>%
   filter(Plate_Number != 2)
-```
-```{r}
+
 # Replace SampleID with sample_name
 data_sample_name <- data_sample_filtered %>% 
   dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
@@ -1608,6 +1610,9 @@ data_all_groups <- data_sample %>%
   select_at(vars(-one_of(nearZeroVar(., names = TRUE)))) %>% 
   rownames_to_column("SampleID")
 
+print(data_all_groups)
+# Save the data.frame as a CSV file
+write.csv(data_all_groups, file = "../Data/metabolomics/Run3_10252024/output/metaB_data_all_groups_filtered.csv", row.names = FALSE)
 
 # RCLR transformation
 data_NLvsH_clr <- decostand(data_NLvsH %>% column_to_rownames("SampleID"), method = "rclr")
@@ -1657,7 +1662,7 @@ PLSDA_NLvsH_scores <- data.frame(PLSDA_NLvsH$variates$X) %>%
 #         axis.text = element_text(size = 5)) + coord_fixed()
 
 PLSDA_NLvsH_plot <- PLSDA_NLvsH_scores %>%
-  ggscatter(x = "comp1", y = "comp2", color = "category_label", alpha = 0.6, size = 4, title = "Acne Non-lesional vs Healthy", 
+  ggscatter(x = "comp1", y = "comp2", color = "category_label", alpha = 0.6, size = 4, title = "PLS-DA Acne Non-lesional vs Healthy", 
             xlab = paste("Component 1 (", round(PLSDA_NLvsH$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
             ylab = paste("Component 2 (", round(PLSDA_NLvsH$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
             legend.title = "", ggtheme = theme_classic(), palette = c("#67b2be", "#423fa6")) +
@@ -1696,6 +1701,20 @@ p_value_scientific <- formatC(p_host_subject_id, format = "e", digits = 3)
 # Print the formatted p-value
 print(p_value_scientific)
 
+
+### Extract VIP scores from the PLS-DA model
+VIP_scores <- mixOmics::vip(PLSDA_NLvsH)
+
+# Convert VIP scores to a data frame
+VIP_df <- data.frame(Feature = rownames(VIP_scores), VIP = VIP_scores[, 1])
+
+# Sort the features by VIP scores in descending order
+VIP_df <- VIP_df %>% arrange(desc(VIP))
+
+# Print or save the top features driving separation
+print(head(VIP_df, 10))  # Top 10 features
+write.csv(VIP_df, "../Data/metabolomics/Run3_10252024/output/Top_Features_VIP_NLvsH.csv", row.names = FALSE)
+
 # ggsave("../Figures/metabolomics_Figures/analysis/PLSDA_plot_Acne_NLvsHealthy.png", plot = last_plot(), dpi = 600, width = 8, height = 6, units = "in")
 ```
 
@@ -1712,17 +1731,6 @@ i <- "group"
 # Plot PLSDA for NL vs L
 PLSDA_NLvsL_scores <- data.frame(PLSDA_NLvsL$variates$X) %>% 
   rownames_to_column("SampleID") %>% left_join(metadata_final)
-
-# PLSDA_NLvsL_plot <- PLSDA_NLvsL_scores %>%
-#   ggscatter(x = "comp1", y = "comp2", color = "category_label", alpha = 0.6, title = "PLS-DA - Acne Non-Lesional vs Healthy", 
-#             xlab = paste("Component 1 (", round(PLSDA_NLvsH$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
-#             ylab = paste("Component 2 (", round(PLSDA_NLvsH$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
-#             legend.title = "Cohort", ggtheme = theme_classic(), palette = c("#67b2be", "#423fa6")) +
-#   geom_point(data = PLSDA_NLvsH_scores %>% group_by(category_label) %>% 
-#                summarise_at(vars(matches("comp")), mean), aes(comp1, comp2, color = category_label), size = 3, shape = 8) +
-#   theme(plot.title = element_text(size = 10),axis.title = element_text(size = 8),
-#         axis.text = element_text(size = 5)) + coord_fixed()
-
 
 PLSDA_NLvsL_plot <- PLSDA_NLvsL_scores %>%
   ggscatter(x = "comp1", y = "comp2", color = "category_label", alpha = 0.6, size = 4, title = "PLS-DA  Acne Lesional vs Non-lesional", 
@@ -1767,6 +1775,21 @@ p_value_scientific <- formatC(p_host_subject_id, format = "e", digits = 3)
 
 # Print the formatted p-value
 print(p_value_scientific)
+
+
+### Extract VIP scores from the PLS-DA model
+VIP_scores <- mixOmics::vip(PLSDA_NLvsL)
+
+# Convert VIP scores to a data frame
+VIP_df <- data.frame(Feature = rownames(VIP_scores), VIP = VIP_scores[, 1])
+
+# Sort the features by VIP scores in descending order
+VIP_df <- VIP_df %>% arrange(desc(VIP))
+
+# Print or save the top features driving separation
+print(head(VIP_df, 10))  # Top 10 features
+write.csv(VIP_df, "../Data/metabolomics/Run3_10252024/output/Top_Features_VIP_NLvsL.csv", row.names = FALSE)
+
 ```
 ```{r}
 # Plot PCA V vs Healthy
@@ -1827,6 +1850,21 @@ p_value_scientific <- formatC(p_host_subject_id, format = "e", digits = 3)
 # Print the formatted p-value
 print(p_value_scientific)
 
+
+
+### Extract VIP scores from the PLS-DA model
+VIP_scores <- mixOmics::vip(PLSDA_LvsH)
+
+# Convert VIP scores to a data frame
+VIP_df <- data.frame(Feature = rownames(VIP_scores), VIP = VIP_scores[, 1])
+
+# Sort the features by VIP scores in descending order
+VIP_df <- VIP_df %>% arrange(desc(VIP))
+
+# Print or save the top features driving separation
+print(head(VIP_df, 10))  # Top 10 features
+write.csv(VIP_df, "../Data/metabolomics/Run3_10252024/output/Top_Features_VIP_LvsH.csv", row.names = FALSE)
+
 ```
 ```{r}
 # Load the patchwork package
@@ -1841,6 +1879,9 @@ combined_plot <- PLSDA_NLvsH_plot + PLSDA_NLvsL_plot + PLSDA_LvsH_plot +
 ggsave("../Figures/metabolomics_Figures/analysis/PLSDA_combined_plot.svg", 
        plot = combined_plot, dpi = 600, width = 24, height = 8, units = "in")
 
+# Save the combined plot as a PNG
+ggsave("../Figures/metabolomics_Figures/analysis/PLSDA_combined_plot.png", 
+       plot = combined_plot, dpi = 600, width = 24, height = 8, units = "in")
 ```
 
 ```{r}
@@ -1857,63 +1898,4 @@ apply_rclr <- function(data) {
 }
 ```
 
-
-```{r}
-# Run for all 3 groups
-
-PCA_all_groups <- mixOmics::pca(data_all_groups_clr, ncomp = 2, center = TRUE, scale = TRUE)
-PCA_all_groups_scores <- data.frame(PCA_all_groups$variates$X) %>% 
-  rownames_to_column("SampleID") %>% left_join(metadata_final)
-
-# Perform PLS-DA
-PLSDA_all_groups <- mixOmics::plsda(data_all_groups_clr, as.factor(PCA_all_groups_scores$category_label), ncomp = 2, scale = TRUE)
-
-# Extract PLS-DA scores
-PLSDA_all_groups_scores <- data.frame(PLSDA_all_groups$variates$X) %>% 
-  rownames_to_column("SampleID") %>% left_join(metadata_final)
-
-# Plot PLS-DA for L vs H
-PLSDA_all_groups_plot <- PLSDA_all_groups_scores %>%
-  ggscatter(x = "comp1", y = "comp2", color = "category_label", alpha = 0.6, size = 4, title = "PLS-DA: Lesional vs Healthy", 
-            xlab = paste("Component 1 (", round(PLSDA_all_groups$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
-            ylab = paste("Component 2 (", round(PLSDA_all_groups$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
-            legend.title = "", ggtheme = theme_classic(), palette = c("#df7963", "#423fa6", "#67b2be")) +
-  geom_point(data = PLSDA_all_groups_scores %>% group_by(category_label) %>% 
-               summarise_at(vars(matches("comp")), mean), aes(comp1, comp2, color = category_label), size = 5, shape = 8, show.legend = FALSE) +
-  stat_ellipse(aes(x = comp1, y = comp2, color = category_label, fill = category_label), 
-               alpha = 0.2, level = 0.95, geom = "polygon", show.legend = FALSE) +  # Add transparent ellipses
-  theme(plot.title = element_text(size = 18, hjust = 0.7),
-        plot.title.position = "plot",
-        axis.title = element_text(size = 14),
-        axis.text = element_text(size = 14),
-        legend.text = element_text(size = 14)) + 
-  coord_fixed() +
-  annotate("text", x = -13, y = 17, label = "PERMANOVA\np-val < 0.001", 
-           hjust = 0.5, vjust = 0.5, size = 4, color = "black")  # Add annotation
-
-# Save the PLS-DA plot for L vs H
-ggsave("../Figures/metabolomics_Figures/analysis/PLSDA_plot_all_groups.png", plot = PLSDA_all_groups_plot, dpi = 600, width = 8, height = 6, units = "in")
-
-# PERMANOVA for L vs H
-dist_metabolites <- vegdist(data_all_groups_clr, method = "euclidean")
-disper_group <- betadisper(dist_metabolites, PCA_all_groups_scores$category_label)
-anova(disper_group)
-
-# Run PERMANOVA for group differences
-permanova <- adonis2(dist_metabolites ~ PCA_all_groups_scores$host_subject_id + PCA_all_groups_scores$category_label, 
-                     data = PCA_all_groups_scores, 
-                     permutations = 9999,  # Increase permutations for accuracy
-                     na.action = na.omit)
-
-# Extract the p-value for host_subject_id
-p_host_subject_id <- permanova$`Pr(>F)`[1]
-
-# Format the p-value in scientific notation
-p_value_scientific <- formatC(p_host_subject_id, format = "e", digits = 3)
-
-# Print the formatted p-value
-print(p_value_scientific)
-
-
-```
 
