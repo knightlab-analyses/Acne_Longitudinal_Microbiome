@@ -14,7 +14,7 @@ metadata_file <- "../Metadata/metadata_df.csv"
 metadata_df <- read.csv(metadata_file)
 
 # Define a custom color palette (update `palette` with your desired colors)
-palette <- c("Healthy" = "#423fa6", "Acne" = "#df7963")
+palette <- c("Healthy" = "#6a61d6", "Acne" = "#f38a77")
 
 # Perform Wilcoxon test
 p_value <- wilcox.test(
@@ -42,7 +42,7 @@ plot <- metadata_df %>%
     .width = 0,
     justification = 0,
     point_colour = NA,
-    slab_alpha = 0.6,
+    slab_alpha = 0.8,
     position = position_nudge(y = -1.4),
     aes(fill = class)
   ) +
@@ -53,7 +53,7 @@ plot <- metadata_df %>%
     .width = 0,
     justification = 0,
     point_colour = NA,
-    slab_alpha = 0.6,
+    slab_alpha = 0.8,
     position = position_nudge(y = 1.4),
     aes(fill = class)
   ) +
@@ -101,8 +101,8 @@ plot <- metadata_df %>%
   # Add p-value annotation
   geom_text(
     aes(
-      x = max(metadata_df$sebumeter_casual_level_mean_forehead_left) -30, 
-      y = 3.2, 
+      x = max(metadata_df$sebumeter_casual_level_mean_forehead_left) -40, 
+      y = 3.3, 
       label = formatted_p,
       size = 12,
       color = "grey"
@@ -142,7 +142,7 @@ plot <- metadata_df %>%
   ggsave(
     "../Figures/clinical_metadata_Figures/sebum_levels_raincloud-plot.png", 
     plot = plot,
-    width = 10, height = 6, dpi = 600, 
+    width = 8, height = 6, dpi = 600, 
     units = "in", device = "png"
   )
 
