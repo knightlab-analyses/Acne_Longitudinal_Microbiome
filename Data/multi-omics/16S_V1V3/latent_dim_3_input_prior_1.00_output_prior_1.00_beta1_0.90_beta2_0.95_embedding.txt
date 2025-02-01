@@ -1,0 +1,85 @@
+	feature_id	axis	embed_type	values
+0	 g__Cutibacterium	0	microbe	0.0055708992294967175
+1	 g__uncultured	0	microbe	0.022388329729437828
+2	 g__Staphylococcus	0	microbe	-1.043492317199707
+3	 g__Streptococcus	0	microbe	-0.4096563160419464
+4	 g__Corynebacterium	0	microbe	1.280242681503296
+5	 g__Lawsonella	0	microbe	1.5041881799697876
+6	 g__Micrococcus	0	microbe	0.7219198346138
+7	 g__Alloprevotella	0	microbe	-0.4198471009731293
+8	 g__Lactobacillus	0	microbe	-1.6977282762527466
+9	 g__Rothia	0	microbe	-0.5845838785171509
+10	 g__Cutibacterium	1	microbe	-0.3076333999633789
+11	 g__uncultured	1	microbe	1.2490689754486084
+12	 g__Staphylococcus	1	microbe	0.9494725465774536
+13	 g__Streptococcus	1	microbe	1.0230505466461182
+14	 g__Corynebacterium	1	microbe	-0.30549511313438416
+15	 g__Lawsonella	1	microbe	-0.5696407556533813
+16	 g__Micrococcus	1	microbe	-1.8232309818267822
+17	 g__Alloprevotella	1	microbe	-0.07330744713544846
+18	 g__Lactobacillus	1	microbe	0.6228832006454468
+19	 g__Rothia	1	microbe	0.29032251238822937
+20	 g__Cutibacterium	2	microbe	1.8873659372329712
+21	 g__uncultured	2	microbe	0.9341824650764465
+22	 g__Staphylococcus	2	microbe	-0.8887914419174194
+23	 g__Streptococcus	2	microbe	-0.9973600506782532
+24	 g__Corynebacterium	2	microbe	-1.435359239578247
+25	 g__Lawsonella	2	microbe	-0.21003158390522003
+26	 g__Micrococcus	2	microbe	-0.7558605074882507
+27	 g__Alloprevotella	2	microbe	-1.3317017555236816
+28	 g__Lactobacillus	2	microbe	0.9897231459617615
+29	 g__Rothia	2	microbe	-0.7780776023864746
+0	Urocanic acid	0	metabolite	0.0
+1	Nicotine	0	metabolite	0.48112520575523376
+2	Phenylalanine	0	metabolite	0.5340310335159302
+3	D-TRYPTOPHAN	0	metabolite	-0.8903908729553223
+4	Glutamyltyrosine	0	metabolite	0.7756591439247131
+5	C19H36O4 Fatty acid	0	metabolite	0.3311171531677246
+6	C19H38O4 Fatty acid	0	metabolite	-0.7368916273117065
+7	C19H22O4 Linear diarylheptanoids	0	metabolite	1.2128851413726807
+8	N-Oleoylethanolamine	0	metabolite	-1.1161601543426514
+9	Gln-C14:0	0	metabolite	0.36891478300094604
+10	Sorbitane Monooleate	0	metabolite	0.9960225224494934
+11	Urocanic acid	1	metabolite	0.0
+12	Nicotine	1	metabolite	-0.5450523495674133
+13	Phenylalanine	1	metabolite	-0.6112246513366699
+14	D-TRYPTOPHAN	1	metabolite	0.28368374705314636
+15	Glutamyltyrosine	1	metabolite	0.043678369373083115
+16	C19H36O4 Fatty acid	1	metabolite	-1.5871353149414062
+17	C19H38O4 Fatty acid	1	metabolite	-0.7141443490982056
+18	C19H22O4 Linear diarylheptanoids	1	metabolite	-0.3171641230583191
+19	N-Oleoylethanolamine	1	metabolite	1.0180696249008179
+20	Gln-C14:0	1	metabolite	-0.7139803171157837
+21	Sorbitane Monooleate	1	metabolite	1.3653990030288696
+22	Urocanic acid	2	metabolite	0.0
+23	Nicotine	2	metabolite	-0.1336630880832672
+24	Phenylalanine	2	metabolite	0.6597709059715271
+25	D-TRYPTOPHAN	2	metabolite	0.4679546058177948
+26	Glutamyltyrosine	2	metabolite	-0.6704312562942505
+27	C19H36O4 Fatty acid	2	metabolite	-0.5748723745346069
+28	C19H38O4 Fatty acid	2	metabolite	0.2104572355747223
+29	C19H22O4 Linear diarylheptanoids	2	metabolite	-0.22259525954723358
+30	N-Oleoylethanolamine	2	metabolite	1.0644068717956543
+31	Gln-C14:0	2	metabolite	-0.34653741121292114
+32	Sorbitane Monooleate	2	metabolite	0.7887290120124817
+0	 g__Cutibacterium	bias	microbe	0.3360799252986908
+1	 g__uncultured	bias	microbe	-0.06957213580608368
+2	 g__Staphylococcus	bias	microbe	1.2200649976730347
+3	 g__Streptococcus	bias	microbe	-1.6962562799453735
+4	 g__Corynebacterium	bias	microbe	1.064279556274414
+5	 g__Lawsonella	bias	microbe	-0.7921181321144104
+6	 g__Micrococcus	bias	microbe	0.07079808413982391
+7	 g__Alloprevotella	bias	microbe	1.1065891981124878
+8	 g__Lactobacillus	bias	microbe	-0.791333019733429
+9	 g__Rothia	bias	microbe	2.1586382389068604
+0	Urocanic acid	bias	metabolite	0.0
+1	Nicotine	bias	metabolite	-0.49662789702415466
+2	Phenylalanine	bias	metabolite	-0.08812190592288971
+3	D-TRYPTOPHAN	bias	metabolite	0.5336626768112183
+4	Glutamyltyrosine	bias	metabolite	-0.45271241664886475
+5	C19H36O4 Fatty acid	bias	metabolite	2.0677294731140137
+6	C19H38O4 Fatty acid	bias	metabolite	-2.3368988037109375
+7	C19H22O4 Linear diarylheptanoids	bias	metabolite	-2.247187852859497
+8	N-Oleoylethanolamine	bias	metabolite	-0.6644999980926514
+9	Gln-C14:0	bias	metabolite	-1.779057502746582
+10	Sorbitane Monooleate	bias	metabolite	-0.8596807718276978
