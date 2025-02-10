@@ -1,0 +1,32 @@
+*** STEP 1: Converting biom files to qza ***
+Imported ../tables/16S_MERGED-Avg-tbl_metaB-matched_relative_Acne_NL.biom as BIOMV210DirFmt to ../tables/16S_MERGED-Avg-tbl_metaB-matched_relative_Acne_NL.qza
+Imported ../tables/metaB_MERGED-Avg-tbl_matched_relative_Acne_NL.biom as BIOMV210DirFmt to ../tables/metaB_MERGED-Avg-tbl_matched_relative_Acne_NL.qza
+*** STEP 2: Checking qza files ***
+UUID:        235277f5-8bd9-434f-835a-5920eb0031c7
+Type:        FeatureTable[Frequency]
+Data format: BIOMV210DirFmt
+UUID:        054b9620-d26a-43d6-8f46-89085253d2d6
+Type:        FeatureTable[Frequency]
+Data format: BIOMV210DirFmt
+*** STEP 3: Running mmvec paired omics ***
+Saved FeatureData[Conditional] to: ../outputs/Acne_NL/conditionals.qza
+Saved PCoAResults % Properties('biplot') to: ../outputs/Acne_NL/conditional_biplot.qza
+Saved SampleData[MMvecStats] to: ../outputs/Acne_NL/model_stats.qza
+*** STEP 4: Checking mmvec outputs ***
+UUID:        e61747c6-c4f5-48b1-9f9a-94162842ea0f
+Type:        FeatureData[Conditional]
+Data format: ConditionalDirFmt
+UUID:        91dd517f-529f-4503-9df8-f13006789f00
+Type:        PCoAResults % Properties('biplot')
+Data format: OrdinationDirectoryFormat
+*** STEP 5: Running qiime metadata tabulate ***
+Saved Visualization to: ../outputs/Acne_NL/conditionals-viz.qzv
+*** STEP 6: Generate model convergence summaries ***
+Saved Visualization to: ../outputs/Acne_NL/model-summary.qzv
+*** STEP 7: Generating ranks file ***
+Saved Visualization to: ../outputs/Acne_NL/heatmap-ranks.qzv
+*** STEP 8: Running emperor biplot ***
+Saved Visualization to: ../outputs/Acne_NL/emperor-biplot.qzv
+*** STEP 9: Export MMVEC conditionals output to tsv ***
+Exported ../outputs/Acne_NL/conditionals.qza as ConditionalDirFmt to directory ../outputs/Acne_NL/exported_conditionals
+*** Finished ***
