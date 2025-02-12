@@ -9,7 +9,7 @@
 #SBATCH --mem=32G
 #SBATCH --partition=short
 
-# source activate mmvec_qiime2-2020.6_barnacle2
+source activate mmvec_qiime2-2020.6_barnacle2
 # to edit mmvec source code: /home/yac027/mambaforge3/envs/mmvec_qiime2-2020.6_barnacle2/lib/python3.6/site-packages/mmvec/
 
 echo '*** STEP 1: Converting biom files to qza ***'
@@ -71,10 +71,10 @@ qiime emperor biplot \
     --p-number-of-features 10 2>&1 | tee ../logs/MERGED_emperor-biplot_relative_Healthy.log
 
 
-echo '*** STEP 9: Export MMVEC conditionals output to tsv ***'
-qiime tools export \
-  --input-path ../outputs/Healthy/conditionals.qza \
-  --output-path ../outputs/Healthy/exported_conditionals
+# echo '*** STEP 9: Export MMVEC conditionals output to tsv ***'
+# qiime tools export \
+#   --input-path ../outputs/Healthy/conditionals.qza \
+#   --output-path ../outputs/Healthy/exported_conditionals
 
 echo '*** Finished ***'
 rm -rf log*
