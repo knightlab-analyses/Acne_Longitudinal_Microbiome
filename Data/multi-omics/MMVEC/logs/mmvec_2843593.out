@@ -1,0 +1,30 @@
+*** STEP 1: Converting biom files to qza ***
+Imported ../tables/16S_MERGED-Avg-tbl_metaB-matched_relative_Healthy.biom as BIOMV210DirFmt to ../tables/16S_MERGED-Avg-tbl_metaB-matched_relative_Healthy.qza
+Imported ../tables/metaB_MERGED-Avg-tbl_matched_relative_Healthy.biom as BIOMV210DirFmt to ../tables/metaB_MERGED-Avg-tbl_matched_relative_Healthy.qza
+*** STEP 2: Checking qza files ***
+UUID:        2922db3e-7faa-4644-b56e-3031f4ebe5c1
+Type:        FeatureTable[Frequency]
+Data format: BIOMV210DirFmt
+UUID:        5f67c55b-2a9b-48cb-b307-a28dc1edef8b
+Type:        FeatureTable[Frequency]
+Data format: BIOMV210DirFmt
+*** STEP 3: Running mmvec paired omics ***
+Saved FeatureData[Conditional] to: ../outputs/Healthy/conditionals.qza
+Saved PCoAResults % Properties('biplot') to: ../outputs/Healthy/conditional_biplot.qza
+Saved SampleData[MMvecStats] to: ../outputs/Healthy/model_stats.qza
+*** STEP 4: Checking mmvec outputs ***
+UUID:        7833f29c-d7ad-4802-87c5-1c130a7a91c2
+Type:        FeatureData[Conditional]
+Data format: ConditionalDirFmt
+UUID:        e28f7615-3fea-4276-b99b-594f2a02c409
+Type:        PCoAResults % Properties('biplot')
+Data format: OrdinationDirectoryFormat
+*** STEP 5: Running qiime metadata tabulate ***
+Saved Visualization to: ../outputs/Healthy/conditionals-viz.qzv
+*** STEP 6: Generate model convergence summaries ***
+Saved Visualization to: ../outputs/Healthy/model-summary.qzv
+*** STEP 7: Generating ranks file ***
+Saved Visualization to: ../outputs/Healthy/heatmap-ranks.qzv
+*** STEP 8: Running emperor biplot ***
+Saved Visualization to: ../outputs/Healthy/emperor-biplot.qzv
+*** Finished ***
