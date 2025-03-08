@@ -26,6 +26,15 @@ p_value <- wilcox.test(
 formatted_p <- paste("p =", format(p_value, digits = 3))
 print(formatted_p)
 
+# Perform ANOVA to calculate F-statistic
+fit <- aov(sebumeter_casual_level_mean_forehead_left ~ class, data = metadata_df)
+f_stat <- summary(fit)[[1]]$`F value`[1]
+formatted_f <- paste("F =", format(f_stat, digits = 3))
+print(formatted_f)
+
+# Combine p-value and F-statistic into one annotation text
+annot_text <- paste(formatted_p, formatted_f, sep = ", ")
+
 # Add the plot
 plot <- metadata_df %>%
   ggplot(aes(
@@ -98,12 +107,12 @@ plot <- metadata_df %>%
   scale_fill_manual(values = palette) +
   scale_color_manual(values = palette) +
   
-  # Add p-value annotation
+  # Add combined annotation for p-value and F-statistic
   geom_text(
     aes(
-      x = max(metadata_df$sebumeter_casual_level_mean_forehead_left) -40, 
+      x = 5, 
       y = 3.3, 
-      label = formatted_p,
+      label = annot_text,
       size = 12,
       color = "grey"
     ),
@@ -138,13 +147,13 @@ plot <- metadata_df %>%
     hjust = 0
   )
 
-  # Save the figure
-  ggsave(
-    "../Figures/clinical_metadata_Figures/sebum_levels_raincloud-plot.png", 
-    plot = plot,
-    width = 8, height = 6, dpi = 600, 
-    units = "in", device = "png"
-  )
+# Save the figure
+ggsave(
+  "../Figures/clinical_metadata_Figures/sebum_levels_raincloud-plot.png", 
+  plot = plot,
+  width = 8, height = 6, dpi = 600, 
+  units = "in", device = "png"
+)
 
 ```
 
