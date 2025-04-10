@@ -17,23 +17,24 @@ metadata_df <- read.csv(metadata_file)
 palette <- c("Healthy" = "#6a61d6", "Acne" = "#f38a77")
 
 # Perform Wilcoxon test
-p_value <- wilcox.test(
+p_value_wilcox <- wilcox.test(
   sebumeter_casual_level_mean_forehead_left ~ class,
   data = metadata_df
 )$p.value
 
-# Format the p-value
-formatted_p <- paste("p =", format(p_value, digits = 3))
-print(formatted_p)
-
-# Perform ANOVA to calculate F-statistic
+# Perform ANOVA to calculate F-statistic and p-value
 fit <- aov(sebumeter_casual_level_mean_forehead_left ~ class, data = metadata_df)
-f_stat <- summary(fit)[[1]]$`F value`[1]
-formatted_f <- paste("F =", format(f_stat, digits = 3))
-print(formatted_f)
+anova_summary <- summary(fit)[[1]]
+f_stat <- anova_summary$`F value`[1]
+p_value_anova <- anova_summary$`Pr(>F)`[1]
 
-# Combine p-value and F-statistic into one annotation text
-annot_text <- paste(formatted_p, formatted_f, sep = ", ")
+# Format all statistics
+formatted_wilcox <- paste("Wilcoxon p =", format(p_value_wilcox, digits = 3, scientific = TRUE))
+formatted_anova <- paste("ANOVA p =", format(p_value_anova, digits = 3, scientific = TRUE), 
+                         ", F =", format(f_stat, digits = 3))
+
+# Combine into annotation text
+annot_text <- paste(formatted_wilcox, formatted_anova, sep = "\n")
 
 # Add the plot
 plot <- metadata_df %>%
@@ -109,16 +110,14 @@ plot <- metadata_df %>%
   
   # Add combined annotation for p-value and F-statistic
   geom_text(
-    aes(
-      x = 5, 
-      y = 3.3, 
-      label = annot_text,
-      size = 12,
-      color = "grey"
-    ),
-    inherit.aes = FALSE,
-    size = 6,
-    hjust = 0
+  aes(
+    x = 5, 
+    y = 3.2, 
+    label = annot_text
+  ),
+  inherit.aes = FALSE,
+  size = 5,
+  hjust = 0
   ) +
   
   # Customize labels and theme
