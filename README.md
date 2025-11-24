@@ -10,7 +10,7 @@ This repository contains the analysis code, processed data, and figure scripts f
 This study longitudinally profiles the skin microbiome and metabolome of 10 women with acne—alongside 10 healthy skin controls, across lesional and non-lesional sites, integrating classical microbiome and metabolomic analyses with machine learning, repeated-measures dimensionality reduction, and multi-omics approaches to uncover individualized, temporally dynamic signatures of disease severity.
 
 
-![Overview](Figures/clinical_metadata_Figures/Figure_1.png)
+![Overview](Figures/study_overview/Figure_1.png)
 
 ## Data availability
 All data will be made publicly available upon publication and is currently in progress.
