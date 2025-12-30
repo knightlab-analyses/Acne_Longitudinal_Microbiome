@@ -1,9 +1,0 @@
-{
-    "feature_table_file": /Users/yac027/Acne_Longitudinal_Microbiome/Data/16S/Tables/16S_V1-V3_173960_otu_table.biom,
-    "sample_metadata_file": /Users/yac027/Acne_Longitudinal_Microbiome/Metadata/16S_V1-V3_sample_information_from_prep_14785.tsv,
-    "phylogenetic_tree_file" : /Users/yac027/Acne_Longitudinal_Microbiome/Data/16S/Trees/16S_V1-V3_173980_insertion_tree.relabelled.nwk,
-    "max_category_levels": 5,
-    "min_level_count": 3,
-    "rarefaction_depth_percentile": 10.0,
-    "n_components": 3
-}

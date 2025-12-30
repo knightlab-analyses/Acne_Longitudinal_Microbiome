@@ -1,5 +1,0 @@
-[2024-11-02 19:45:01,118 - xebec_non_phylo_alpha_div] :: Diversity Metric: shannon
-[2024-11-02 19:45:01,118 - xebec_non_phylo_alpha_div] :: Phylogenetic: False
-[2024-11-02 19:45:01,163 - xebec_non_phylo_alpha_div] :: Calculating alpha diversity...
-[2024-11-02 19:45:01,204 - xebec_non_phylo_alpha_div] :: Finished calculating alpha diversity!
-[2024-11-02 19:45:01,209 - xebec_non_phylo_alpha_div] :: Saved to results/alpha_div/non_phylo/shannon/vector.tsv

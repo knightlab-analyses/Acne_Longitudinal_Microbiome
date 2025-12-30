@@ -1,5 +1,0 @@
-[2024-11-02 19:47:24,024 - xebec_non_phylo_alpha_div] :: Diversity Metric: pielou_e
-[2024-11-02 19:47:24,024 - xebec_non_phylo_alpha_div] :: Phylogenetic: False
-[2024-11-02 19:47:24,074 - xebec_non_phylo_alpha_div] :: Calculating alpha diversity...
-[2024-11-02 19:47:24,145 - xebec_non_phylo_alpha_div] :: Finished calculating alpha diversity!
-[2024-11-02 19:47:24,149 - xebec_non_phylo_alpha_div] :: Saved to results/alpha_div/non_phylo/pielou_e/vector.tsv
