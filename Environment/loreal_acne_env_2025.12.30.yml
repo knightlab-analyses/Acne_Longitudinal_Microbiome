@@ -1,4 +1,4 @@
-name: qiime2-metagenome-2024.10
+name: loreal_acne_env_2025.12.30
 channels:
   - https://packages.qiime2.org/qiime2/2024.10/metagenome/released
   - conda-forge
@@ -850,4 +850,4 @@ dependencies:
       - venn==0.1.3
       - xgboost==3.0.0
       - xyzservices==2025.10.0
-prefix: /Users/yangchen/miniforge3/envs/qiime2-metagenome-2024.10
+prefix: /Users/yangchen/miniforge3/envs/loreal_acne_env_2025.12.30
