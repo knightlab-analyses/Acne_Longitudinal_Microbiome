@@ -1,0 +1,1332 @@
+"Compound_ID","Category","Matched_Size","Homo_sapiens","Human_skin"
+"10339","plants",1,NA,NA
+"10339","global",5,TRUE,TRUE
+"10448","plants",21,NA,NA
+"10448","global",6,TRUE,TRUE
+"1060","food",14,NA,NA
+"1060","microbes",13,NA,NA
+"1060","plants",19,NA,NA
+"1060","global",343,TRUE,TRUE
+"1060","microbiome",1,NA,NA
+"1067","microbes",2,NA,NA
+"1067","plants",1,NA,NA
+"108","microbes",13,NA,NA
+"108","plants",5,NA,NA
+"108","global",29,TRUE,FALSE
+"10868","microbes",3,NA,NA
+"10868","plants",1,NA,NA
+"10868","global",4,TRUE,FALSE
+"10868","personal care product",1,NA,NA
+"10878","food",9,NA,NA
+"10878","microbes",118,NA,NA
+"10878","plants",78,NA,NA
+"10878","global",73,TRUE,TRUE
+"10878","personal care product",6,NA,NA
+"1088","food",3,NA,NA
+"1088","microbes",120,NA,NA
+"1088","plants",51,NA,NA
+"1088","global",37,TRUE,TRUE
+"1088","personal care product",4,NA,NA
+"1088","microbiome",5,NA,NA
+"11096","food",7,NA,NA
+"11096","plants",34,NA,NA
+"11096","global",2,TRUE,FALSE
+"1119","food",1655,NA,NA
+"1119","microbes",3292,NA,NA
+"1119","plants",2905,NA,NA
+"1119","global",8597,TRUE,TRUE
+"1119","personal care product",32,NA,NA
+"1119","microbiome",208,NA,NA
+"11228","plants",4,NA,NA
+"11228","global",61,TRUE,TRUE
+"11446","microbes",42,NA,NA
+"11446","plants",3,NA,NA
+"11446","global",130,TRUE,FALSE
+"11446","personal care product",107,NA,NA
+"1150","global",4,TRUE,FALSE
+"1150","personal care product",30,NA,NA
+"11588","microbes",26,NA,NA
+"11588","plants",2,NA,NA
+"11588","global",16,TRUE,FALSE
+"11588","personal care product",39,NA,NA
+"11637","food",32,NA,NA
+"11637","microbes",3,NA,NA
+"11637","plants",12,NA,NA
+"11637","global",38,TRUE,TRUE
+"11637","personal care product",105,NA,NA
+"11764","microbes",30,NA,NA
+"11764","plants",5,NA,NA
+"11764","global",288,TRUE,TRUE
+"11764","personal care product",158,NA,NA
+"1178","food",423,NA,NA
+"1178","microbes",1826,NA,NA
+"1178","plants",928,NA,NA
+"1178","global",1961,TRUE,TRUE
+"1178","personal care product",15,NA,NA
+"1178","microbiome",157,NA,NA
+"11856","microbes",54,NA,NA
+"11856","plants",24,NA,NA
+"11856","global",19,TRUE,TRUE
+"11856","personal care product",1,NA,NA
+"11925","food",65,NA,NA
+"11925","microbes",1,NA,NA
+"11925","plants",209,NA,NA
+"11925","global",214,TRUE,TRUE
+"11957","microbes",55,NA,NA
+"11957","plants",5,NA,NA
+"11957","global",319,TRUE,FALSE
+"11957","personal care product",160,NA,NA
+"1197","food",2,NA,NA
+"1197","microbes",547,NA,NA
+"1197","plants",447,NA,NA
+"1197","global",37,TRUE,TRUE
+"1197","microbiome",67,NA,NA
+"11982","microbes",87,NA,NA
+"11982","plants",4,NA,NA
+"11982","global",469,TRUE,TRUE
+"11982","personal care product",149,NA,NA
+"12148","microbes",51,NA,NA
+"12148","plants",7,NA,NA
+"12148","global",394,TRUE,FALSE
+"12148","personal care product",169,NA,NA
+"12162","microbes",98,NA,NA
+"12162","plants",7,NA,NA
+"12162","global",563,TRUE,TRUE
+"12162","personal care product",198,NA,NA
+"12286","microbes",120,NA,NA
+"12286","plants",2,NA,NA
+"12286","global",188,TRUE,TRUE
+"12286","personal care product",25,NA,NA
+"12304","microbes",102,NA,NA
+"12304","plants",6,NA,NA
+"12304","global",534,TRUE,TRUE
+"12304","personal care product",233,NA,NA
+"12310","microbes",40,NA,NA
+"12310","plants",5,NA,NA
+"12310","global",353,TRUE,FALSE
+"12310","personal care product",135,NA,NA
+"12419","microbes",86,NA,NA
+"12419","plants",5,NA,NA
+"12419","global",585,TRUE,TRUE
+"12419","personal care product",212,NA,NA
+"12551","microbes",82,NA,NA
+"12551","plants",6,NA,NA
+"12551","global",555,TRUE,TRUE
+"12551","personal care product",198,NA,NA
+"12678","microbes",70,NA,NA
+"12678","plants",6,NA,NA
+"12678","global",644,TRUE,TRUE
+"12678","personal care product",198,NA,NA
+"12715","food",2,NA,NA
+"12715","microbes",9,NA,NA
+"12715","plants",1,NA,NA
+"12715","global",48,TRUE,TRUE
+"12715","personal care product",1,NA,NA
+"1275","microbes",19,NA,NA
+"1275","plants",3,NA,NA
+"1275","global",84,TRUE,FALSE
+"12785","microbes",55,NA,NA
+"12785","plants",8,NA,NA
+"12785","global",3,TRUE,FALSE
+"12808","microbes",64,NA,NA
+"12808","global",540,TRUE,TRUE
+"12808","personal care product",207,NA,NA
+"12931","microbes",57,NA,NA
+"12931","plants",1,NA,NA
+"12931","global",552,TRUE,TRUE
+"12931","personal care product",189,NA,NA
+"12982","microbes",374,NA,NA
+"12982","plants",22,NA,NA
+"12982","global",2359,TRUE,TRUE
+"12982","personal care product",305,NA,NA
+"12982","microbiome",45,NA,NA
+"13024","plants",6,NA,NA
+"13024","global",158,TRUE,TRUE
+"13049","microbes",52,NA,NA
+"13049","global",524,TRUE,TRUE
+"13049","personal care product",185,NA,NA
+"13083","microbes",4,NA,NA
+"13083","global",96,TRUE,TRUE
+"13083","personal care product",135,NA,NA
+"13144","microbes",37,NA,NA
+"13144","global",507,TRUE,TRUE
+"13144","personal care product",196,NA,NA
+"13173","microbes",46,NA,NA
+"13173","global",480,TRUE,TRUE
+"13173","personal care product",148,NA,NA
+"13269","microbes",37,NA,NA
+"13269","global",175,TRUE,FALSE
+"13269","personal care product",122,NA,NA
+"13288","microbes",81,NA,NA
+"13288","plants",6,NA,NA
+"13288","global",481,TRUE,TRUE
+"13288","personal care product",165,NA,NA
+"13324","microbes",164,NA,NA
+"13324","plants",11,NA,NA
+"13324","global",2191,TRUE,TRUE
+"13324","personal care product",288,NA,NA
+"13324","microbiome",72,NA,NA
+"13332","microbes",584,NA,NA
+"13332","plants",29,NA,NA
+"13332","global",2228,TRUE,TRUE
+"13332","personal care product",357,NA,NA
+"13332","microbiome",34,NA,NA
+"13353","microbes",41,NA,NA
+"13353","global",223,TRUE,TRUE
+"13353","personal care product",179,NA,NA
+"13359","plants",22,NA,NA
+"13359","global",1,FALSE,FALSE
+"13558","food",15,NA,NA
+"13558","microbes",6,NA,NA
+"13558","plants",3,NA,NA
+"13558","global",82,TRUE,TRUE
+"1363","microbes",7,NA,NA
+"1363","global",87,TRUE,TRUE
+"1368","food",51,NA,NA
+"1368","microbes",2305,NA,NA
+"1368","plants",1024,NA,NA
+"1368","global",1631,TRUE,FALSE
+"1368","personal care product",91,NA,NA
+"1368","microbiome",370,NA,NA
+"13954","microbes",187,NA,NA
+"13954","plants",14,NA,NA
+"13954","global",2184,TRUE,TRUE
+"13954","personal care product",291,NA,NA
+"13954","microbiome",75,NA,NA
+"14052","microbes",15,NA,NA
+"14052","plants",1,NA,NA
+"14052","global",1060,TRUE,TRUE
+"14052","personal care product",221,NA,NA
+"14052","microbiome",4,NA,NA
+"141","food",12,NA,NA
+"141","microbes",288,NA,NA
+"141","plants",354,NA,NA
+"141","global",152,TRUE,FALSE
+"141","personal care product",12,NA,NA
+"141","microbiome",167,NA,NA
+"14130","microbes",57,NA,NA
+"14130","global",866,TRUE,TRUE
+"14130","personal care product",301,NA,NA
+"14130","microbiome",74,NA,NA
+"14175","microbes",2,NA,NA
+"14175","plants",12,NA,NA
+"14175","global",30,TRUE,TRUE
+"14195","microbes",1,NA,NA
+"14195","global",21,TRUE,TRUE
+"14195","personal care product",92,NA,NA
+"14385","microbes",146,NA,NA
+"14385","global",811,TRUE,TRUE
+"14385","personal care product",266,NA,NA
+"14385","microbiome",55,NA,NA
+"14390","microbes",317,NA,NA
+"14390","plants",67,NA,NA
+"14390","global",358,TRUE,FALSE
+"14390","personal care product",11,NA,NA
+"14390","microbiome",27,NA,NA
+"14468","microbes",208,NA,NA
+"14468","global",712,TRUE,TRUE
+"14468","personal care product",288,NA,NA
+"14468","microbiome",108,NA,NA
+"14526","microbes",1,NA,NA
+"14526","global",5,TRUE,FALSE
+"14526","personal care product",42,NA,NA
+"14533","microbes",37,NA,NA
+"14533","plants",1,NA,NA
+"14533","global",5,TRUE,FALSE
+"14533","personal care product",5,NA,NA
+"14573","microbes",5,NA,NA
+"14573","global",9,TRUE,TRUE
+"14573","personal care product",2,NA,NA
+"14581","microbes",247,NA,NA
+"14581","global",595,TRUE,TRUE
+"14581","personal care product",265,NA,NA
+"14581","microbiome",122,NA,NA
+"14590","microbes",99,NA,NA
+"14590","plants",6,NA,NA
+"14590","global",1757,TRUE,TRUE
+"14590","personal care product",273,NA,NA
+"14590","microbiome",54,NA,NA
+"1462","microbes",3,NA,NA
+"1462","plants",5,NA,NA
+"1462","global",24,TRUE,FALSE
+"1462","personal care product",1,NA,NA
+"147","food",1,NA,NA
+"147","plants",5,NA,NA
+"147","global",5,TRUE,TRUE
+"1470","food",267,NA,NA
+"1470","microbes",421,NA,NA
+"1470","plants",154,NA,NA
+"1470","global",1907,TRUE,TRUE
+"1470","personal care product",1,NA,NA
+"1470","microbiome",13,NA,NA
+"14802","microbes",4,NA,NA
+"14802","global",30,TRUE,TRUE
+"14802","personal care product",7,NA,NA
+"1485","microbes",161,NA,NA
+"1485","global",5,TRUE,FALSE
+"1485","personal care product",2,NA,NA
+"1485","microbiome",43,NA,NA
+"14953","microbes",793,NA,NA
+"14953","plants",310,NA,NA
+"14953","global",2033,TRUE,TRUE
+"14953","personal care product",15,NA,NA
+"15063","food",0,NA,NA
+"15063","microbes",109,NA,NA
+"15063","plants",78,NA,NA
+"15063","global",951,TRUE,TRUE
+"15063","personal care product",67,NA,NA
+"15224","microbes",2,NA,NA
+"15224","global",44,TRUE,FALSE
+"15224","personal care product",1,NA,NA
+"15224","microbiome",7,NA,NA
+"1546","food",3,NA,NA
+"1546","microbes",168,NA,NA
+"1546","plants",2,NA,NA
+"1546","global",6,TRUE,FALSE
+"1546","microbiome",1,NA,NA
+"15519","microbes",79,NA,NA
+"15519","plants",2,NA,NA
+"15519","global",3,TRUE,FALSE
+"15519","personal care product",3,NA,NA
+"15653","microbes",5,NA,NA
+"15653","global",4,TRUE,FALSE
+"15653","personal care product",11,NA,NA
+"15670","microbes",1,NA,NA
+"15670","plants",3,NA,NA
+"15670","global",334,TRUE,TRUE
+"1573","food",382,NA,NA
+"1573","microbes",801,NA,NA
+"1573","plants",818,NA,NA
+"1573","global",1042,TRUE,TRUE
+"1573","personal care product",11,NA,NA
+"1573","microbiome",134,NA,NA
+"15743","microbes",5,NA,NA
+"15743","global",32,TRUE,TRUE
+"15743","personal care product",33,NA,NA
+"15743","microbiome",45,NA,NA
+"15770","food",5,NA,NA
+"15770","microbes",406,NA,NA
+"15770","plants",14,NA,NA
+"15770","global",948,TRUE,TRUE
+"15866","microbes",2,NA,NA
+"15866","global",2,TRUE,FALSE
+"15866","personal care product",2,NA,NA
+"15873","plants",29,NA,NA
+"15873","global",118,TRUE,TRUE
+"15873","personal care product",17,NA,NA
+"16027","food",2,NA,NA
+"16027","plants",5,NA,NA
+"16027","global",13,TRUE,TRUE
+"16027","personal care product",6,NA,NA
+"16243","global",11,TRUE,FALSE
+"16243","microbiome",2,NA,NA
+"16443","microbes",19,NA,NA
+"16443","global",18,TRUE,FALSE
+"16443","personal care product",39,NA,NA
+"16443","microbiome",32,NA,NA
+"1661","plants",1,NA,NA
+"1661","global",10,TRUE,TRUE
+"1662","food",2,NA,NA
+"1662","microbes",3,NA,NA
+"1662","global",38,TRUE,TRUE
+"17079","microbes",1,NA,NA
+"17079","plants",8,NA,NA
+"17079","global",1187,TRUE,TRUE
+"17141","global",1,TRUE,FALSE
+"17141","personal care product",1,NA,NA
+"17958","food",15,NA,NA
+"17958","plants",622,NA,NA
+"17958","personal care product",8,NA,NA
+"17972","microbes",1,NA,NA
+"17972","plants",3,NA,NA
+"17972","global",793,TRUE,TRUE
+"18141","plants",6,NA,NA
+"18141","global",209,TRUE,TRUE
+"18152","food",1,NA,NA
+"18152","microbes",2,NA,NA
+"18152","plants",315,NA,NA
+"18152","global",339,TRUE,TRUE
+"18152","personal care product",35,NA,NA
+"1821","food",12,NA,NA
+"1821","microbes",130,NA,NA
+"1821","plants",34,NA,NA
+"1821","global",414,TRUE,TRUE
+"1821","personal care product",3,NA,NA
+"1821","microbiome",12,NA,NA
+"18373","food",61,NA,NA
+"18373","microbes",74,NA,NA
+"18373","plants",68,NA,NA
+"18373","global",280,TRUE,TRUE
+"18373","personal care product",177,NA,NA
+"18373","microbiome",4,NA,NA
+"18481","food",6,NA,NA
+"18481","microbes",440,NA,NA
+"18481","plants",886,NA,NA
+"18481","global",1922,TRUE,TRUE
+"18481","personal care product",262,NA,NA
+"18481","microbiome",159,NA,NA
+"18499","food",2,NA,NA
+"18499","microbes",83,NA,NA
+"18499","plants",98,NA,NA
+"18499","global",67,TRUE,TRUE
+"18499","personal care product",19,NA,NA
+"18532","food",3,NA,NA
+"18532","microbes",4,NA,NA
+"18532","plants",1,NA,NA
+"18532","global",1218,TRUE,TRUE
+"18862","personal care product",1,NA,NA
+"18862","microbiome",1,NA,NA
+"1894","plants",27,NA,NA
+"1894","global",2,TRUE,TRUE
+"18961","food",1,NA,NA
+"18961","microbes",176,NA,NA
+"18961","plants",45,NA,NA
+"18961","global",1556,TRUE,TRUE
+"18961","personal care product",28,NA,NA
+"18961","microbiome",171,NA,NA
+"19003","plants",6,NA,NA
+"19003","global",63,TRUE,TRUE
+"19003","personal care product",6,NA,NA
+"1903","food",3,NA,NA
+"1903","microbes",350,NA,NA
+"1903","plants",80,NA,NA
+"1903","global",744,TRUE,FALSE
+"1903","personal care product",1,NA,NA
+"1903","microbiome",38,NA,NA
+"19183","microbes",14,NA,NA
+"19183","plants",2,NA,NA
+"19183","global",10,TRUE,FALSE
+"19366","food",1,NA,NA
+"19366","global",9,TRUE,TRUE
+"19386","microbes",6,NA,NA
+"19386","plants",6,NA,NA
+"19386","global",1778,TRUE,TRUE
+"19386","personal care product",1,NA,NA
+"19517","microbes",5,NA,NA
+"19517","plants",20,NA,NA
+"19517","global",5,TRUE,FALSE
+"19710","microbes",3,NA,NA
+"19710","plants",65,NA,NA
+"19710","personal care product",6,NA,NA
+"19926","food",3,NA,NA
+"19926","microbes",100,NA,NA
+"19926","plants",89,NA,NA
+"19926","global",34,TRUE,TRUE
+"19926","personal care product",14,NA,NA
+"1996","global",4,TRUE,TRUE
+"1996","personal care product",1,NA,NA
+"20282","plants",1,NA,NA
+"20282","global",249,TRUE,TRUE
+"2030","global",1,TRUE,FALSE
+"2030","microbiome",2,NA,NA
+"20515","plants",92,NA,NA
+"20515","global",72,TRUE,TRUE
+"20515","personal care product",25,NA,NA
+"20532","microbes",1,NA,NA
+"20532","global",131,TRUE,TRUE
+"20532","personal care product",4,NA,NA
+"20623","food",1,NA,NA
+"20623","microbes",109,NA,NA
+"20623","plants",38,NA,NA
+"20623","global",1040,TRUE,TRUE
+"20623","personal care product",12,NA,NA
+"20623","microbiome",1,NA,NA
+"2078","food",543,NA,NA
+"2078","microbes",1381,NA,NA
+"2078","plants",1560,NA,NA
+"2078","global",4971,TRUE,TRUE
+"2078","personal care product",1,NA,NA
+"2078","microbiome",161,NA,NA
+"21324","plants",1,NA,NA
+"21324","global",76,TRUE,TRUE
+"21377","global",3,TRUE,FALSE
+"21377","personal care product",24,NA,NA
+"21421","food",20,NA,NA
+"21421","microbes",8,NA,NA
+"21421","plants",10,NA,NA
+"21421","global",62,TRUE,TRUE
+"215","plants",38,NA,NA
+"215","global",4,TRUE,TRUE
+"2153","plants",1,NA,NA
+"2153","global",91,TRUE,TRUE
+"21634","microbes",1,NA,NA
+"21634","global",240,TRUE,TRUE
+"21638","microbes",8,NA,NA
+"21638","plants",2,NA,NA
+"21638","global",1077,TRUE,TRUE
+"21641","microbes",6,NA,NA
+"21641","plants",2,NA,NA
+"21641","global",709,TRUE,TRUE
+"2167","food",1,NA,NA
+"2167","microbes",1,NA,NA
+"2167","plants",2,NA,NA
+"2167","global",200,TRUE,TRUE
+"21714","plants",1,NA,NA
+"21714","global",701,TRUE,TRUE
+"21740","microbes",1,NA,NA
+"21740","global",6,TRUE,TRUE
+"21746","food",37,NA,NA
+"21746","microbes",547,NA,NA
+"21746","plants",40,NA,NA
+"21746","global",1290,TRUE,TRUE
+"21794","food",1,NA,NA
+"21794","microbes",2,NA,NA
+"21794","plants",25,NA,NA
+"21794","global",120,TRUE,TRUE
+"22234","food",8,NA,NA
+"22234","microbes",20,NA,NA
+"22234","plants",1,NA,NA
+"22234","global",1110,TRUE,TRUE
+"224","microbes",68,NA,NA
+"224","plants",709,NA,NA
+"224","global",103,TRUE,TRUE
+"224","microbiome",19,NA,NA
+"22924","food",1,NA,NA
+"22924","microbes",69,NA,NA
+"22924","plants",32,NA,NA
+"22924","global",976,TRUE,TRUE
+"22924","personal care product",12,NA,NA
+"22958","food",156,NA,NA
+"22958","microbes",2155,NA,NA
+"22958","plants",1854,NA,NA
+"22958","global",5200,TRUE,TRUE
+"22958","personal care product",19,NA,NA
+"22958","microbiome",45,NA,NA
+"23155","plants",9,NA,NA
+"23155","global",111,TRUE,TRUE
+"23155","personal care product",17,NA,NA
+"23230","microbes",115,NA,NA
+"23230","plants",1120,NA,NA
+"23230","global",188,TRUE,TRUE
+"23230","personal care product",114,NA,NA
+"23230","microbiome",198,NA,NA
+"23549","microbes",117,NA,NA
+"23549","plants",566,NA,NA
+"23549","global",105,TRUE,FALSE
+"23549","personal care product",37,NA,NA
+"2372","food",76,NA,NA
+"2372","microbes",306,NA,NA
+"2372","plants",259,NA,NA
+"2372","global",679,TRUE,TRUE
+"2372","personal care product",1,NA,NA
+"2372","microbiome",43,NA,NA
+"23737","food",1,NA,NA
+"23737","microbes",47,NA,NA
+"23737","plants",16,NA,NA
+"23737","global",942,TRUE,TRUE
+"23737","personal care product",12,NA,NA
+"23756","microbes",1,NA,NA
+"23756","plants",1,NA,NA
+"23756","global",20,TRUE,TRUE
+"23839","food",10,NA,NA
+"23839","microbes",1070,NA,NA
+"23839","plants",1835,NA,NA
+"23839","global",3368,TRUE,TRUE
+"23937","food",1,NA,NA
+"23937","microbes",81,NA,NA
+"23937","plants",182,NA,NA
+"23937","global",277,TRUE,TRUE
+"23937","personal care product",4,NA,NA
+"23947","microbes",6,NA,NA
+"23947","global",4,TRUE,FALSE
+"23947","personal care product",19,NA,NA
+"24042","food",12,NA,NA
+"24042","microbes",715,NA,NA
+"24042","plants",666,NA,NA
+"24042","global",691,TRUE,TRUE
+"24042","personal care product",3,NA,NA
+"24042","microbiome",258,NA,NA
+"24065","microbes",24,NA,NA
+"24065","global",83,TRUE,TRUE
+"24091","food",2,NA,NA
+"24091","microbes",13,NA,NA
+"24091","plants",12,NA,NA
+"24091","global",278,TRUE,TRUE
+"24091","personal care product",56,NA,NA
+"24184","microbes",38,NA,NA
+"24184","global",146,TRUE,TRUE
+"24353","microbes",129,NA,NA
+"24353","plants",37,NA,NA
+"24353","global",67,TRUE,TRUE
+"24353","personal care product",2,NA,NA
+"24353","microbiome",5,NA,NA
+"24391","food",1,NA,NA
+"24391","microbes",499,NA,NA
+"24391","plants",91,NA,NA
+"24391","global",481,TRUE,TRUE
+"24391","personal care product",14,NA,NA
+"24429","microbes",66,NA,NA
+"24429","plants",1,NA,NA
+"24429","global",1475,TRUE,TRUE
+"24484","microbes",265,NA,NA
+"24484","plants",101,NA,NA
+"24484","global",141,TRUE,TRUE
+"24484","personal care product",3,NA,NA
+"24484","microbiome",88,NA,NA
+"24497","microbes",542,NA,NA
+"24497","plants",3,NA,NA
+"24497","global",1459,TRUE,TRUE
+"24584","microbes",347,NA,NA
+"24584","plants",175,NA,NA
+"24584","global",193,TRUE,TRUE
+"24584","personal care product",4,NA,NA
+"24584","microbiome",181,NA,NA
+"24632","microbes",20,NA,NA
+"24632","global",5,TRUE,FALSE
+"24632","personal care product",10,NA,NA
+"24653","food",1,NA,NA
+"24653","microbes",223,NA,NA
+"24653","global",94,TRUE,TRUE
+"24653","personal care product",50,NA,NA
+"24765","microbes",46,NA,NA
+"24765","global",40,TRUE,TRUE
+"24765","personal care product",4,NA,NA
+"24828","food",1,NA,NA
+"24828","microbes",186,NA,NA
+"24828","global",182,TRUE,TRUE
+"24828","personal care product",36,NA,NA
+"24867","food",1,NA,NA
+"24867","microbes",1520,NA,NA
+"24867","plants",1628,NA,NA
+"24867","global",2802,TRUE,TRUE
+"24867","personal care product",8,NA,NA
+"24867","microbiome",78,NA,NA
+"24906","microbes",1122,NA,NA
+"24906","plants",690,NA,NA
+"24906","global",2177,TRUE,TRUE
+"24906","personal care product",10,NA,NA
+"24906","microbiome",6,NA,NA
+"24979","microbes",12,NA,NA
+"24979","global",3,TRUE,FALSE
+"24992","microbes",558,NA,NA
+"24992","plants",453,NA,NA
+"24992","global",529,TRUE,TRUE
+"24992","personal care product",4,NA,NA
+"24992","microbiome",252,NA,NA
+"25229","microbes",14,NA,NA
+"25229","global",946,TRUE,TRUE
+"25229","personal care product",1,NA,NA
+"25256","global",2,TRUE,FALSE
+"25256","personal care product",8,NA,NA
+"25280","microbes",28,NA,NA
+"25280","plants",10,NA,NA
+"25280","global",276,TRUE,TRUE
+"25280","personal care product",1,NA,NA
+"25285","food",0,NA,NA
+"25285","microbes",1521,NA,NA
+"25285","plants",1471,NA,NA
+"25285","global",2535,TRUE,TRUE
+"25285","personal care product",12,NA,NA
+"25285","microbiome",20,NA,NA
+"25288","food",1,NA,NA
+"25288","microbes",559,NA,NA
+"25288","plants",105,NA,NA
+"25288","global",701,TRUE,TRUE
+"25288","personal care product",13,NA,NA
+"25288","microbiome",1,NA,NA
+"25374","microbes",122,NA,NA
+"25374","global",1,TRUE,FALSE
+"25421","microbes",14,NA,NA
+"25421","global",13,TRUE,TRUE
+"25423","microbes",59,NA,NA
+"25423","global",138,TRUE,TRUE
+"25423","personal care product",58,NA,NA
+"25640","global",267,TRUE,TRUE
+"25640","personal care product",13,NA,NA
+"25665","plants",1,NA,NA
+"25665","global",689,TRUE,TRUE
+"25665","personal care product",14,NA,NA
+"25743","microbes",49,NA,NA
+"25743","global",444,TRUE,TRUE
+"261","microbes",271,NA,NA
+"261","plants",26,NA,NA
+"261","global",29,TRUE,TRUE
+"261","personal care product",237,NA,NA
+"2617","food",1198,NA,NA
+"2617","microbes",2785,NA,NA
+"2617","plants",1170,NA,NA
+"2617","global",2262,TRUE,TRUE
+"2617","personal care product",12,NA,NA
+"2617","microbiome",158,NA,NA
+"26277","food",1,NA,NA
+"26277","microbes",251,NA,NA
+"26277","plants",7,NA,NA
+"26277","global",763,TRUE,TRUE
+"26277","personal care product",75,NA,NA
+"26314","plants",1,NA,NA
+"26314","global",18,TRUE,TRUE
+"26314","personal care product",7,NA,NA
+"26441","microbes",4,NA,NA
+"26441","plants",1,NA,NA
+"26441","global",1225,TRUE,TRUE
+"26441","personal care product",25,NA,NA
+"26782","microbes",2,NA,NA
+"26782","global",458,TRUE,TRUE
+"26782","personal care product",46,NA,NA
+"26788","microbes",44,NA,NA
+"26788","plants",10,NA,NA
+"26788","global",176,TRUE,TRUE
+"26788","personal care product",67,NA,NA
+"27087","microbes",3,NA,NA
+"27087","plants",2,NA,NA
+"27087","global",42,TRUE,FALSE
+"27139","microbes",292,NA,NA
+"27139","plants",66,NA,NA
+"27139","global",2058,TRUE,TRUE
+"27139","personal care product",26,NA,NA
+"27353","food",1,NA,NA
+"27353","microbes",33,NA,NA
+"27353","plants",1,NA,NA
+"27353","global",320,TRUE,TRUE
+"27455","microbes",52,NA,NA
+"27455","plants",3,NA,NA
+"27455","global",681,TRUE,TRUE
+"27455","personal care product",40,NA,NA
+"27506","food",1,NA,NA
+"27506","microbes",80,NA,NA
+"27506","global",255,TRUE,TRUE
+"27506","personal care product",51,NA,NA
+"27585","microbes",10,NA,NA
+"27585","global",79,TRUE,TRUE
+"27585","personal care product",9,NA,NA
+"27650","microbes",19,NA,NA
+"27650","global",72,TRUE,TRUE
+"27650","personal care product",7,NA,NA
+"27716","food",1,NA,NA
+"27716","microbes",8,NA,NA
+"27716","global",1229,TRUE,TRUE
+"27716","personal care product",5,NA,NA
+"27758","microbes",633,NA,NA
+"27758","plants",649,NA,NA
+"27758","global",2513,TRUE,TRUE
+"27758","personal care product",39,NA,NA
+"27768","food",2,NA,NA
+"27768","microbes",183,NA,NA
+"27768","plants",9,NA,NA
+"27768","global",207,TRUE,TRUE
+"27768","personal care product",31,NA,NA
+"27809","microbes",53,NA,NA
+"27809","plants",6,NA,NA
+"27809","global",544,TRUE,TRUE
+"27809","personal care product",9,NA,NA
+"27827","microbes",57,NA,NA
+"27827","plants",616,NA,NA
+"27827","global",84,TRUE,TRUE
+"27906","microbes",9,NA,NA
+"27906","global",138,TRUE,TRUE
+"27906","personal care product",1,NA,NA
+"28032","food",45,NA,NA
+"28032","microbes",81,NA,NA
+"28032","plants",35,NA,NA
+"28032","global",1040,TRUE,TRUE
+"28040","food",2,NA,NA
+"28040","microbes",44,NA,NA
+"28040","plants",951,NA,NA
+"28040","global",563,TRUE,FALSE
+"28091","microbes",3,NA,NA
+"28091","global",1,TRUE,FALSE
+"28112","microbes",429,NA,NA
+"28112","plants",159,NA,NA
+"28112","global",2444,TRUE,TRUE
+"28112","personal care product",67,NA,NA
+"28143","food",1,NA,NA
+"28143","microbes",193,NA,NA
+"28143","plants",343,NA,NA
+"28143","global",492,TRUE,TRUE
+"28159","food",1,NA,NA
+"28159","microbes",17,NA,NA
+"28159","plants",2,NA,NA
+"28159","global",396,TRUE,TRUE
+"28159","personal care product",1,NA,NA
+"28178","microbes",4,NA,NA
+"28178","global",3,TRUE,TRUE
+"28185","microbes",9,NA,NA
+"28185","global",37,TRUE,TRUE
+"28185","personal care product",38,NA,NA
+"28239","microbes",4,NA,NA
+"28239","global",54,TRUE,TRUE
+"28239","personal care product",3,NA,NA
+"28239","microbiome",56,NA,NA
+"28271","microbes",14,NA,NA
+"28271","global",58,TRUE,TRUE
+"28271","personal care product",39,NA,NA
+"28290","food",1,NA,NA
+"28290","microbes",600,NA,NA
+"28290","plants",433,NA,NA
+"28290","global",3079,TRUE,TRUE
+"28290","personal care product",80,NA,NA
+"28290","microbiome",0,NA,NA
+"28301","food",1,NA,NA
+"28301","microbes",170,NA,NA
+"28301","plants",43,NA,NA
+"28301","global",1231,TRUE,TRUE
+"28301","personal care product",57,NA,NA
+"28335","microbes",5,NA,NA
+"28335","global",3,TRUE,TRUE
+"28335","personal care product",1,NA,NA
+"28356","food",1,NA,NA
+"28356","microbes",6,NA,NA
+"28356","global",168,TRUE,TRUE
+"28356","personal care product",1,NA,NA
+"28366","microbes",7,NA,NA
+"28366","global",65,TRUE,TRUE
+"28366","personal care product",39,NA,NA
+"28434","microbes",175,NA,NA
+"28434","plants",33,NA,NA
+"28434","global",1290,TRUE,TRUE
+"28434","personal care product",51,NA,NA
+"28443","microbes",6,NA,NA
+"28443","global",61,TRUE,TRUE
+"28443","personal care product",45,NA,NA
+"28493","microbes",10,NA,NA
+"28493","global",3,TRUE,FALSE
+"28493","personal care product",1,NA,NA
+"28566","microbes",6,NA,NA
+"28566","global",1,TRUE,FALSE
+"28566","personal care product",1,NA,NA
+"28683","microbes",6,NA,NA
+"28683","global",4,TRUE,TRUE
+"28683","personal care product",4,NA,NA
+"28709","microbes",11,NA,NA
+"28709","global",75,TRUE,TRUE
+"28709","personal care product",49,NA,NA
+"28714","plants",1,NA,NA
+"28714","global",5,TRUE,TRUE
+"28809","global",58,TRUE,TRUE
+"28809","personal care product",1,NA,NA
+"28815","microbes",31,NA,NA
+"28815","global",3,TRUE,FALSE
+"28815","personal care product",54,NA,NA
+"28856","microbes",2,NA,NA
+"28856","global",2,TRUE,FALSE
+"28856","personal care product",1,NA,NA
+"28910","microbes",5,NA,NA
+"28910","global",120,TRUE,FALSE
+"29029","microbes",13,NA,NA
+"29029","plants",1,NA,NA
+"29029","global",160,TRUE,FALSE
+"29029","personal care product",4,NA,NA
+"29043","microbes",27,NA,NA
+"29043","global",11,TRUE,FALSE
+"29043","personal care product",34,NA,NA
+"29058","food",71,NA,NA
+"29058","microbes",1,NA,NA
+"29058","plants",50,NA,NA
+"29058","global",512,TRUE,TRUE
+"29059","microbes",73,NA,NA
+"29059","plants",100,NA,NA
+"29059","global",532,TRUE,TRUE
+"29065","microbes",2,NA,NA
+"29065","global",5,TRUE,TRUE
+"29065","personal care product",1,NA,NA
+"29127","plants",1,NA,NA
+"29127","global",255,TRUE,FALSE
+"29127","personal care product",4,NA,NA
+"29130","plants",1,NA,NA
+"29130","global",71,TRUE,TRUE
+"29160","microbes",1,NA,NA
+"29160","global",10,TRUE,TRUE
+"29160","personal care product",1,NA,NA
+"29236","global",11,TRUE,FALSE
+"29236","personal care product",9,NA,NA
+"29240","microbes",44,NA,NA
+"29240","global",33,TRUE,TRUE
+"29240","personal care product",38,NA,NA
+"29244","global",53,TRUE,TRUE
+"29244","personal care product",37,NA,NA
+"29246","global",19,TRUE,FALSE
+"29246","personal care product",4,NA,NA
+"29351","global",33,TRUE,FALSE
+"29351","personal care product",13,NA,NA
+"29376","microbes",4,NA,NA
+"29376","global",114,TRUE,TRUE
+"29376","personal care product",56,NA,NA
+"29416","microbes",69,NA,NA
+"29416","global",87,TRUE,FALSE
+"29416","personal care product",1,NA,NA
+"29424","microbes",48,NA,NA
+"29424","global",260,TRUE,FALSE
+"29424","personal care product",9,NA,NA
+"29440","microbes",22,NA,NA
+"29440","plants",31,NA,NA
+"29440","global",42,TRUE,TRUE
+"29567","plants",1,NA,NA
+"29567","global",46,TRUE,TRUE
+"29604","food",1,NA,NA
+"29604","microbes",6,NA,NA
+"29604","global",1645,TRUE,TRUE
+"29604","personal care product",10,NA,NA
+"29625","microbes",11,NA,NA
+"29625","plants",2,NA,NA
+"29625","global",21,TRUE,TRUE
+"29625","personal care product",28,NA,NA
+"29687","food",2,NA,NA
+"29687","microbes",103,NA,NA
+"29687","plants",15,NA,NA
+"29687","global",164,TRUE,TRUE
+"29687","personal care product",63,NA,NA
+"2969","food",2573,NA,NA
+"2969","microbes",7905,NA,NA
+"2969","plants",4132,NA,NA
+"2969","global",14623,TRUE,TRUE
+"2969","personal care product",85,NA,NA
+"2969","microbiome",371,NA,NA
+"29765","microbes",3,NA,NA
+"29765","global",3,TRUE,TRUE
+"29819","microbes",19,NA,NA
+"29819","global",2,TRUE,FALSE
+"29819","personal care product",10,NA,NA
+"29821","food",2,NA,NA
+"29821","microbes",153,NA,NA
+"29821","plants",13,NA,NA
+"29821","global",288,TRUE,TRUE
+"29821","personal care product",53,NA,NA
+"29896","food",1,NA,NA
+"29896","microbes",2,NA,NA
+"29896","plants",4,NA,NA
+"29896","global",5,TRUE,FALSE
+"29896","personal care product",6,NA,NA
+"29954","microbes",80,NA,NA
+"29954","global",246,TRUE,FALSE
+"29954","personal care product",1,NA,NA
+"30061","microbes",12,NA,NA
+"30061","plants",1,NA,NA
+"30061","global",18,TRUE,TRUE
+"30061","personal care product",1,NA,NA
+"30095","global",4,TRUE,FALSE
+"30095","personal care product",4,NA,NA
+"30145","plants",52,NA,NA
+"30145","global",16,TRUE,FALSE
+"30218","microbes",99,NA,NA
+"30218","plants",2,NA,NA
+"30218","global",111,TRUE,TRUE
+"30218","personal care product",1,NA,NA
+"30426","food",1,NA,NA
+"30426","microbes",21,NA,NA
+"30426","plants",5,NA,NA
+"30426","global",667,TRUE,TRUE
+"30426","microbiome",1,NA,NA
+"30441","plants",140,NA,NA
+"30441","global",13,TRUE,TRUE
+"30538","microbes",20,NA,NA
+"30538","global",105,TRUE,TRUE
+"30635","microbes",11,NA,NA
+"30635","plants",5,NA,NA
+"30635","global",45,TRUE,TRUE
+"30635","personal care product",39,NA,NA
+"30644","microbes",4,NA,NA
+"30644","global",24,TRUE,FALSE
+"30668","microbes",1,NA,NA
+"30668","global",13,TRUE,FALSE
+"30669","food",1,NA,NA
+"30669","microbes",250,NA,NA
+"30669","plants",24,NA,NA
+"30669","global",1587,TRUE,TRUE
+"30669","personal care product",31,NA,NA
+"30756","microbes",8,NA,NA
+"30756","plants",1,NA,NA
+"30756","global",147,TRUE,TRUE
+"30756","personal care product",1,NA,NA
+"30794","microbes",23,NA,NA
+"30794","plants",2,NA,NA
+"30794","global",79,TRUE,TRUE
+"30794","personal care product",1,NA,NA
+"30901","food",1,NA,NA
+"30901","microbes",1108,NA,NA
+"30901","plants",116,NA,NA
+"30901","global",2361,TRUE,TRUE
+"30901","personal care product",42,NA,NA
+"30901","microbiome",3,NA,NA
+"30906","plants",1,NA,NA
+"30906","global",13,TRUE,TRUE
+"31119","microbes",24,NA,NA
+"31119","global",32,TRUE,TRUE
+"31119","personal care product",1,NA,NA
+"31134","microbes",24,NA,NA
+"31134","plants",140,NA,NA
+"31134","global",537,TRUE,TRUE
+"31134","personal care product",112,NA,NA
+"31272","food",3,NA,NA
+"31272","microbes",125,NA,NA
+"31272","plants",226,NA,NA
+"31272","global",839,TRUE,TRUE
+"31287","food",1,NA,NA
+"31287","microbes",19,NA,NA
+"31287","global",6,TRUE,TRUE
+"31292","plants",4,NA,NA
+"31292","global",1,FALSE,FALSE
+"31386","microbes",147,NA,NA
+"31386","plants",139,NA,NA
+"31386","global",326,TRUE,TRUE
+"31386","personal care product",98,NA,NA
+"31479","microbes",215,NA,NA
+"31479","plants",151,NA,NA
+"31479","global",417,TRUE,TRUE
+"31479","personal care product",100,NA,NA
+"31531","microbes",425,NA,NA
+"31531","plants",218,NA,NA
+"31531","global",743,TRUE,TRUE
+"31531","personal care product",114,NA,NA
+"31627","food",1,NA,NA
+"31627","microbes",662,NA,NA
+"31627","plants",357,NA,NA
+"31627","global",683,TRUE,TRUE
+"31627","personal care product",129,NA,NA
+"31633","microbes",341,NA,NA
+"31633","plants",291,NA,NA
+"31633","global",239,TRUE,TRUE
+"31633","personal care product",109,NA,NA
+"31664","food",0,NA,NA
+"31664","microbes",821,NA,NA
+"31664","plants",285,NA,NA
+"31664","global",661,TRUE,TRUE
+"31664","personal care product",142,NA,NA
+"31664","microbiome",1,NA,NA
+"31793","microbes",227,NA,NA
+"31793","plants",263,NA,NA
+"31793","global",540,TRUE,TRUE
+"31793","personal care product",115,NA,NA
+"31961","microbes",4,NA,NA
+"31961","global",9,TRUE,TRUE
+"31961","personal care product",2,NA,NA
+"32037","food",1,NA,NA
+"32037","microbes",768,NA,NA
+"32037","plants",296,NA,NA
+"32037","global",408,TRUE,TRUE
+"32037","personal care product",181,NA,NA
+"32037","microbiome",2,NA,NA
+"3208","food",195,NA,NA
+"3208","microbes",128,NA,NA
+"3208","plants",102,NA,NA
+"3208","global",716,TRUE,TRUE
+"3208","microbiome",27,NA,NA
+"32099","microbes",13,NA,NA
+"32099","global",267,TRUE,TRUE
+"32137","microbes",33,NA,NA
+"32137","global",145,TRUE,TRUE
+"32137","personal care product",40,NA,NA
+"32196","microbes",26,NA,NA
+"32196","global",160,TRUE,TRUE
+"32196","personal care product",39,NA,NA
+"32242","microbes",2,NA,NA
+"32242","global",4,TRUE,FALSE
+"32254","microbes",12,NA,NA
+"32254","global",106,TRUE,TRUE
+"32254","personal care product",37,NA,NA
+"32255","food",0,NA,NA
+"32255","microbes",11,NA,NA
+"32255","plants",1,NA,NA
+"32255","global",2348,TRUE,TRUE
+"32255","personal care product",10,NA,NA
+"32259","microbes",22,NA,NA
+"32259","global",81,TRUE,TRUE
+"32259","personal care product",40,NA,NA
+"32320","microbes",30,NA,NA
+"32320","global",168,TRUE,TRUE
+"32320","personal care product",45,NA,NA
+"32377","microbes",33,NA,NA
+"32377","plants",2,NA,NA
+"32377","global",193,TRUE,TRUE
+"32377","personal care product",55,NA,NA
+"32502","microbes",39,NA,NA
+"32502","global",367,TRUE,TRUE
+"32502","personal care product",56,NA,NA
+"3252","microbes",1,NA,NA
+"3252","plants",5,NA,NA
+"32527","microbes",2,NA,NA
+"32527","global",46,TRUE,TRUE
+"32527","personal care product",2,NA,NA
+"3256","microbes",1,NA,NA
+"3256","plants",1,NA,NA
+"3256","personal care product",5,NA,NA
+"3256","microbiome",1,NA,NA
+"32564","microbes",59,NA,NA
+"32564","plants",3,NA,NA
+"32564","global",622,TRUE,TRUE
+"32564","personal care product",56,NA,NA
+"3259","food",61,NA,NA
+"3259","microbes",83,NA,NA
+"3259","plants",417,NA,NA
+"3259","global",793,TRUE,TRUE
+"3259","personal care product",1,NA,NA
+"32637","microbes",81,NA,NA
+"32637","plants",5,NA,NA
+"32637","global",711,TRUE,TRUE
+"32637","personal care product",74,NA,NA
+"32684","microbes",19,NA,NA
+"32684","global",551,TRUE,TRUE
+"32700","microbes",96,NA,NA
+"32700","plants",25,NA,NA
+"32700","global",810,TRUE,TRUE
+"32700","personal care product",76,NA,NA
+"32758","microbes",125,NA,NA
+"32758","plants",47,NA,NA
+"32758","global",720,TRUE,TRUE
+"32758","personal care product",84,NA,NA
+"32825","microbes",34,NA,NA
+"32825","global",6,TRUE,TRUE
+"32888","microbes",174,NA,NA
+"32888","plants",70,NA,NA
+"32888","global",1281,TRUE,TRUE
+"32888","personal care product",82,NA,NA
+"32898","microbes",423,NA,NA
+"32898","plants",1,NA,NA
+"32898","global",31,TRUE,FALSE
+"32898","personal care product",4,NA,NA
+"32898","microbiome",0,NA,NA
+"32914","food",0,NA,NA
+"32914","microbes",17,NA,NA
+"32914","plants",30,NA,NA
+"32914","global",167,TRUE,TRUE
+"32914","personal care product",1,NA,NA
+"32952","microbes",160,NA,NA
+"32952","plants",71,NA,NA
+"32952","global",1209,TRUE,TRUE
+"32952","personal care product",78,NA,NA
+"32999","microbes",175,NA,NA
+"32999","plants",64,NA,NA
+"32999","global",1387,TRUE,TRUE
+"32999","personal care product",95,NA,NA
+"33060","microbes",19,NA,NA
+"33060","plants",1,NA,NA
+"33060","global",134,TRUE,TRUE
+"33060","personal care product",50,NA,NA
+"3400","microbes",1309,NA,NA
+"3400","plants",500,NA,NA
+"3400","global",1282,TRUE,TRUE
+"3401","microbes",5,NA,NA
+"3401","global",212,TRUE,TRUE
+"3401","personal care product",1,NA,NA
+"3496","microbes",60,NA,NA
+"3496","plants",49,NA,NA
+"3496","global",300,TRUE,TRUE
+"3496","personal care product",426,NA,NA
+"3496","microbiome",21,NA,NA
+"3545","global",3,TRUE,FALSE
+"3545","personal care product",98,NA,NA
+"379","food",3,NA,NA
+"379","microbes",206,NA,NA
+"379","plants",81,NA,NA
+"379","global",27,TRUE,FALSE
+"379","microbiome",5,NA,NA
+"3901","food",6,NA,NA
+"3901","microbes",135,NA,NA
+"3901","plants",39,NA,NA
+"3901","global",50,TRUE,FALSE
+"3936","microbes",6,NA,NA
+"3936","global",5,TRUE,FALSE
+"419","food",1,NA,NA
+"419","microbes",23,NA,NA
+"419","plants",9,NA,NA
+"419","personal care product",2,NA,NA
+"4546","food",26,NA,NA
+"4546","microbes",1148,NA,NA
+"4546","plants",25,NA,NA
+"4546","global",945,TRUE,TRUE
+"4546","personal care product",2,NA,NA
+"4546","microbiome",162,NA,NA
+"4737","food",1,NA,NA
+"4737","microbes",4,NA,NA
+"4775","plants",5,NA,NA
+"4775","global",2,TRUE,TRUE
+"4782","food",595,NA,NA
+"4782","microbes",2849,NA,NA
+"4782","plants",492,NA,NA
+"4782","global",4397,TRUE,TRUE
+"4782","personal care product",3,NA,NA
+"4782","microbiome",293,NA,NA
+"5021","microbes",8,NA,NA
+"5021","plants",19,NA,NA
+"5021","global",9,TRUE,FALSE
+"5062","microbes",3,NA,NA
+"5062","global",14,TRUE,FALSE
+"5062","personal care product",1,NA,NA
+"514","food",6,NA,NA
+"514","microbes",4,NA,NA
+"514","plants",1,NA,NA
+"514","global",46,TRUE,TRUE
+"5140","food",1,NA,NA
+"5140","global",19,TRUE,FALSE
+"5220","food",8,NA,NA
+"5220","plants",11,NA,NA
+"5220","global",160,TRUE,TRUE
+"5259","food",2,NA,NA
+"5259","plants",9,NA,NA
+"5259","global",117,TRUE,TRUE
+"5389","microbes",14,NA,NA
+"5389","global",9,TRUE,FALSE
+"5389","personal care product",2,NA,NA
+"5856","food",3,NA,NA
+"5856","microbes",92,NA,NA
+"5856","plants",13,NA,NA
+"5856","global",89,TRUE,FALSE
+"5856","personal care product",7,NA,NA
+"5873","food",9,NA,NA
+"5873","microbes",1145,NA,NA
+"5873","plants",34,NA,NA
+"5873","global",286,TRUE,TRUE
+"5873","personal care product",9,NA,NA
+"5873","microbiome",101,NA,NA
+"588","microbes",2,NA,NA
+"588","personal care product",10,NA,NA
+"5900","plants",1,NA,NA
+"5900","global",25,TRUE,FALSE
+"5919","food",1,NA,NA
+"5919","microbes",1,NA,NA
+"5919","plants",1,NA,NA
+"5919","global",37,TRUE,TRUE
+"5930","food",2444,NA,NA
+"5930","microbes",8665,NA,NA
+"5930","plants",4556,NA,NA
+"5930","global",10467,TRUE,TRUE
+"5930","personal care product",7,NA,NA
+"5930","microbiome",188,NA,NA
+"5931","food",2306,NA,NA
+"5931","microbes",8084,NA,NA
+"5931","plants",4077,NA,NA
+"5931","global",10771,TRUE,TRUE
+"5931","microbiome",175,NA,NA
+"5962","food",631,NA,NA
+"5962","microbes",2842,NA,NA
+"5962","plants",558,NA,NA
+"5962","global",5813,TRUE,TRUE
+"5962","personal care product",3,NA,NA
+"5962","microbiome",245,NA,NA
+"616","food",1,NA,NA
+"616","microbes",164,NA,NA
+"616","plants",85,NA,NA
+"616","global",82,TRUE,TRUE
+"616","personal care product",3,NA,NA
+"616","microbiome",22,NA,NA
+"6271","food",3,NA,NA
+"6271","microbes",51,NA,NA
+"6271","plants",98,NA,NA
+"6271","global",700,TRUE,TRUE
+"6307","food",133,NA,NA
+"6307","microbes",1,NA,NA
+"6307","plants",237,NA,NA
+"6307","global",100,TRUE,TRUE
+"6307","personal care product",2,NA,NA
+"6317","food",26,NA,NA
+"6317","plants",22,NA,NA
+"6317","global",36,TRUE,TRUE
+"6323","microbes",6,NA,NA
+"6323","plants",2,NA,NA
+"6323","global",66,TRUE,TRUE
+"6323","personal care product",2,NA,NA
+"6387","food",7,NA,NA
+"6387","plants",6,NA,NA
+"6387","global",4,FALSE,FALSE
+"645","food",1,NA,NA
+"645","microbes",71,NA,NA
+"645","plants",17,NA,NA
+"645","global",224,TRUE,TRUE
+"645","personal care product",1,NA,NA
+"645","microbiome",59,NA,NA
+"675","food",1,NA,NA
+"675","microbes",180,NA,NA
+"675","plants",48,NA,NA
+"675","global",140,TRUE,FALSE
+"675","personal care product",2,NA,NA
+"675","microbiome",1,NA,NA
+"6854","microbes",8,NA,NA
+"6854","global",35,TRUE,FALSE
+"6871","plants",5,NA,NA
+"6871","global",6,TRUE,TRUE
+"7083","microbes",13,NA,NA
+"7083","plants",5,NA,NA
+"7083","global",103,TRUE,TRUE
+"7083","personal care product",35,NA,NA
+"7356","microbes",1,NA,NA
+"7356","plants",14,NA,NA
+"7356","global",359,TRUE,TRUE
+"7356","microbiome",1,NA,NA
+"7415","microbes",1,NA,NA
+"7415","global",11,TRUE,TRUE
+"7417","food",1,NA,NA
+"7417","microbes",14,NA,NA
+"7417","global",131,TRUE,TRUE
+"7417","personal care product",1,NA,NA
+"760","microbes",3,NA,NA
+"760","plants",69,NA,NA
+"760","global",21,TRUE,FALSE
+"760","personal care product",11,NA,NA
+"7623","food",52,NA,NA
+"7623","plants",33,NA,NA
+"7623","global",15,TRUE,TRUE
+"771","microbes",10,NA,NA
+"771","plants",3,NA,NA
+"771","global",35,TRUE,FALSE
+"771","personal care product",3,NA,NA
+"777","microbes",2,NA,NA
+"777","plants",128,NA,NA
+"777","global",154,TRUE,FALSE
+"7778","food",1,NA,NA
+"7778","microbes",2,NA,NA
+"7778","plants",3,NA,NA
+"7778","global",8,TRUE,TRUE
+"7778","personal care product",70,NA,NA
+"7951","microbes",1,NA,NA
+"7951","plants",8,NA,NA
+"7951","global",230,TRUE,TRUE
+"7951","personal care product",4,NA,NA
+"7987","microbes",13,NA,NA
+"7987","global",61,TRUE,TRUE
+"7987","personal care product",22,NA,NA
+"8187","plants",1,NA,NA
+"8187","global",29,TRUE,TRUE
+"8225","food",2,NA,NA
+"8225","microbes",8,NA,NA
+"8225","plants",3,NA,NA
+"8225","global",71,TRUE,TRUE
+"8225","personal care product",1,NA,NA
+"823","food",2,NA,NA
+"823","plants",89,NA,NA
+"823","global",2,TRUE,FALSE
+"8265","microbes",123,NA,NA
+"8265","plants",5,NA,NA
+"8265","global",172,TRUE,TRUE
+"8265","personal care product",1,NA,NA
+"8280","microbes",29,NA,NA
+"8280","plants",12,NA,NA
+"8280","global",246,TRUE,TRUE
+"8280","personal care product",1,NA,NA
+"862","food",15,NA,NA
+"862","microbes",3903,NA,NA
+"862","plants",21,NA,NA
+"862","global",797,TRUE,TRUE
+"862","personal care product",5,NA,NA
+"862","microbiome",322,NA,NA
+"8757","plants",19,NA,NA
+"8757","global",7,TRUE,TRUE
+"888","food",1,NA,NA
+"888","microbes",6,NA,NA
+"888","plants",2,NA,NA
+"888","global",5,TRUE,FALSE
+"8937","food",37,NA,NA
+"8937","plants",155,NA,NA
+"8937","global",3,TRUE,TRUE
+"8937","personal care product",1,NA,NA
+"8993","food",3,NA,NA
+"8993","microbes",4,NA,NA
+"8993","plants",2,NA,NA
+"8993","global",3,TRUE,FALSE
+"9352","food",21,NA,NA
+"9352","microbes",111,NA,NA
+"9352","plants",15,NA,NA
+"9352","global",136,TRUE,FALSE
+"9352","personal care product",13,NA,NA
+"9353","food",5,NA,NA
+"9353","microbes",18,NA,NA
+"9353","global",10,TRUE,FALSE
+"9353","personal care product",2,NA,NA
+"9382","food",2,NA,NA
+"9382","microbes",49,NA,NA
+"9382","plants",8,NA,NA
+"9382","global",254,TRUE,TRUE
+"9382","personal care product",32,NA,NA
+"941","food",15,NA,NA
+"941","microbes",34,NA,NA
+"941","plants",4,NA,NA
+"941","global",347,TRUE,TRUE
+"941","microbiome",3,NA,NA
