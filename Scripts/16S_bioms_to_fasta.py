@@ -6,9 +6,9 @@ from biom import load_table
 
 # Input BIOMs and output FASTAs
 biom_to_fasta = {
-    "../Data/16S/Tables/179426_feature-table_16S_V1V3_rare-11054.biom":
+    "../Data/16S/Tables/from_Qiita/179426_feature-table_16S_V1V3_rare-11054.biom":
         "../Data/16S/Fasta/179426_V1V3_ASVs.fasta",
-    "../Data/16S/Tables/174951_feature-table_16S_V4_rare-3769.biom":
+    "../Data/16S/Tables/from_Qiita/174951_feature-table_16S_V4_rare-3769.biom":
         "../Data/16S/Fasta/174951_V4_ASVs.fasta",
 }
 
