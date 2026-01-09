@@ -23,14 +23,12 @@ REGIONS = {
     "V4": {
         "biom": "../Data/16S/Tables/from_Qiita/174951_feature-table_16S_V4_rare-3769.biom",
         "fasta": "../Data/16S/Fasta/174951_V4_ASVs.fasta",
-        "taxonomy": "../Analyses/16S/SEPP/174951_V4_GG2_taxonomy/taxonomy.tsv",
-        "mapping_out": "../Data/16S/ASV_to_Genus_V4.tsv"
+        "taxonomy": "../Analyses/16S/SEPP/174951_V4_GG2_taxonomy/taxonomy.tsv"
     },
     "V1-V3": {
         "biom": "../Data/16S/Tables/from_Qiita/179426_feature-table_16S_V1V3_rare-11054.biom",
         "fasta": "../Data/16S/Fasta/179426_V1V3_ASVs.fasta",
-        "taxonomy": "../Analyses/16S/SEPP/179426_V1V3_GG2_taxonomy/taxonomy.tsv",
-        "mapping_out": "../Data/16S/ASV_to_Genus_V1V3.tsv"
+        "taxonomy": "../Analyses/16S/SEPP/179426_V1V3_GG2_taxonomy/taxonomy.tsv"
     }
 }
 
@@ -74,8 +72,6 @@ for region, cfg in REGIONS.items():
         .groupby("Genus")
         .sum()
     )
-
-    meta_df.to_csv(cfg["mapping_out"], sep="\t", index=False)
 
     genus_table = biom.Table(
         genus_df.values,
