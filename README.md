@@ -1,6 +1,6 @@
 # Multi-omics Skin Microbiome and Metabolome of Acne Progression
 
-*(Chen<sup>1</sup>, De Pessemier<sup>1</sup>, and Myers<sup>1</sup> et al., submitted to Nature Microbiology, 2025)*
+*(Chen<sup>1</sup>, De Pessemier<sup>1</sup>, and Myers<sup>1</sup> et al., submitted to Nature Microbiology, 2026)*
 
 ---
 
@@ -11,6 +11,3 @@ This study longitudinally profiles the skin microbiome and metabolome of 10 wome
 
 
 ![Overview](Figures/Main/Figure_1/Study_Overview.png)
-
-## Data availability
-All data will be made publicly available upon publication and is currently in progress.
