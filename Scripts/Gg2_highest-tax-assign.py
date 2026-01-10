@@ -27,13 +27,13 @@ REGIONS = {
     "V4": {
         "biom": "../Data/16S/Tables/from_Qiita/174951_feature-table_16S_V4_rare-3769.biom",
         "fasta": "../Data/16S/Fasta/174951_V4_ASVs.fasta",
-        "taxonomy": "../Analyses/16S/SEPP/174951_V4_GG2_taxonomy/taxonomy.tsv",
+        "taxonomy": "../Analyses/16S/SEPP/174951_V4_Gg2_taxonomy/taxonomy.tsv",
         "mapping_out": "../Data/16S/Taxonomy/ASV_to_Taxon_V4.tsv"
     },
     "V1-V3": {
         "biom": "../Data/16S/Tables/from_Qiita/179426_feature-table_16S_V1V3_rare-11054.biom",
         "fasta": "../Data/16S/Fasta/179426_V1V3_ASVs.fasta",
-        "taxonomy": "../Analyses/16S/SEPP/179426_V1V3_GG2_taxonomy/taxonomy.tsv",
+        "taxonomy": "../Analyses/16S/SEPP/179426_V1V3_Gg2_taxonomy/taxonomy.tsv",
         "mapping_out": "../Data/16S/Taxonomy/ASV_to_Taxon_V1V3.tsv"
     }
 }
