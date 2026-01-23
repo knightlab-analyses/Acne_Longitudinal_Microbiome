@@ -1,0 +1,2250 @@
+---
+title: "metabolomics_code"
+output: html_document
+date: "2026-01-22"
+author: "Britta DePessmier"
+---
+
+```{r packages}
+library(tidyverse)
+library(mixOmics)
+library(ggpubr)
+library(vegan)
+library(caret)
+library(rstatix)
+library(UpSetR)
+library(homologueDiscoverer)
+library(ggdensity)
+library(cowplot)
+library(readxl)
+library(lmerTest)
+library(RColorBrewer)
+library(MassTools)
+library(shiny)
+library(ggplot2)
+library(dplyr)
+library(stringr)
+library(svglite)
+library(Cairo)
+```
+
+```{r}
+#Function for homologues analysis
+plotAnnotatedStatic <- function(annotated, legend_setting = "bottom"){
+  
+  annotated <- mutate(annotated,
+                      homologue_id = if_else(is.na(homologue_id), 0L, homologue_id),
+                      homologue_id = as.factor(homologue_id))
+  colourCount = length(unique(annotated$homologue_id))
+  getPalette = colorRampPalette(RColorBrewer::brewer.pal(9, "Set1"))
+  ncolor = length(unique(annotated$homologue_id))
+  annotated <- arrange(annotated, desc(homologue_id))
+  g <- ggplot(annotated, aes(group = homologue_id)) +
+    geom_point(aes(x = rt, y = mz, color = homologue_id, size = homologue_id,
+                   shape = homologue_id, alpha = homologue_id)) +
+    geom_line(data = filter(annotated, homologue_id != 0),
+              aes(x = rt, y = mz, group = homologue_id), alpha = 0.4, linewidth = 0.1) +
+    ggtitle("Annotated Peak Table") +
+    scale_colour_manual(values = c("black", getPalette(colourCount-1))) +
+    scale_alpha_manual(values =  c(0.2, rep(0.85, times = ncolor))) +
+    scale_size_manual(values = c(0.1, rep(1.5, times = ncolor))) +
+    scale_shape_manual(values = c(1, rep(19, times = ncolor))) +
+    xlab("Retention Time (s)") +
+    ylab("Mass to Charge Ratio") +
+    theme(legend.position=legend_setting, text = element_text(family="mono"))
+  return(g)
+  
+}
+```
+
+```{r}
+#Read data 
+feature_table <- read_csv("../Data/metabolomics/Run3_10252024/FBMN_mgf_Lami_10252024_quant.csv")
+
+metadata <- read_csv("../Metadata/metadata_metabolomics.csv")
+
+sample_order <- read.csv("../Data/metabolomics/Run3_10252024/Sequence_order_10262024.csv")
+
+#with suspects
+#annotations <- read.delim("../Data/metabolomics/Run3_10252024/merged_results_with_gnps.tsv")
+#without suspects
+annotations <- read.delim("../Data/metabolomics/Run3_10252024/merged_results_with_gnps_withoutsuspects.tsv")
+annotations$X.Scan. <- as.character(annotations$X.Scan.)
+
+canopus <- read_tsv("../Data/metabolomics/Run3_10252024/canopus_structure_summary.tsv")
+canopus$featureId <- as.character(canopus$featureId)
+
+mapping_file <- read.csv("../Data/metabolomics/Run3_10252024/Mapping_10262024.csv")
+```
+
+
+```{r}
+mapping_file$Manifest_ID_Sample_Name <- gsub("_", ".", mapping_file$Manifest_ID_Sample_Name)
+
+metadata_2 <- metadata %>% left_join(mapping_file, by = c("sample_name" = "Manifest_ID_Sample_Name"))
+```
+
+```{r}
+metadata_2$SampleID <- metadata_2$Filename_ID
+```
+
+```{r}
+duplicates_in_metadata <- metadata_2[metadata_2$sample_name %in% metadata_2$sample_name[duplicated(metadata_2$sample_name)], ]
+
+```
+
+```{r}
+# Reorder the columns, placing metadata_final$SampleID as the first column
+metadata_2 <- metadata_2[, c("SampleID", setdiff(names(metadata_2), "SampleID"))]
+
+```
+
+
+```{r}
+# Find the rows in mapping_file where Filename_ID is not present in metadata_final$SampleID
+missing_sample_ids <- mapping_file[!(mapping_file$Filename_ID %in% metadata_2$SampleID), ]
+
+# Create a new data frame with only the missing Filename_ID as SampleID
+missing_sample_ids_df <- data.frame(SampleID = missing_sample_ids$Filename_ID)
+
+# Append only the SampleIDs to metadata_final
+# This assumes metadata_final has more columns, and we just add the missing SampleIDs with other columns left blank
+missing_rows <- data.frame(SampleID = missing_sample_ids_df$SampleID, 
+                           matrix(NA, nrow = nrow(missing_sample_ids_df), ncol = ncol(metadata_2) - 1))
+colnames(missing_rows) <- colnames(metadata_2)
+
+missing_rows <- missing_rows[!(missing_rows$SampleID %in% metadata_2$SampleID), ]
+
+metadata_final <- rbind(metadata_2, missing_rows)
+
+# Print or save the updated metadata_final
+head(metadata_final)
+
+
+```
+
+```{r}
+duplicates_in_metadata <- metadata_final[metadata_final$sample_name %in% metadata_final$sample_name[duplicated(metadata_final$sample_name)], ]
+```
+
+
+```{r}
+metadata_final <- metadata_final %>%
+  mutate(Sample_Type = case_when(
+    str_detect(SampleID, regex("wash", ignore_case = TRUE)) ~ "Wash",
+    str_detect(SampleID, regex("Blank", ignore_case = TRUE)) ~ "Blank",
+    str_detect(SampleID, "^QC_P[0-9]+_[0-9]+$") | str_detect(SampleID, regex("6mix", ignore_case = TRUE)) ~ "6mix",
+    str_detect(SampleID, regex("Pool", ignore_case = TRUE)) ~ "Pooled samples",
+    str_detect(SampleID, regex("CTL", ignore_case = TRUE)) ~ "CTL",
+    TRUE ~ "samples"  # Default to 'samples' for SampleIDs that don't match the others
+  ))
+
+head(metadata_final)
+```
+
+
+```{r}
+sum(metadata_final$Sample_Type=="samples")
+```
+```{r}
+sum(metadata_final$Sample_Type=="6mix")
+```
+```{r}
+sum(metadata_final$Sample_Type=="Pooled samples")
+```
+```{r}
+sum(metadata_final$Sample_Type=="CTL")
+```
+```{r}
+sum(metadata_final$Sample_Type=="Blank")
+```
+```{r}
+sum(metadata$category_label=="Healthy")
+```
+```{r}
+sum(metadata$category_label=="Acne Lesional")
+```
+```{r}
+sum(metadata$category_label=="Acne Non-lesional")
+```
+
+```{r}
+#L'Oreal data
+metadata_final <- metadata_final %>% left_join(sample_order, by = c("SampleID" = "File.Name"))
+```
+
+```{r}
+unmatched_metadata <- metadata_final %>%
+  anti_join(sample_order, by = c("SampleID" = "File.Name"))
+
+# View the result
+unmatched_metadata
+
+```
+
+```{r}
+unmatched_sample_order <- sample_order %>%
+  anti_join(metadata_final, by = c("File.Name" = "SampleID"))
+
+# View the result
+unmatched_sample_order
+
+```
+
+```{r}
+# Check for duplicated SampleIDs after the join
+duplicated_samples <- metadata_final %>%
+  group_by(SampleID) %>%
+  filter(n() > 1)
+
+# Display the duplicated SampleIDs
+cat("Duplicated SampleIDs after the join:\n")
+print(duplicated_samples)
+
+# Optionally, count the number of duplicates
+num_duplicates <- nrow(duplicated_samples)
+cat("\nNumber of duplicated SampleIDs after the join: ", num_duplicates, "\n")
+```
+
+
+```{r}
+info_feature <- feature_table %>% dplyr::select(1:3,7)
+colnames(info_feature) <- c("Feature", "mz", "RT", "Corr_ID")
+info_feature$Feature <- as.character(info_feature$Feature)
+
+info_feature_complete <- info_feature %>% 
+  left_join(annotations, by = c("Feature" = "X.Scan.")) %>%
+  dplyr::select(1:4,18,24) %>% 
+  left_join(canopus %>% distinct(featureId, .keep_all = TRUE), by = c("Feature" = "featureId"))
+```
+
+
+```{r}
+# Extract data table 
+data <- feature_table %>% 
+  column_to_rownames("row ID") %>% dplyr::select(contains("Peak")) %>% 
+  t() %>% as.data.frame() %>% rownames_to_column("SampleID") %>% 
+  arrange(SampleID) %>% distinct(SampleID, .keep_all = TRUE)
+
+data$SampleID <- gsub(".mzML Peak area", "", data$SampleID)
+
+
+```
+
+
+
+```{r}
+# Find the rows in mapping_file where Filename_ID is not present in metadata_final$SampleID
+
+missing_sample_ids <- data[!(data$SampleID %in% metadata_final$SampleID), ]
+
+```
+
+```{r}
+# Find the rows in mapping_file where Filename_ID is not present in metadata_final$SampleID
+missing_samples <- metadata_final[!(metadata_final$SampleID %in% data$SampleID), ]
+# LAMI.RD318.D4.C1 did not run
+```
+```{r}
+metadata_ids <- metadata_final$SampleID
+data_ids <- data$SampleID
+
+# 1. Find SampleIDs in metadata_final but not in data
+missing_in_data <- setdiff(metadata_ids, data_ids)
+
+# 2. Find SampleIDs in data but not in metadata_final
+missing_in_metadata <- setdiff(data_ids, metadata_ids)
+
+# 3. Check for duplicated SampleIDs in metadata_final
+duplicates_in_metadata <- metadata_ids[duplicated(metadata_ids)]
+
+# 4. Check for duplicated SampleIDs in data
+duplicates_in_data <- data_ids[duplicated(data_ids)]
+
+# Print results
+cat("SampleIDs in metadata_final but not in data:\n")
+print(missing_in_data)
+
+cat("\nSampleIDs in data but not in metadata_final:\n")
+print(missing_in_metadata)
+
+cat("\nDuplicated SampleIDs in metadata_final:\n")
+print(duplicates_in_metadata)
+
+cat("\nDuplicated SampleIDs in data:\n")
+print(duplicates_in_data)
+
+```
+
+
+```{r}
+data_final <- data %>% 
+  dplyr::filter(!(SampleID %in% c("blank_P2_0A_prerun", "blank_P3_0A_prerun_20241022011201", "blank_P3_0B_prerun","blank_P1_0A_prerun","QC_P1_6mix_0", "QC_P1_Pool_0", "QC_P1_6mix_0_20241019144629", "blank_P1_0A_prerun_20241019143524")))
+```
+```{r}
+samples_to_remove <- c("blank_P2_0A_prerun", "blank_P3_0A_prerun_20241022011201", "blank_P3_0B_prerun",
+                       "blank_P1_0A_prerun", "QC_P1_6mix_0", "QC_P1_Pool_0","QC_P1_6mix_0_20241019144629", "blank_P1_0A_prerun_20241019143524")
+
+# Check if any sample is missing in the dataset
+missing_samples <- setdiff(samples_to_remove, data$SampleID)
+
+# Issue a warning for missing samples
+if (length(missing_samples) > 0) {
+  warning(paste("The following samples are not present in the dataset:", paste(missing_samples, collapse = ", ")))
+}
+
+```
+
+```{r}
+# Calculate Total Ion Count (TIC)
+data_TIC <- data.frame(TIC = rowSums(data_final %>% column_to_rownames("SampleID"))) %>% 
+  rownames_to_column("SampleID") %>% left_join(sample_order, by = c("SampleID" = "File.Name"))
+
+
+```
+```{r}
+#Plots a scatter plot of the Order vs. TIC
+data_TIC %>% dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  left_join(metadata_final) %>%
+  ggscatter("Order", "TIC", color = "host_subject_id", add = "reg.line") +
+  stat_cor()
+```
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder.png", plot = last_plot(), dpi = 300, width = 8, height = 6, units = "in")
+
+```
+
+```{r}
+# Check sample type
+sample_tic <-  data_TIC %>% dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>% summarise(mean(TIC))
+pool_tic <- data_TIC %>% dplyr::filter((str_detect(SampleID, regex("Pool", ignore_case = TRUE)))) %>% summarise(mean(TIC))
+six_tic <- data_TIC %>%   dplyr::filter(str_detect(SampleID, "^QC_P[0-9]+_[0-9]+$") | str_detect(SampleID, regex("6mix", ignore_case = TRUE))) %>% summarise(mean(TIC))
+blank_tic <- data_TIC %>% dplyr::filter((str_detect(SampleID, regex("blank", ignore_case = TRUE)))) %>% summarise(mean(TIC))
+#internal control swabs given by L'Oréal
+ctl_tic <- data_TIC %>% dplyr::filter((str_detect(SampleID, regex("CTL", ignore_case = TRUE)))) %>% summarise(mean(TIC))
+
+
+ratio_tic_pb <- pool_tic/sample_tic
+ratio_tic_sb <- sample_tic/blank_tic
+ratio_tic_6p <- pool_tic/six_tic
+```
+
+
+```{r}
+# Check TIC overtime for QCpool and Blanks
+a0 <- data_TIC %>% dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>% 
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor() +ylim(0, 7e9) + ggtitle("TIC over Time for Samples")
+
+a <- data_TIC %>% dplyr::filter((str_detect(SampleID, regex("Pool", ignore_case = TRUE))))%>% 
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor() +ylim(0, 7e9) + ggtitle("TIC over Time for Pooled Samples")
+
+b <- data_TIC %>%   dplyr::filter(str_detect(SampleID, "^QC_P[0-9]+_[0-9]+$") | str_detect(SampleID, regex("6mix", ignore_case = TRUE)))  %>% 
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor() +ylim(0, 7e9) + ggtitle("TIC over Time for 6mix Samples")
+
+c <- data_TIC %>% dplyr::filter((str_detect(SampleID, regex("blank", ignore_case = TRUE)))) %>% 
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor()  +ylim(0, 7e9) + ggtitle("TIC over Time for Blank Samples")
+
+d <- data_TIC %>%  dplyr::filter((str_detect(SampleID, regex("CTL", ignore_case = TRUE)))) %>% 
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor() +ylim(0, 7e9) + ggtitle("TIC over Time for Blank Swab Samples (CTL)")
+
+
+
+```
+
+```{r}
+f <- ggarrange(a0, a, b, c, d, ncol = 3, nrow = 2, labels = c("a", "b", "c", "d", "e"))
+
+```
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+
+```
+
+
+```{r}
+# Identify SampleIDs in data_TIC that are not in data_final
+missing_sample_ids <- data_TIC$SampleID[!(data_final$SampleID %in% data_TIC$SampleID)]
+
+# Display or print the missing SampleIDs
+print(missing_sample_ids)
+
+```
+```{r}
+# Check for duplicate SampleIDs in data_TIC
+duplicates_in_data_TIC <- data_TIC$SampleID[duplicated(data_TIC$SampleID)]
+
+# Display the duplicate SampleIDs
+print(duplicates_in_data_TIC)
+
+```
+
+```{r}
+# Step 1: Filter by SampleID and count the remaining samples
+filtered_by_sampleid <- data_TIC %>%
+  dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE))))
+count_after_sampleid <- nrow(filtered_by_sampleid)
+
+# Step 2: Filter by TIC range within the previously filtered dataset and count
+data_tic_filtered <- filtered_by_sampleid %>%
+  dplyr::filter(TIC >= 6e8 & TIC <= 5e9)
+count_after_tic <- nrow(data_tic_filtered)
+
+# Step 3: Identify SampleIDs that do not meet both filtering criteria
+# Samples in filtered_by_sampleid but not in data_tic_filtered
+excluded_samples <- anti_join(filtered_by_sampleid, data_tic_filtered, by = "SampleID")
+
+# Step 4: Remove these excluded samples from the original data_TIC
+data_TIC_updated <- data_TIC %>%
+  dplyr::anti_join(excluded_samples, by = "SampleID")
+
+# Print counts for reference
+cat("Initial sample count:", nrow(data_TIC), "\n")
+cat("Count after SampleID filtering:", count_after_sampleid, "\n")
+cat("Final count after TIC filtering:", count_after_tic, "\n")
+cat("Remaining samples in data_TIC_final:", nrow(data_TIC_updated), "\n")
+
+# Display filtered data
+head(data_TIC_updated)
+
+
+```
+```{r}
+data_final_updated <- data_final %>% 
+  dplyr::filter(!(SampleID %in% excluded_samples$SampleID))
+```
+
+
+
+
+```{r}
+# Step 1: Filter out samples that match "Blank", "6mix", "Pool", "wash", "CTL", or "QC" from the subset
+# and apply additional filtering to keep only those within the TIC range.
+data_tic_filtered <- data_TIC %>%
+  dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  dplyr::filter(TIC >= 6e8 & TIC <= 5e9)
+
+# Step 2: Plot the filtered data to visualize TIC over time for the selected samples.
+a0 <- data_tic_filtered %>%
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor()  +ylim(0, 7e9) +
+  ggtitle("TIC over Time for Filtered Samples")
+
+a <- data_TIC %>% dplyr::filter((str_detect(SampleID, regex("Pool", ignore_case = TRUE))))%>% 
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor() +ylim(0, 7e9) + ggtitle("TIC over Time for Pooled Samples")
+
+b <- data_TIC %>%   dplyr::filter(str_detect(SampleID, "^QC_P[0-9]+_[0-9]+$") | str_detect(SampleID, regex("6mix", ignore_case = TRUE)))  %>% 
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor() +ylim(0, 7e9) + ggtitle("TIC over Time for 6mix Samples")
+
+c <- data_TIC %>% dplyr::filter((str_detect(SampleID, regex("blank", ignore_case = TRUE)))) %>% 
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor()  +ylim(0, 7e9) + ggtitle("TIC over Time for Blank Samples")
+
+d <- data_TIC %>%  dplyr::filter((str_detect(SampleID, regex("CTL", ignore_case = TRUE)))) %>% 
+  ggscatter("Order", "TIC", add = "reg.line") +
+  stat_cor() +ylim(0, 7e9) + ggtitle("TIC over Time for Blank Swab Samples (CTL)")
+
+# Display the plot
+print(a0)
+
+```
+```{r}
+f <- ggarrange(a0, a, b, c, d, ncol = 3, nrow = 2, labels = c("a", "b", "c", "d", "e"))
+```
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all_filtered_5e8.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+
+```
+```{r}
+#Plots a scatter plot of the Order vs. TIC
+data_tic_filtered %>% dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  left_join(metadata_final) %>%
+  ggscatter("Order", "TIC", color = "host_subject_id", add = "reg.line") +
+  stat_cor()
+```
+
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_sampleID.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+
+```
+
+
+```{r}
+sample_order_2 <- merge(
+  sample_order, 
+  mapping_file[, c("Filename_ID", "Plate_Number")], 
+  by.x = "File.Name", 
+  by.y = "Filename_ID", 
+  all.x = TRUE
+)
+```
+
+```{r}
+data_tic_plate <- data_TIC %>%
+  left_join(sample_order_2, by = c("SampleID" = "File.Name", "Order" = "Order"))
+
+```
+```{r}
+# SampleIDs in data_TIC that did not merge into data_tic_plate (i.e., not present in sample_order_2)
+not_in_sample_order <- data_TIC %>%
+  anti_join(sample_order_2, by = c("SampleID" = "File.Name", "Order" = "Order"))
+
+# SampleIDs in sample_order_2 that did not merge into data_tic_plate (i.e., not present in data_TIC)
+not_in_data_TIC <- sample_order_2 %>%
+  anti_join(data_TIC, by = c("File.Name" = "SampleID", "Order" = "Order"))
+
+```
+
+
+
+
+```{r}
+# Convert Plate_Number to a factor for consistent coloring across all plots
+data_tic_plate <- data_tic_plate %>%
+  dplyr::mutate(Plate_Number = as.factor(Plate_Number))
+
+# Define the mapping of specific colors to specific Plate_Number values
+custom_colors <- c("1" = "#D55E00",  # Plate_Number == 1
+                   "2" = "#2B579A",  # Plate_Number == 2
+                   "3" = "#A1280B",  # Plate_Number == 3
+                   "4" = "#217346")  # Plate_Number == 4
+
+# TIC over Time for Samples (a0)
+a0 <- data_tic_plate %>%
+  dplyr::mutate(Plate_Number = as.factor(Plate_Number)) %>%
+  dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>% 
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") +  # Map specific colors
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for Samples")
+
+# TIC over Time for Pooled Samples (a)
+a <- data_tic_plate %>%
+  dplyr::filter((str_detect(SampleID, regex("Pool", ignore_case = TRUE)))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") + 
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for Pooled Samples")
+
+# TIC over Time for 6mix Samples (b)
+b <- data_tic_plate %>%
+  dplyr::filter(str_detect(SampleID, "^QC_P[0-9]+_[0-9]+$") | str_detect(SampleID, regex("6mix", ignore_case = TRUE))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") + 
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for 6mix Samples")
+
+# TIC over Time for Blank Samples (c)
+c <- data_tic_plate %>%
+  dplyr::filter((str_detect(SampleID, regex("blank", ignore_case = TRUE)))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") + 
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for Blank Samples")
+
+# TIC over Time for Blank Swab Samples (CTL) (d)
+d <- data_tic_plate %>%
+  dplyr::filter((str_detect(SampleID, regex("CTL", ignore_case = TRUE)))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") + 
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for Blank Swab Samples (CTL)")
+
+
+```
+
+```{r}
+f <- ggarrange(
+  a0, a, b, c, d, 
+  ncol = 3, nrow = 2, 
+  labels = c("a", "b", "c", "d", "e"),
+  common.legend = TRUE,  # Use a common legend
+  legend = "bottom"      # Place the legend at the bottom
+)
+
+```
+
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all_platenumber.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+
+```
+
+```{r}
+#filter by TIC 
+# Convert Plate_Number to a factor for consistent coloring across all plots
+data_tic_plate <- data_tic_plate %>%
+  dplyr::mutate(Plate_Number = as.factor(Plate_Number))
+
+# Define the mapping of specific colors to specific Plate_Number values
+custom_colors <- c("1" = "#D55E00",  # Plate_Number == 1
+                   "2" = "#2B579A",  # Plate_Number == 2
+                   "3" = "#A1280B",  # Plate_Number == 3
+                   "4" = "#217346")  # Plate_Number == 4
+
+# TIC over Time for Samples (a0)
+a0 <- data_tic_plate %>%
+  dplyr::mutate(Plate_Number = as.factor(Plate_Number)) %>%
+  dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  dplyr::filter(TIC >= 6e8 & TIC <= 5e9) %>%
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") +  # Map specific colors
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for Samples")
+
+# TIC over Time for Pooled Samples (a)
+a <- data_tic_plate %>%
+  dplyr::filter((str_detect(SampleID, regex("Pool", ignore_case = TRUE)))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") + 
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for Pooled Samples")
+
+# TIC over Time for 6mix Samples (b)
+b <- data_tic_plate %>%
+  dplyr::filter(str_detect(SampleID, "^QC_P[0-9]+_[0-9]+$") | str_detect(SampleID, regex("6mix", ignore_case = TRUE))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") + 
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for 6mix Samples")
+
+# TIC over Time for Blank Samples (c)
+c <- data_tic_plate %>%
+  dplyr::filter((str_detect(SampleID, regex("blank", ignore_case = TRUE)))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") + 
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for Blank Samples")
+
+# TIC over Time for Blank Swab Samples (CTL) (d)
+d <- data_tic_plate %>%
+  dplyr::filter((str_detect(SampleID, regex("CTL", ignore_case = TRUE)))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "Plate_Number") + 
+  scale_color_manual(values = custom_colors, name = "Plate Number") + 
+  stat_cor() +ylim(0, 7e9)+ 
+  ggtitle("TIC over Time for Blank Swab Samples (CTL)")
+
+```
+```{r}
+f <- ggarrange(
+  a0, a, b, c, d, 
+  ncol = 3, nrow = 2, 
+  labels = c("a", "b", "c", "d", "e"),
+  common.legend = TRUE,  # Use a common legend
+  legend = "bottom"      # Place the legend at the bottom
+)
+```
+
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all_platenumber_filtered.svg", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+```
+
+
+```{r}
+
+data_tic_group <- data_TIC %>%
+  left_join(metadata_2, by = c("SampleID" = "SampleID"))
+
+
+custom_colors <- c("#df7963", "#67b2be", "#423fa6")  
+
+
+# TIC over Time for Samples (a0)
+a0 <- data_tic_group %>%
+  dplyr::mutate(group = as.factor(category_label)) %>%
+  dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "group") + 
+  scale_color_manual(values = custom_colors, name = "group") +  # Use custom color palette
+  stat_cor() + 
+  ggtitle("TIC over Time for Samples")
+
+
+```
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_group.png", plot = last_plot(), dpi = 300, width = 8, height = 8, units = "in")
+```
+
+```{r}
+data_tic_group <- data_TIC_updated %>%
+  left_join(metadata_2, by = c("SampleID" = "SampleID"))
+
+# Define custom orange, pine green, brown, and Excel-style green color palette
+custom_colors <- c("#df7963", "#67b2be", "#423fa6")  
+
+
+# TIC over Time for Samples (a0)
+a0 <- data_tic_group %>%
+  dplyr::mutate(group = as.factor(category_label)) %>%
+  dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  ggscatter(x = "Order", y = "TIC", color = "group") + 
+  scale_color_manual(values = custom_colors, name = "group") +  # Use custom color palette
+  stat_cor() + 
+  ggtitle("TIC over Time for Samples")
+
+```
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_group_filtered.png", plot = last_plot(), dpi = 300, width = 8, height = 8, units = "in")
+```
+
+
+```{r}
+#find the 6mix antibiotics
+abundance_data <- subset(data_final_updated, SampleID == "QC_P2_6mix_4")
+
+# Remove the SampleID column before transposing
+abundance_data <- abundance_data[ , !(names(abundance_data) %in% "SampleID")]
+
+# Transpose the data and convert values to numeric
+abundance_data <- as.data.frame(t(abundance_data))
+abundance_data <- as.numeric(as.matrix(abundance_data))
+```
+
+
+
+```{r}
+# Check internal standard and remove sample where there was a shift
+fbmn_IS <- annotations %>% dplyr::filter(str_detect(Compound_Name, regex("sulf", ignore_case = TRUE))) %>% 
+  distinct(X.Scan., .keep_all = TRUE) %>% dplyr::filter(Organism != "BILELIB19")
+```
+
+```{r}
+#sulfadimethoxine was the one that was used according to Jasmine 
+#instead of 974 --> X.Scan 18243 --> 	491 --> 15435
+# Extract IS feature from the table
+table_IS <- data_final %>% column_to_rownames("SampleID") %>% t() %>% as.data.frame() %>% rownames_to_column("ID") %>% 
+  dplyr::filter(ID %in% fbmn_IS$X.Scan.) %>% column_to_rownames("ID") %>% t() %>% as.data.frame() %>% 
+  rownames_to_column("filename") %>% left_join(metadata_final, by = c("filename" = "SampleID")) %>%
+  dplyr::filter(!(str_detect(filename, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  dplyr::select(filename, `15435`, Order, filename)
+```
+
+
+
+
+```{r}
+table_IS <- data_final_updated %>% column_to_rownames("SampleID") %>% t() %>% as.data.frame() %>% rownames_to_column("ID") %>% 
+  dplyr::filter(ID %in% fbmn_IS$X.Scan.) %>% column_to_rownames("ID") %>% t() %>% as.data.frame() %>% 
+  rownames_to_column("filename") %>% left_join(metadata_final, by = c("filename" = "SampleID")) %>%
+  dplyr::filter(!(str_detect(filename, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  dplyr::select(filename, `15435`, Order, filename) %>% dplyr::filter(`15435` >= 1e6 & `15435` <= 5e6)
+```
+15453
+21848
+20262
+10110
+491
+10762
+
+```{r}
+table_IS <- data_final_updated %>% column_to_rownames("SampleID") %>% t() %>% as.data.frame() %>% rownames_to_column("ID") %>% 
+  dplyr::filter(ID %in% fbmn_IS$X.Scan.) %>% column_to_rownames("ID") %>% t() %>% as.data.frame() %>% 
+  rownames_to_column("filename") %>% left_join(metadata_final, by = c("filename" = "SampleID")) %>%
+  dplyr::filter(!(str_detect(filename, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  dplyr::select(filename, `15435`, Order, filename) %>% dplyr::filter(`15435` >= 1e6 & `15435` <= 5e6)
+```
+
+
+
+```{r}
+colnames(table_IS)[2] <- "sulfadimethoxine"
+
+table_IS %>% ggscatter(x = "Order", y = "sulfadimethoxine", add = c("reg.line")) +
+  stat_cor() + ylim(0, 5e6)
+```
+
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/scatter_IS_filtered.png", plot = last_plot(), dpi = 300, width = 8, height = 6, units = "in")
+```
+
+
+
+```{r}
+table_IS %>% ggbarplot(x = "Order", y = "sulfadimethoxine", xlab = "Run Order", 
+                       ylab = "Peak Area sulfadimethoxine", title = "Internal Standard Acquisition") +
+  geom_hline(yintercept = mean(table_IS$sulfadimethoxine, na.rm = TRUE), linetype = "dashed", color = "blue")
+
+cv_is <- sd(table_IS$sulfadimethoxine)/mean(table_IS$sulfadimethoxine)
+
+#CV is 39,53237% 
+#CV is 12,6 % with threshold `15435` >= 1e6 & `15435` <= 5e6
+```
+
+
+
+```{r}
+# Filter table_IS for filenames with sulfadimethoxin < 22378
+filtered_table_IS <- table_IS[table_IS$sulfadimethoxin < 1e6, "filename"]
+
+# Filter data_TIC for SampleIDs with TIC < 569590420
+filtered_data_TIC <- data_TIC[data_TIC$TIC < 5e8, "SampleID"]
+
+# Find common values
+common_filenames <- intersect(filtered_table_IS, filtered_data_TIC)
+
+# Find values in table_IS but not in data_TIC
+unique_to_table_IS <- setdiff(filtered_table_IS, filtered_data_TIC)
+
+# Find values in data_TIC but not in table_IS
+unique_to_data_TIC <- setdiff(filtered_data_TIC, filtered_table_IS)
+
+# Print results
+cat("Common filenames:\n")
+print(common_filenames)
+
+cat("\nFilenames in table_IS but not in data_TIC:\n")
+print(unique_to_table_IS)
+
+cat("\nFilenames in data_TIC but not in table_IS:\n")
+print(unique_to_data_TIC)
+
+```
+
+
+
+```{r}
+# Check features in blanks and pools
+data_blank <- data_final %>% dplyr::filter((str_detect(SampleID, regex("blank", ignore_case = TRUE)))) 
+data_pools <- data_final %>% dplyr::filter((str_detect(SampleID, regex("Pool", ignore_case = TRUE))))
+data_sixmix <- data_final %>% dplyr::filter(str_detect(SampleID, "^QC_P[0-9]+_[0-9]+$") | str_detect(SampleID, regex("6mix", ignore_case = TRUE)))
+data_CTL <- data_final %>% dplyr::filter((str_detect(SampleID, regex("CTL", ignore_case = TRUE))))
+```
+
+```{r}
+# Check features in blanks and pools with filtering out the outliers
+data_blank <- data_final_updated %>% dplyr::filter((str_detect(SampleID, regex("blank", ignore_case = TRUE)))) 
+data_pools <- data_final_updated %>% dplyr::filter((str_detect(SampleID, regex("Pool", ignore_case = TRUE))))
+data_sixmix <- data_final_updated %>% dplyr::filter(str_detect(SampleID, "^QC_P[0-9]+_[0-9]+$") | str_detect(SampleID, regex("6mix", ignore_case = TRUE)))
+data_CTL <- data_final_updated %>% dplyr::filter((str_detect(SampleID, regex("CTL", ignore_case = TRUE))))
+```
+
+
+```{r}
+# Blanks
+blanks_feature_info <- data.frame(Feature = colnames(data_blank)[-1],
+                                  Mean_blank = data_blank %>% column_to_rownames("SampleID") %>% colMeans(), 
+                                  SD_blank =  data_blank %>% column_to_rownames("SampleID") %>% apply(2, sd)) %>%
+  dplyr::mutate(CV_blank = SD_blank/Mean_blank) %>% left_join(annotations, by = c("Feature" = "X.Scan.")) %>% 
+  left_join(info_feature) %>% dplyr::select(Feature, mz, RT, Compound_Name, SpectrumID, 
+                                            Precursor_MZ, Mean_blank, SD_blank, CV_blank) %>% 
+  dplyr::filter(Mean_blank > 0) %>% arrange(desc(Mean_blank))
+
+```
+```{r}
+# Six mix
+sixmix_feature_info <- data.frame(Feature = colnames(data_sixmix)[-1],
+                                  Mean_sixmix = data_sixmix %>% column_to_rownames("SampleID") %>% colMeans(), 
+                                  SD_sixmix = data_sixmix %>% column_to_rownames("SampleID") %>% apply(2, sd)) %>%
+  dplyr::mutate(CV_sixmix = SD_sixmix/Mean_sixmix) %>% left_join(annotations, by = c("Feature" = "X.Scan.")) %>% 
+  left_join(info_feature) %>% dplyr::select(Feature, mz, RT, Compound_Name, SpectrumID, 
+                                            Precursor_MZ, Mean_sixmix, SD_sixmix, CV_sixmix) %>% 
+  dplyr::filter(Mean_sixmix > 0) %>% arrange(desc(Mean_sixmix))
+```
+
+```{r}
+# Pool
+pools_feature_info <- data.frame(Feature = colnames(data_pools)[-1],
+                                 Mean_pool = data_pools %>% column_to_rownames("SampleID") %>% colMeans(), 
+                                 SD_pool =  data_pools %>% column_to_rownames("SampleID") %>% apply(2, sd)) %>%
+  dplyr::mutate(CV_pool = SD_pool/Mean_pool) %>% left_join(annotations, by = c("Feature" = "X.Scan.")) %>% 
+  left_join(info_feature) %>% dplyr::select(Feature, mz, RT, Compound_Name, SpectrumID, 
+                                            Precursor_MZ, Mean_pool, SD_pool, CV_pool) %>% 
+  dplyr::filter(Mean_pool > 0) %>% arrange(desc(Mean_pool))
+
+```
+
+```{r}
+# CTLs
+CTLs_feature_info <- data.frame(Feature = colnames(data_CTL)[-1],
+                                 Mean_ctl = data_CTL %>% column_to_rownames("SampleID") %>% colMeans(), 
+                                 SD_ctl =  data_CTL %>% column_to_rownames("SampleID") %>% apply(2, sd)) %>%
+  dplyr::mutate(CV_ctl = SD_ctl/Mean_ctl) %>% left_join(annotations, by = c("Feature" = "X.Scan.")) %>% 
+  left_join(info_feature) %>% dplyr::select(Feature, mz, RT, Compound_Name, SpectrumID, 
+                                            Precursor_MZ, Mean_ctl, SD_ctl, CV_ctl) %>% 
+  dplyr::filter(Mean_ctl > 0) %>% arrange(desc(Mean_ctl))
+```
+```{r}
+# Features to be removed Pools/Blank < 5
+feature_to_remove <- blanks_feature_info %>% left_join(pools_feature_info) %>%
+  dplyr::filter(Mean_blank > 0) %>% 
+  dplyr::mutate(Pool_Blank = Mean_pool/Mean_blank) %>% 
+  dplyr::filter(Pool_Blank < 5 | is.na(Pool_Blank))
+```
+```{r}
+# Data with blank removal after outlier removal
+data_clean <- data_final_updated %>% dplyr::select(-c(feature_to_remove$Feature)) %>%
+  column_to_rownames("SampleID") %>%
+  select_if(~sum(.) != 0) %>% rownames_to_column("SampleID")
+```
+
+
+
+```{r}
+# Features to be removed Pool/QCmix < 5 
+feature_to_remove_mix <- sixmix_feature_info %>% left_join(pools_feature_info) %>% 
+  dplyr::filter(Mean_sixmix > 0) %>% 
+  dplyr::mutate(Pool_Mix = Mean_pool/Mean_sixmix) %>% 
+  dplyr::filter(Pool_Mix < 5 | is.na(Pool_Mix)) %>% dplyr::filter(!(Feature %in% feature_to_remove$Feature))
+
+# Data with blank2 removal
+data_clean2 <- data_clean %>% dplyr::select(-c(feature_to_remove_mix$Feature))
+
+```
+
+```{r}
+# Features to be removed Pool/CTL < 5 
+feature_to_remove_ctl <- CTLs_feature_info %>% left_join(pools_feature_info) %>% 
+  dplyr::filter(Mean_ctl > 0) %>% 
+  dplyr::mutate(Pool_CTL = Mean_pool/Mean_ctl) %>% 
+  dplyr::filter(Pool_CTL < 5 | is.na(Pool_CTL)) %>% dplyr::filter(!(Feature %in% feature_to_remove_mix$Feature))  %>%  dplyr::filter(!(Feature %in% feature_to_remove$Feature))
+
+# Data with blank2 removal
+data_clean3 <- data_clean2 %>% dplyr::select(-c(feature_to_remove_ctl$Feature))
+
+```
+
+```{r}
+# Define the color palette for six Sample_Type categories
+sample_type_colors <- c("samples" = "#1f77b4",  # Blue
+                        "Blank" = "#ff7f0e",  # Orange
+                        "Pooled samples" = "#2ca02c",  # Green
+                        "CTL" = "#d62728",  # Red
+                        "6mix" = "#9467bd",  # Purple
+                        "Wash" = "#8c564b")  # Brown
+```
+
+```{r}
+# PCA raw data
+PCA_raw <- mixOmics::pca(data_clean2 %>% select_at(vars(-one_of(nearZeroVar(., names = TRUE)))) %>%
+                           column_to_rownames("SampleID"), ncomp = 2, center = TRUE, scale = TRUE)
+PCA_raw_scores <- data.frame(PCA_raw$variates$X) %>% rownames_to_column("SampleID") %>% left_join(metadata_final)
+
+i <- "Sample_Type"
+
+PCA_raw_plot <- PCA_raw_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Skin Metabolome", i, sep = " "),
+            xlab = paste("PC1 (", round(PCA_raw$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_raw$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_raw_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = (!!sym(i))), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed() +
+  scale_color_manual(values = sample_type_colors)
+
+```
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/PCA_data_clean2.png", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
+```
+
+```{r}
+# PCA raw data
+PCA_raw <- mixOmics::pca(data_clean3 %>% select_at(vars(-one_of(nearZeroVar(., names = TRUE)))) %>%
+                           column_to_rownames("SampleID"), ncomp = 2, center = TRUE, scale = TRUE)
+PCA_raw_scores <- data.frame(PCA_raw$variates$X) %>% rownames_to_column("SampleID") %>% left_join(metadata_final)
+
+i <- "Sample_Type"
+
+PCA_raw_plot <- PCA_raw_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Skin Metabolome", i, sep = " "),
+            xlab = paste("PC1 (", round(PCA_raw$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_raw$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_raw_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = (!!sym(i))), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed() +
+  scale_color_manual(values = sample_type_colors)
+```
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/PCA_data_clean3.png", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
+```
+
+
+```{r}
+data_clean_2_clr <- decostand(data_clean3 %>% column_to_rownames("SampleID"), method = "rclr")
+```
+
+```{r}
+# PCA
+PCA_whole <- mixOmics::pca(data_clean_2_clr, ncomp = 2, center = TRUE, scale = TRUE)
+PCA_whole_scores <- data.frame(PCA_whole$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+PCA_whole_scores <- data.frame(PCA_whole$variates$X) %>% rownames_to_column("SampleID") %>% left_join(metadata_final)
+i <- "Sample_Type"
+
+PCA_plot <- PCA_whole_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Skin Metabolome - rclr transformed data"),
+            xlab = paste("PC1 (", round(PCA_whole$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_whole$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_whole_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = (!!sym(i))), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed()  +
+  scale_color_manual(values = sample_type_colors)
+```
+
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/PCA_rclr_dataclean3.png", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
+```
+
+
+
+```{r}
+f <- ggarrange(
+  PCA_raw_plot, PCA_plot, 
+  ncol = 2, nrow = 1, 
+  labels = c("a", "b"),
+  common.legend = TRUE,  # Use a common legend
+  legend = "right"  , align ="hv"    # Place the legend at the bottom
+)
+
+```
+
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/PCA_combined_filtered.svg", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
+```
+
+```{r}
+# Remove plastic contamination
+feature_check <- info_feature %>% dplyr::select(1:3) %>% 
+  dplyr::filter(Feature %in% colnames(data_clean)) %>% as_tibble()
+colnames(feature_check) <- c("peak_id", "mz", "rt")
+feature_check$mz <- as.double(feature_check$mz)
+feature_check$rt <- as.double(feature_check$rt)
+```
+
+```{r}
+# for 1 CTL sample 
+feature_pool <- data_clean2 %>% 
+  dplyr::filter(SampleID == "P4_A1_LAMI_CTL_19") %>% column_to_rownames("SampleID") %>%
+  t() %>% as.data.frame() %>% rownames_to_column("peak_id")
+
+feature_check_pool <- feature_check %>% left_join(feature_pool)
+
+feature_check_pool$peak_id <- as.integer(feature_check_pool$peak_id)
+colnames(feature_check_pool)[4] <- "intensity"
+```
+```{r}
+# Remove plastic contamination after removing CTLs (data_clean3)
+feature_check <- info_feature %>% dplyr::select(1:3) %>% 
+  dplyr::filter(Feature %in% colnames(data_clean3)) %>% as_tibble()
+colnames(feature_check) <- c("peak_id", "mz", "rt")
+feature_check$mz <- as.double(feature_check$mz)
+feature_check$rt <- as.double(feature_check$rt)
+```
+
+```{r}
+# for 1 CTL sample 
+feature_pool <- data_clean3 %>% 
+  dplyr::filter(SampleID == "P4_A1_LAMI_CTL_19") %>% column_to_rownames("SampleID") %>%
+  t() %>% as.data.frame() %>% rownames_to_column("peak_id")
+
+feature_check_pool <- feature_check %>% left_join(feature_pool)
+
+feature_check_pool$peak_id <- as.integer(feature_check_pool$peak_id)
+colnames(feature_check_pool)[4] <- "intensity"
+```
+
+
+```{r}
+# Remove PEGs
+peak_table_PEG <- detectHomologues(feature_check_pool, mz_steps = c(44.02628),
+                                   rt_min = 0.1, rt_max = 100, ppm_tolerance = 10, 
+                                   min_series_length = 5, search_mode = "targeted", 
+                                   step_mode = "increment", verbose = TRUE)
+
+plotAnnotatedStatic(peak_table_PEG)
+```
+
+
+
+```{r}
+
+sdb <- sdbCreate(peak_table_PEG, sample_origin = "data")
+
+
+```
+```{r}
+# Remove untargeted 
+peak_table_untargeted <- detectHomologues(feature_check_pool, mz_min = 10, mz_max = 50, 
+                                          rt_min = 0.5, rt_max = 100, ppm_tolerance = 5, 
+                                          min_series_length = 5, search_mode = "untargeted", 
+                                          step_mode = "increment", verbose = TRUE) #rt_min 0.5 -> 0.2 mz_max 50 -> 100 # increment -> decrement (and combine )
+```
+```{r}
+#if running targeted and untargeted 
+# Combine tables
+overlapping_ids <- sdbCheckContained(sdb, peak_table_untargeted, ppm_tolerance = 0.5, rt_tolerance = 0.5)
+sdb <- sdbPush(sdb, filter(peak_table_untargeted, !(homologue_id %in% overlapping_ids)))
+```
+
+
+```{r}
+sdb$sample_peak_id <- as.character(sdb$sample_peak_id)
+features_contaminat <- info_feature_complete %>% dplyr::filter(Feature %in% sdb$sample_peak_id)
+
+data_clean4 <- data_clean3 %>% dplyr::select(-c(sdb$sample_peak_id))
+#data_clean3 <- data_clean2 %>% dplyr::select(-c(sdb$sample_peak_id))
+```
+
+
+```{r}
+# Check one of the PEGs
+#30108
+#27183
+#26921
+
+peg <- data_final %>% dplyr::select(SampleID, `26921`) %>% left_join(metadata_final) 
+colnames(peg)[2] <- "PEG"
+
+peg %>% arrange(Order) %>% dplyr::mutate(LogPeg = log2(PEG+1)) %>%
+  ggboxplot(x = "Sample_Type", y = "PEG", add = "jitter",
+                  color = "Order", group = "Sample_Type", legend = "right") + scale_color_viridis_c()
+```
+
+```{r}
+
+peg <- data_final_updated %>% dplyr::select(SampleID, `26921`) %>% left_join(metadata_final) 
+colnames(peg)[2] <- "PEG"
+
+peg %>% arrange(Order) %>% dplyr::mutate(LogPeg = log2(PEG+1)) %>%
+  ggboxplot(x = "Sample_Type", y = "PEG", add = "jitter",
+                  color = "Order", group = "Sample_Type", legend = "right") + scale_color_viridis_c()
+```
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/PEGboxplot_26921.png", plot = last_plot(), dpi = 300, width = 11, height = 5, units = "in")
+```
+
+```{r}
+# PCA
+PCA_raw <- mixOmics::pca(data_clean4 %>% select_at(vars(-one_of(nearZeroVar(., names = TRUE)))) %>%
+                           column_to_rownames("SampleID"), ncomp = 2, center = TRUE, scale = TRUE)
+PCA_raw_scores <- data.frame(PCA_raw$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+
+i <- "Sample_Type"
+
+PCA_raw_plot <- PCA_raw_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Skin Metabolome", i, sep = " "),
+            xlab = paste("PC1 (", round(PCA_raw$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_raw$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_raw_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = (!!sym(i))), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed()
+
+```
+```{r}
+ggsave("../Figures/metabolomics_Figures/qc/PCA_raw_HD_filtered.png", plot = last_plot(), dpi = 300, width = 8, height = 6, units = "in")
+```
+
+```{r}
+# Calculate Total Ion Count (TIC)
+data_TIC_clean4 <- data.frame(TIC = rowSums(data_clean4 %>% column_to_rownames("SampleID"))) %>% 
+  rownames_to_column("SampleID") %>% left_join(sample_order, by = c("SampleID" = "File.Name"))
+
+```
+```{r}
+#Plots a scatter plot of the Order vs. TIC
+data_TIC_clean4 %>% dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>%
+  left_join(metadata_final) %>%
+  ggscatter("Order", "TIC", color = "host_subject_id", add = "reg.line") +
+  stat_cor()
+```
+
+
+```{r}
+
+data_sample <- data_clean4 %>% 
+   dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CTL|QC", ignore_case = TRUE)))) %>% 
+  column_to_rownames("SampleID") %>% 
+  select_at(vars(-one_of(nearZeroVar(., names = TRUE)))) %>% rownames_to_column("SampleID")
+
+```
+
+
+```{r}
+# RCLR transformation
+data_sample_clr <- decostand(data_sample %>% column_to_rownames("SampleID"), method = "rclr")
+```
+
+
+```{r}
+# PCA
+PCA_whole <- mixOmics::pca(data_sample_clr, ncomp = 2, center = TRUE, scale = TRUE)
+PCA_whole_scores <- data.frame(PCA_whole$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+PCA_whole_scores$category_label <- factor(PCA_whole_scores$category_label, levels = c("Healthy", "Acne Lesional", "Acne Non-lesional"))
+
+i <- "category_label"
+
+PCA_plot <- PCA_whole_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - group"),
+            xlab = paste("PC1 (", round(PCA_whole$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_whole$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_whole_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = (!!sym(i))), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed() + scale_color_viridis_d()
+
+```
+
+
+```{r}
+# Identify SampleIDs with PC1 > 10
+outlier_sample_ids <- PCA_whole_scores %>%
+  filter(PC1 > 10) %>%
+  pull(SampleID)
+
+# Display the outlier SampleIDs
+print(outlier_sample_ids)
+
+# Exclude these samples from data_sample_clr
+data_sample_clr_filtered <- data_sample_clr[!rownames(data_sample_clr) %in% outlier_sample_ids, ]
+```
+
+
+```{r}
+# Check if all outlier IDs are present in both datasets
+all(outlier_sample_ids %in% rownames(data_sample))
+all(outlier_sample_ids %in% rownames(data_sample_clr))
+
+```
+
+```{r}
+# Filter data_sample based on SampleID column
+data_sample_filtered <- data_sample %>%
+  filter(!SampleID %in% outlier_sample_ids)
+
+```
+
+
+
+```{r}
+# Filter data_sample based on SampleID column
+data_sample_method2 <- data_sample %>%
+  filter(!SampleID %in% outlier_sample_ids) %>%
+  select_at(vars(-one_of(nearZeroVar(., names = TRUE))))
+```
+
+```{r}
+#write_csv(x = data_sample_method2, file = "../Data/metabolomics/Run3_10252024/metabolomics_data_02072025.csv")
+```
+
+
+```{r}
+data_sample <- read_csv("../Data/metabolomics/Run3_10252024/metabolomics_data_02072025.csv")
+```
+
+```{r}
+# RCLR transformation
+data_sample_clr <- decostand(data_sample %>% column_to_rownames("SampleID"), method = "rclr")
+```
+
+```{r}
+# PCA
+PCA_whole <- mixOmics::pca(data_sample_clr, ncomp = 2, center = TRUE, scale = TRUE)
+PCA_whole_scores <- data.frame(PCA_whole$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+PCA_whole_scores$category_label <- factor(PCA_whole_scores$category_label, levels = c("Healthy", "Acne Lesional", "Acne Non-lesional"))
+
+i <- "category_label"
+
+PCA_plot <- PCA_whole_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - group"),
+            xlab = paste("PC1 (", round(PCA_whole$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_whole$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_whole_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = (!!sym(i))), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed() + scale_color_viridis_d()
+
+```
+
+
+```{r}
+# Acne_L vs Healthy
+sample_LvsH <- metadata_final %>% 
+  dplyr::filter(category_label == "Acne Lesional" | category_label == "Healthy")
+
+data_LvsH <- data_sample %>% 
+  dplyr::filter(SampleID %in% sample_LvsH$SampleID) %>% 
+  column_to_rownames("SampleID") %>% 
+  select_at(vars(-one_of(nearZeroVar(., names = TRUE)))) %>% 
+  rownames_to_column("SampleID")
+```
+
+```{r}
+# RCLR transformation
+data_LvsH_clr <- decostand(data_LvsH %>% column_to_rownames("SampleID"), method = "rclr")
+
+```
+
+```{r}
+# PCA
+PCA_LvsH <- mixOmics::pca(data_LvsH_clr, ncomp = 2, center = TRUE, scale = TRUE)
+PCA_LvsH_scores <- data.frame(PCA_LvsH$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+```
+
+```{r}
+i <- "category_label"
+
+PCA_LvsH_plot <- PCA_LvsH_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Acne Lesional vs Healthy "), palette = "npg",
+            xlab = paste("PC1 (", round(PCA_LvsH$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_LvsH$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_LvsH_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = (!!sym(i))), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed()
+```
+```{r}
+#custom_colors <- c("#df7963", "#67b2be", "#423fa6") 
+i <- "category_label"
+#"#a54700", "#008080"
+
+PCA_LvsH_plot <- PCA_LvsH_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Acne Lesional vs Healthy "), palette = c("#dd7963", "#423fa6"),
+            xlab = paste("PC1 (", round(PCA_LvsH$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_LvsH$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),legend.title = "Cohort",
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_LvsH_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = category_label), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed()
+```
+```{r}
+#Permanova 
+dist_metabolites <- vegdist(data_LvsH_clr, method = "euclidean")
+disper_group <- betadisper(dist_metabolites, PCA_LvsH_scores$category_label)
+anova(disper_group)
+permanova <- adonis2(dist_metabolites ~ PCA_LvsH_scores$host_subject_id + PCA_LvsH_scores$category_label, PCA_LvsH_scores, na.action = na.omit)
+
+permanova <- adonis2(dist_metabolites ~ PCA_LvsH_scores$host_subject_id + PCA_LvsH_scores$category_label, PCA_LvsH_scores, na.action = na.omit)
+```
+```{r}
+permanova <- adonis2(dist_metabolites ~ PCA_LvsH_scores$host_subject_id + PCA_LvsH_scores$category_label, 
+                     data = PCA_LvsH_scores, 
+                     na.action = na.omit, 
+                     by = "margin")
+
+```
+
+```{r}
+# Effect of category_label
+adonis2(dist_metabolites ~ PCA_LvsH_scores$category_label, data = PCA_LvsH_scores, na.action = na.omit)
+
+# Effect of host_subject_id
+adonis2(dist_metabolites ~ PCA_LvsH_scores$host_subject_id, data = PCA_LvsH_scores, na.action = na.omit)
+
+```
+```{r}
+set.seed(123)
+# PLSDA
+PLSDA_LvsH <- mixOmics::plsda(data_LvsH_clr, PCA_LvsH_scores$category_label, ncomp = 4, scale = TRUE)
+PLSDA_LvsH_scores <- data.frame(PLSDA_LvsH$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+
+
+```
+
+```{r}
+Loadings_LvsH <- plotLoadings(PLSDA_LvsH, contrib = "max") %>%
+  as.data.frame(check.names = FALSE) %>%
+  rownames_to_column()
+```
+
+```{r}
+set.seed(123)
+# Dynamically remove 'X.' prefix if it exists
+colnames(Loadings_LvsH) <- gsub("^X\\.", "", colnames(Loadings_LvsH))
+
+# Now, select the columns of interest
+Loadings_LvsH <- Loadings_LvsH %>%
+  dplyr::select(rowname, GroupContrib, importance)
+
+#nrepeat =100
+perf_PLSDA_LvsH <- perf(PLSDA_LvsH, validation = "Mfold", folds =5, nrepeat=100) #perform M-fold or loo
+plot(perf_PLSDA_LvsH, legend = TRUE)
+```
+```{r}
+
+png("../Figures/metabolomics_Figures/perf_PLSDA_LvsH_01142026.png", res = 300, width = 5, height = 8, units = "in")
+  
+# Generate the PLS-DA performance plot
+plot(perf_PLSDA_LvsH)
+
+# Close the device to save the plot
+dev.off()
+
+```
+
+```{r}
+#nrepeat =100
+set.seed(123)
+perf_100 <- perf(PLSDA_LvsH, validation = "Mfold", folds = 5, nrepeat = 100, auc= TRUE)
+
+print(perf_100$error.rate)
+print(perf_100$auc)
+```
+
+```{r}
+#nrepeat =100
+PLSDA_LvsH_plot <- PLSDA_LvsH_scores %>%
+  ggscatter(x = "comp1", y = "comp2", color = "category_label", alpha = 0.6, size = 4, title = "Healthy vs Acne Lesional", 
+            xlab = paste("Component 1 (", round(PLSDA_LvsH$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("Component 2 (", round(PLSDA_LvsH$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            legend.title = "", ggtheme = theme_classic(), palette = c("#df7963", "#423fa6")) +
+  geom_point(data = PLSDA_LvsH_scores %>% group_by(category_label) %>% 
+               summarise_at(vars(matches("comp")), mean), aes(comp1, comp2, color = category_label), size = 5, shape = 8, show.legend = FALSE) +
+  stat_ellipse(aes(x = comp1, y = comp2, color = category_label, fill = category_label), 
+               alpha = 0.2, level = 0.95, geom = "polygon", show.legend = FALSE) +  # Add transparent ellipses
+  theme(plot.title = element_text(size = 16, hjust = 0.65),
+        plot.title.position = "plot",
+        axis.title = element_text(size = 16),
+        axis.text = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        panel.border = element_rect(color = "black", fill = NA, size = 1),
+        legend.position = "bottom") +  # Move the legend to the bottom
+  coord_fixed() + 
+  annotate("label", x = -19, y = 12, label = "Performance (Comp1 → Comp2)\nOverall Error: 21.1% → 15.9%\nBER: 39.1% → 30.3%\nAUC: 0.76 ± 0.02 → 0.81 ± 0.02", 
+           hjust = 0.5, vjust = 0.5, size = 3, color = "black")  # Add annotation
+```
+
+```{r}
+VIPs_LvsH <- as.data.frame(mixOmics::vip(PLSDA_LvsH))
+VIPs_LvsH_filter <- dplyr::filter(VIPs_LvsH, VIPs_LvsH$comp1 > 1) # larger than 1 is seen as an important component
+VIPs_LvsH_filter$ID <- rownames(VIPs_LvsH_filter)
+VIPs_LvsH_select <- VIPs_LvsH_filter %>% dplyr::select(ID, comp1)
+VIPs_LvsH_Load <- VIPs_LvsH_select %>% 
+  left_join(Loadings_LvsH, by = c("ID" = "rowname")) %>% arrange(desc(comp1)) %>%
+  left_join(info_feature_complete, by = c("ID" = "Feature")) %>% dplyr::select(1:8)
+```
+```{r}
+write_csv(x = VIPs_LvsH_Load, file = "../Output/VIPs_LvsH_Load_data_method2_11212024.csv")
+```
+
+```{r}
+VIPs_LvsH_merged <-  VIPs_LvsH_select %>% 
+  left_join(Loadings_LvsH, by = c("ID" = "rowname")) %>% arrange(desc(comp1)) %>%
+  left_join(annotations, by = c("ID" = "X.Scan.")) %>%
+  filter(!is.na(Compound_Name))
+```
+```{r}
+write_csv(x = VIPs_LvsH_merged, file = "../Output/Top_Features_VIP_LvsH_merged_data_method2_11212024.csv")
+```
+
+
+#ACNE_NL vs Healthy
+```{r}
+# Acne_NL vs Healthy
+sample_NLvsH <- metadata_final %>% 
+  dplyr::filter(category_label == "Acne Non-lesional" | category_label == "Healthy")
+
+data_NLvsH <- data_sample %>% 
+  dplyr::filter(SampleID %in% sample_NLvsH$SampleID) %>% 
+  column_to_rownames("SampleID") %>% 
+  select_at(vars(-one_of(nearZeroVar(., names = TRUE)))) %>% 
+  rownames_to_column("SampleID")
+```
+
+```{r}
+# RCLR transformation
+data_NLvsH_clr <- decostand(data_NLvsH %>% column_to_rownames("SampleID"), method = "rclr")
+
+```
+
+
+```{r}
+# PCA
+PCA_NLvsH <- mixOmics::pca(data_NLvsH_clr, ncomp = 2, center = TRUE, scale = TRUE)
+PCA_NLvsH_scores <- data.frame(PCA_NLvsH$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+```
+
+```{r}
+i <- "category_label"
+
+PCA_NLvsH_plot <- PCA_NLvsH_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Acne Non-Lesional vs Healthy "), palette = "npg",
+            xlab = paste("PC1 (", round(PCA_NLvsH$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_NLvsH$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_NLvsH_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = (!!sym(i))), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed()
+```
+
+```{r}
+i <- "category_label"
+#"#c49c6b", "#008080"
+#custom_colors <- c("#df7963", "#67b2be", "#423fa6") 
+PCA_NLvsH_plot <- PCA_NLvsH_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Acne Non-Lesional vs Healthy "), palette = c("#67b2be", "#423fa6"),
+            xlab = paste("PC1 (", round(PCA_NLvsH$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_NLvsH$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            , legend.title = "Cohort", ggtheme = theme_classic()) +
+  geom_point(data = PCA_NLvsH_scores %>% group_by(category_label) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = category_label), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed()
+```
+
+
+
+```{r}
+#Permanova 
+dist_metabolites <- vegdist(data_NLvsH_clr, method = "euclidean")
+disper_group <- betadisper(dist_metabolites, PCA_NLvsH_scores$category_label)
+anova(disper_group)
+permanova <- adonis2(dist_metabolites ~ PCA_NLvsH_scores$host_subject_id + PCA_NLvsH_scores$category_label, PCA_NLvsH_scores, na.action = na.omit)
+
+```
+
+```{r}
+permanova <- adonis2(dist_metabolites ~ PCA_NLvsH_scores$host_subject_id + PCA_NLvsH_scores$category_label, 
+                     data = PCA_NLvsH_scores, 
+                     na.action = na.omit, 
+                     by = "margin")
+```
+
+
+```{r}
+set.seed(123)
+# PLSDA
+#"#c49c6b", "#008080"
+PLSDA_NLvsH <- mixOmics::plsda(data_NLvsH_clr, PCA_NLvsH_scores$category_label, ncomp = 4, scale = TRUE)
+PLSDA_NLvsH_scores <- data.frame(PLSDA_NLvsH$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+
+
+```
+
+```{r}
+set.seed(123)
+Loadings_NLvsH <- plotLoadings(PLSDA_NLvsH, contrib = "max") %>%
+  as.data.frame(check.names = FALSE) %>%
+  rownames_to_column()
+
+# Dynamically remove 'X.' prefix if it exists
+colnames(Loadings_NLvsH) <- gsub("^X\\.", "", colnames(Loadings_NLvsH))
+
+# Now, select the columns of interest
+Loadings_NLvsH <- Loadings_NLvsH %>%
+  dplyr::select(rowname, GroupContrib, importance)
+
+```
+
+```{r}
+set.seed(123)
+perf_PLSDA_NLvsH <- perf(PLSDA_NLvsH, validation = "Mfold", folds = 5, nrepeat=100) #perform M-fold or loo
+plot(perf_PLSDA_NLvsH, legend = FALSE)
+```
+
+```{r}
+png("../Figures/metabolomics_Figures/perf_PLSDA_NLvsH_01142026.png", res = 300, width = 5, height = 8, units = "in")
+  
+# Generate the PLS-DA performance plot
+plot(perf_PLSDA_NLvsH)
+
+# Close the device to save the plot
+dev.off()
+
+```
+
+```{r}
+nrepeat=100
+set.seed(123)
+perf_100_NLvsH <- perf(PLSDA_NLvsH, validation = "Mfold", folds = 5, nrepeat = 100, auc= TRUE)
+
+print(perf_100_NLvsH$error.rate)
+print(perf_100_NLvsH$auc)
+
+```
+
+
+```{r}
+#nrepeat = 100
+PLSDA_NLvsH_plot <- PLSDA_NLvsH_scores %>%
+  ggscatter(x = "comp1", y = "comp2", color = "category_label", alpha = 0.6, size = 4, title = "Acne Non-Lesional vs Healthy", 
+            xlab = paste("Component 1 (", round(PLSDA_NLvsH$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("Component 2 (", round(PLSDA_NLvsH$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            legend.title = "", ggtheme = theme_classic(), palette = c("#67b2be", "#423fa6")) +
+  geom_point(data = PLSDA_NLvsH_scores %>% group_by(category_label) %>% 
+               summarise_at(vars(matches("comp")), mean), aes(comp1, comp2, color = category_label), size = 5, shape = 8, show.legend = FALSE) +
+  stat_ellipse(aes(x = comp1, y = comp2, color = category_label, fill = category_label), 
+               alpha = 0.2, level = 0.95, geom = "polygon", show.legend = FALSE) +  # Add transparent ellipses
+  theme(plot.title = element_text(size = 16, hjust = 0.65),
+        plot.title.position = "plot",
+        axis.title = element_text(size = 16),
+        axis.text = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        panel.border = element_rect(color = "black", fill = NA, size = 1),
+        legend.position = "bottom") +  # Move the legend to the bottom
+  coord_fixed() + 
+  annotate("label", x = 10, y = 15,  label = "Performance (Comp1 → Comp2)\nOverall Error: 37.5% → 37.2%\nBER: 37.3% → 37.6%\nAUC: 0.67 ± 0.03 → 0.68 ± 0.04", 
+           hjust = 0.5, vjust = 0.5, size = 3, color = "black")  # Add annotation
+```
+
+```{r}
+VIPs_NLvsH <- as.data.frame(mixOmics::vip(PLSDA_NLvsH))
+VIPs_NLvsH_filter <- dplyr::filter(VIPs_NLvsH, VIPs_NLvsH$comp1 > 1) # larger than 1 is seen as an important component
+VIPs_NLvsH_filter$ID <- rownames(VIPs_NLvsH_filter)
+VIPs_NLvsH_select <- VIPs_NLvsH_filter %>% dplyr::select(ID, comp1)
+VIPs_NLvsH_Load <- VIPs_NLvsH_select %>% 
+  left_join(Loadings_NLvsH, by = c("ID" = "rowname")) %>% arrange(desc(comp1)) %>%
+  left_join(info_feature_complete, by = c("ID" = "Feature")) %>% dplyr::select(1:8)
+```
+
+```{r}
+write_csv(x = VIPs_NLvsH_Load, file = "../Output/VIPs_NLvsH_Load_data_method2_11212024.csv")
+```
+
+
+```{r}
+VIPs_NLvsH_merged <-  VIPs_NLvsH_select %>% 
+  left_join(Loadings_NLvsH, by = c("ID" = "rowname")) %>% arrange(desc(comp1)) %>%
+  left_join(annotations, by = c("ID" = "X.Scan.")) %>%
+  filter(!is.na(Compound_Name))
+```
+```{r}
+write_csv(x = VIPs_NLvsH_merged, file = "../Output/Top_Features_VIP_NLvsH_merged_data_method2_11212024.csv")
+```
+
+
+#ACNE_NL vs Acne_L
+```{r}
+# Acne_NL vs Acne_L
+sample_NLvsL <- metadata_final %>% 
+  dplyr::filter(category_label == "Acne Non-lesional" | category_label == "Acne Lesional")
+
+data_NLvsL <- data_sample %>% 
+  dplyr::filter(SampleID %in% sample_NLvsL$SampleID) %>% 
+  column_to_rownames("SampleID") %>% 
+  select_at(vars(-one_of(nearZeroVar(., names = TRUE)))) %>% 
+  rownames_to_column("SampleID")
+```
+
+
+```{r}
+# RCLR transformation
+data_NLvsL_clr <- decostand(data_NLvsL %>% column_to_rownames("SampleID"), method = "rclr")
+```
+
+
+```{r}
+# PCA
+PCA_NLvsL <- mixOmics::pca(data_NLvsL_clr, ncomp = 2, center = TRUE, scale = TRUE)
+PCA_NLvsL_scores <- data.frame(PCA_NLvsL$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+```
+
+```{r}
+i <- "category_label"
+
+PCA_NLvsL_plot <- PCA_NLvsL_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Acne Non-Lesional vs Lesional "), palette = "npg",
+            xlab = paste("PC1 (", round(PCA_NLvsL$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_NLvsL$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            ggtheme = theme_classic()) +
+  geom_point(data = PCA_NLvsL_scores %>% group_by((!!sym(i))) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = (!!sym(i))), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed()
+```
+
+```{r}
+#custom_colors <- c("#df7963", "#67b2be", "#423fa6") 
+i <- "category_label"
+#"#58a35b", "#dd7966", "#6ab2bd"
+#"#a54700","#c49c6b"
+PCA_NLvsL_plot <- PCA_NLvsL_scores %>%
+  ggscatter(x = "PC1", y = "PC2", color = i, alpha = 0.6,
+            title = paste("PCA - Acne Non-Lesional vs Lesional "), palette = c("#df7963","#67b2be"),
+            xlab = paste("PC1 (", round(PCA_NLvsL$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("PC2 (", round(PCA_NLvsL$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            legend.title = "Cohort", ggtheme = theme_classic()) +
+  geom_point(data = PCA_NLvsL_scores %>% group_by(category_label) %>% 
+               summarise_at(vars(matches("PC")), mean), aes(PC1, PC2, color = category_label), size = 4, shape = 8) +
+  theme(plot.title = element_text(size = 10), axis.title = element_text(size = 8),
+        axis.text = element_text(size = 4)) + coord_fixed()
+```
+
+```{r}
+#Permanova 
+dist_metabolites <- vegdist(data_NLvsL_clr, method = "euclidean")
+disper_group <- betadisper(dist_metabolites, PCA_NLvsL_scores$category_label)
+anova(disper_group)
+permanova <- adonis2(dist_metabolites ~ PCA_NLvsL_scores$host_subject_id + PCA_NLvsL_scores$category_label, PCA_NLvsL_scores, na.action = na.omit)
+
+```
+
+```{r}
+permanova <- adonis2(dist_metabolites ~ PCA_NLvsL_scores$host_subject_id + PCA_NLvsL_scores$category_label, 
+                     data = PCA_NLvsL_scores, 
+                     na.action = na.omit, 
+                     by = "margin")
+```
+
+```{r}
+set.seed(123)
+# PLSDA
+PLSDA_NLvsL <- mixOmics::plsda(data_NLvsL_clr, PCA_NLvsL_scores$category_label, ncomp = 4, scale = TRUE)
+PLSDA_NLvsL_scores <- data.frame(PLSDA_NLvsL$variates$X) %>% 
+  rownames_to_column("SampleID") %>% left_join(metadata_final)
+
+```
+
+```{r}
+Loadings_NLvsL <- plotLoadings(PLSDA_NLvsL, contrib = "max") %>%
+  as.data.frame(check.names = FALSE) %>%
+  rownames_to_column()
+
+# Dynamically remove 'X.' prefix if it exists
+colnames(Loadings_NLvsL) <- gsub("^X\\.", "", colnames(Loadings_NLvsL))
+
+# Now, select the columns of interest
+Loadings_NLvsL <- Loadings_NLvsL %>%
+  dplyr::select(rowname, GroupContrib, importance)
+```
+
+
+```{r}
+set.seed(123)
+perf_PLSDA_NLvsL <- perf(PLSDA_NLvsL, validation = "Mfold", folds=5, nrepeat = 100) #perform M-fold or loo
+plot(perf_PLSDA_NLvsL)#, legend = FALSE)
+```
+
+```{r}
+png("../Figures/metabolomics_Figures/perf_PLSDA_NLvsL_01142026.png", res = 300, width = 5, height = 8, units = "in")
+ 
+# Generate the PLS-DA performance plot
+plot(perf_PLSDA_NLvsL)
+
+# Close the device to save the plot
+dev.off()
+
+```
+
+```{r}
+set.seed(123)
+perf_100_NLvsL <- perf(PLSDA_NLvsL, validation = "Mfold", folds = 5, nrepeat = 100, auc= TRUE)
+
+print(perf_100_NLvsL$error.rate)
+print(perf_100_NLvsL$auc)
+
+```
+
+```{r}
+#nrepeat =100
+PLSDA_NLvsL_plot <- PLSDA_NLvsL_scores %>%
+  ggscatter(x = "comp1", y = "comp2", color = "category_label", alpha = 0.6, size = 4, title = "Acne Non-Lesional vs Acne Lesional", 
+            xlab = paste("Component 1 (", round(PLSDA_NLvsL$prop_expl_var$X[1]*100, digits = 1),"%)", sep = ""), 
+            ylab = paste("Component 2 (", round(PLSDA_NLvsL$prop_expl_var$X[2]*100, digits = 1),"%)", sep = ""),
+            legend.title = "", ggtheme = theme_classic(), palette = c("#df7963","#67b2be")) +
+  geom_point(data = PLSDA_NLvsL_scores %>% group_by(category_label) %>% 
+               summarise_at(vars(matches("comp")), mean), aes(comp1, comp2, color = category_label), size = 5, shape = 8, show.legend = FALSE) +
+  stat_ellipse(aes(x = comp1, y = comp2, color = category_label, fill = category_label), 
+               alpha = 0.2, level = 0.95, geom = "polygon", show.legend = FALSE) +  # Add transparent ellipses
+  theme(plot.title = element_text(size = 16, hjust = 0.65),
+        plot.title.position = "plot",
+        axis.title = element_text(size = 16),
+        axis.text = element_text(size = 16),
+        legend.text = element_text(size = 16),
+        panel.border = element_rect(color = "black", fill = NA, size = 1),
+        legend.position = "bottom") +  # Move the legend to the bottom
+  coord_fixed()+ 
+  annotate("label", x = -9, y = 14, label = "Performance (Comp1 → Comp2)\nOverall Error: 26.1% → 29.6%\nBER: 48.1% → 52.9%\nAUC: 0.51 ± 0.02 → 0.36 ± 0.04", 
+           hjust = 0.5, vjust = 0.5, size = 3, color = "black")  # Add annotation
+```
+
+
+```{r}
+VIPs_NLvsL <- as.data.frame(mixOmics::vip(PLSDA_NLvsL))
+VIPs_NLvsL_filter <- dplyr::filter(VIPs_NLvsL, VIPs_NLvsL$comp1 > 1) # larger than 1 is seen as an important component
+VIPs_NLvsL_filter$ID <- rownames(VIPs_NLvsL_filter)
+VIPs_NLvsL_select <- VIPs_NLvsL_filter %>% dplyr::select(ID, comp1)
+VIPs_NLvsL_Load <- VIPs_NLvsL_select %>% 
+  left_join(Loadings_NLvsL, by = c("ID" = "rowname")) %>% arrange(desc(comp1)) %>%
+  left_join(info_feature_complete, by = c("ID" = "Feature")) %>% dplyr::select(1:8)
+```
+
+```{r}
+write_csv(x = VIPs_NLvsL_Load, file = "../Output/VIPs_NLvsL_Load_data_method2_11212024.csv")
+```
+
+```{r}
+VIPs_NLvsL_merged <-  VIPs_NLvsL_select %>% 
+  left_join(Loadings_NLvsL, by = c("ID" = "rowname")) %>% arrange(desc(comp1)) %>%
+  left_join(annotations, by = c("ID" = "X.Scan.")) %>%
+  filter(!is.na(Compound_Name))
+```
+```{r}
+write_csv(x = VIPs_NLvsL_merged, file = "../Output/Top_Features_VIP_NLvsL_merged_data_method2_11212024.csv")
+```
+
+
+# Linear Mixed Effects Models 
+
+
+```{r}
+data_sample_method2 <- data_sample
+```
+
+
+```{r}
+# Extract feature IDs from column names (excluding the first column, which is SampleID)
+feature_ids <- colnames(data_sample_method2)[-1]
+
+# Filter the Canopus table to keep only rows that have feature IDs matching the feature_ids
+matched_features <- canopus %>%
+  filter(featureId %in% feature_ids)
+
+# Calculate the number of features with NPC#superclass
+num_features_with_superclass <- nrow(matched_features)
+```
+
+```{r}
+# Extract feature IDs from column names (excluding the first column, which is SampleID)
+feature_ids <- colnames(data_sample_method2)[-1]
+
+# Filter the Canopus table to keep only rows that have feature IDs matching the feature_ids
+matched_features <- canopus %>%
+  filter(featureId %in% feature_ids)
+
+# Calculate the number of features with ClassyFire#most specific class
+num_features_with_class <- nrow(matched_features)
+
+```
+
+```{r}
+# Calculate the range (min and max probability) of ClassyFire#most specific class probability
+probability_range <- range(matched_features$`ClassyFire#most specific class Probability`, na.rm = TRUE)
+
+# Output the results
+cat("Number of features with ClassyFire#most specific class:", num_features_with_class, "\n")
+cat("Probability range (min, max):", probability_range[1], "-", probability_range[2], "\n")
+
+```
+
+```{r}
+# Filter features with ClassyFire#most specific class Probability > 0.75
+matched_features <- matched_features %>%
+  mutate(`ClassyFire#most specific class` = ifelse(`ClassyFire#most specific class Probability` > 0.75, `ClassyFire#most specific class`, NA)) %>%
+  drop_na(`ClassyFire#most specific class`)
+
+# Collapse peak intensities in data_sample_method2 by ClassyFire#most specific class
+collapsed_table <- data_sample_method2 %>%
+  # Reshape data to long format
+  pivot_longer(
+    cols = -SampleID, 
+    names_to = "featureId", 
+    values_to = "intensity"
+  ) %>%
+  # Join with matched_features to map ClassyFire#most specific class
+  left_join(matched_features, by = "featureId") %>%
+  # Replace NA in ClassyFire#most specific class with "Unclassified"
+  mutate(`ClassyFire#most specific class` = ifelse(is.na(`ClassyFire#most specific class`), "Unclassified", `ClassyFire#most specific class`)) %>%
+  # Group by SampleID and ClassyFire#most specific class and sum intensities
+  group_by(SampleID, `ClassyFire#most specific class`) %>%
+  summarise(total_intensity = sum(intensity, na.rm = TRUE), .groups = "drop")
+
+# Select only SampleID and category_label from metadata_final
+metadata_subset <- metadata_final %>%
+  select(SampleID, category_label)
+
+
+# Merge category_label into collapsed_table
+collapsed_table <- collapsed_table %>%
+  left_join(metadata_subset, by = "SampleID")
+
+```
+
+```{r}
+# LMM + emmeans pairwise with BH
+
+library(dplyr)
+library(tidyr)
+library(tibble)
+library(purrr)
+library(ggplot2)
+library(ggpubr)
+library(lme4)
+library(emmeans)
+
+
+# Settings
+
+group_levels <- c("Healthy", "Acne Non-lesional", "Acne Lesional")
+
+comparisons <- list(
+  c("Acne Lesional", "Healthy"),
+  c("Acne Lesional", "Acne Non-lesional"),
+  c("Healthy", "Acne Non-lesional")
+)
+
+colors <- c("Healthy"="#423fa6","Acne Non-lesional"="#67b2be","Acne Lesional"="#dd7963")
+
+format_p_value <- function(p) {
+  if (is.na(p)) return("NA")
+  if (p < 0.0001) return(paste0("**** p=", signif(p, 2)))
+  if (p < 0.001)  return(paste0("*** p=",  signif(p, 2)))
+  if (p < 0.01)   return(paste0("** p=",   signif(p, 2)))
+  if (p < 0.05)   return(paste0("* p=",    signif(p, 2)))
+  paste0("ns p=", signif(p, 2))
+}
+
+
+# Wide table + rclr
+
+data_severity <- collapsed_table %>%
+  pivot_wider(
+    names_from  = `ClassyFire#most specific class`,
+    values_from = total_intensity,
+    values_fill = 0
+  ) %>%
+  left_join(metadata_final %>% select(SampleID, host_subject_id),
+            by = "SampleID")
+
+# Perform rclr transformation
+data_severity_clr <- data_severity %>%
+  select(SampleID, everything(), -category_label, -host_subject_id) %>%  # Keep SampleID
+  mutate(across(-SampleID, as.numeric)) %>%  # Ensure numeric columns
+  column_to_rownames("SampleID") %>%  # Set SampleID as rownames temporarily for rclr
+  decostand(method = "rclr") %>%  # Perform transformation
+  as.data.frame() %>%
+  rownames_to_column("SampleID") %>%  # Restore SampleID
+  left_join(metadata_final %>% select(SampleID, category_label, host_subject_id), by = "SampleID")
+
+data_severity_clr$category_label <- factor(data_severity_clr$category_label, 
+                                           levels = c("Healthy",   "Acne Non-lesional", "Acne Lesional"))
+
+# n labels for x-axis
+counts <- data_severity %>%
+  group_by(category_label) %>%
+  summarize(n = n(), .groups = "drop") %>%
+  mutate(
+    label_with_count = case_when(
+      category_label == "Healthy" ~ paste0("Healthy\nControl\n(n=", n, ")"),
+      category_label == "Acne Non-lesional" ~ paste0("Acne\nNon-lesional\n(n=", n, ")"),
+      category_label == "Acne Lesional" ~ paste0("Acne\nLesional\n(n=", n, ")"),
+      TRUE ~ as.character(category_label)
+    ),
+    category_label = factor(category_label, levels = group_levels)
+  )
+
+x_labels <- setNames(counts$label_with_count, counts$category_label)
+
+features <- setdiff(colnames(data_severity_clr), c("SampleID","category_label","host_subject_id"))
+
+# p-values + annotations 
+
+compute_feature_annotations <- function(feature) {
+
+  df <- data_severity_clr %>%
+    select(category_label, host_subject_id, value = all_of(feature)) %>%
+    filter(!is.na(value))
+
+  # If missing groups or too few rows, return empty annotation + NA table
+  if (!all(group_levels %in% unique(as.character(df$category_label))) || nrow(df) == 0) {
+    ann <- tibble()
+    tab <- tibble(
+      feature = feature,
+      group1 = vapply(comparisons, `[`, character(1), 1),
+      group2 = vapply(comparisons, `[`, character(1), 2),
+      p_adj = NA_real_
+    )
+    return(list(ann = ann, tab = tab))
+  }
+
+  fit <- tryCatch(
+    lmer(value ~ category_label + (1 | host_subject_id), data = df, REML = FALSE),
+    error = function(e) NULL
+  )
+
+  if (is.null(fit)) {
+    ann <- tibble()
+    tab <- tibble(
+      feature = feature,
+      group1 = vapply(comparisons, `[`, character(1), 1),
+      group2 = vapply(comparisons, `[`, character(1), 2),
+      p_adj = NA_real_
+    )
+    return(list(ann = ann, tab = tab))
+  }
+
+  # emmeans pairwise with BH adjustment (WITHIN FEATURE; 3 tests for 3 groups)
+  pw <- as.data.frame(pairs(emmeans(fit, ~ category_label), adjust = "BH"))
+
+  # Lookup for both orientations (pw$p.value is already BH-adjusted)
+  pw_lookup <- bind_rows(
+    pw %>% transmute(
+      group1 = trimws(gsub("[()]", "", sub(" - .*", "", contrast))),
+      group2 = trimws(gsub("[()]", "", sub(".*- ", "", contrast))),
+      p_adj  = p.value
+    ),
+    pw %>% transmute(
+      group1 = trimws(gsub("[()]", "", sub(".*- ", "", contrast))),
+      group2 = trimws(gsub("[()]", "", sub(" - .*", "", contrast))),
+      p_adj  = p.value
+    )
+  )
+
+  # Extract your 3 comparisons in your specified order
+  pairs_df <- map_dfr(comparisons, function(comp) {
+    g1 <- comp[1]; g2 <- comp[2]
+    hit <- pw_lookup %>% filter(group1 == g1, group2 == g2) %>% slice(1)
+    tibble(
+      feature = feature,
+      group1 = g1,
+      group2 = g2,
+      p_adj = if (nrow(hit) == 0) NA_real_ else hit$p_adj
+    )
+  }) %>%
+    mutate(label = map_chr(p_adj, format_p_value))
+
+  # y positions (pair-specific max + step)
+  max_y <- max(df$value, na.rm = TRUE)
+  min_y <- min(df$value, na.rm = TRUE)
+  step_y <- (max_y - min_y) * 0.12
+  if (!is.finite(step_y) || step_y == 0) step_y <- 1
+
+  ann <- pairs_df %>%
+    mutate(
+      base_y = pmap_dbl(list(group1, group2), function(g1, g2) {
+        max(df$value[df$category_label %in% c(g1, g2)], na.rm = TRUE)
+      }),
+      y.position = base_y + row_number() * step_y
+    ) %>%
+    transmute(
+      group1 = factor(group1, levels = group_levels),
+      group2 = factor(group2, levels = group_levels),
+      y.position = y.position,
+      label = label
+    )
+
+  list(ann = ann, tab = pairs_df %>% select(feature, group1, group2, p_adj))
+}
+
+
+# Build plots + collect pvals
+
+plots <- vector("list", length(features))
+pval_table <- vector("list", length(features))
+
+for (i in seq_along(features)) {
+  feature <- features[i]
+
+  res <- compute_feature_annotations(feature)
+  ann <- res$ann
+  pval_table[[i]] <- res$tab
+
+  p <- ggplot(data_severity_clr,
+              aes(x = category_label, y = .data[[feature]],
+                  fill = category_label, color = category_label)) +
+    geom_boxplot(outlier.shape = NA, color = "black", width = 0.4, size = 0.5) +
+    geom_jitter(width = 0.05, alpha = 0.6, size = 0.8) +
+    scale_fill_manual(values = colors) +
+    scale_color_manual(values = colors) +
+    scale_x_discrete(labels = x_labels) +
+    labs(y = paste0("rclr Transformed\n", feature), x = NULL, title = feature) +
+    theme_minimal() +
+    theme(
+      axis.text.x = element_text(size = 10, margin = margin(t = 5, b = 5)),
+      axis.text.y = element_text(size = 10),
+      axis.title.y = element_text(size = 10),
+      plot.title  = element_text(size = 10),
+      axis.ticks = element_line(),
+      panel.grid = element_blank(),
+      legend.position = "none",
+      axis.line = element_line(color = "black")
+    )
+
+  if (nrow(ann) > 0) {
+    p <- p + stat_pvalue_manual(
+      ann, label = "label",
+      tip.length = 0.01, size = 3, inherit.aes = FALSE
+    )
+  }
+
+  plots[[i]] <- p
+}
+
+pval_table <- bind_rows(pval_table)
+
+
+# Count features with ≥1 significant comparison (BH within feature)
+
+n_significant_metabolites <- pval_table %>%
+  group_by(feature) %>%
+  summarize(any_sig = any(p_adj < 0.05, na.rm = TRUE), .groups = "drop") %>%
+  summarize(n = sum(any_sig), .groups = "drop") %>%
+  pull(n)
+
+print(n_significant_metabolites)
+
+
+# Save plots
+
+out_dir <- "../Figures/rclr_Figures/ClassyFire/most_specific_class_75_LMM_BH_01212026_3/"
+dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
+
+for (i in seq_along(plots)) {
+  ggsave(
+    filename = file.path(out_dir, paste0("rclr_boxplots_LMM_BHwithinFeature_page_", i, ".png")),
+    plot = plots[[i]],
+    width = 3, height = 3.5, dpi = 300
+  )
+}
+
+
+```
+
+
+
+#Personal care products (e.g., sunscreens)
+
+```{r}
+# Create output directory if it doesn't exist
+output_dir <- "../Figures/metabolomics_Figures/annotated_metabolites_individual_01222026_KW_test"
+if (!dir.exists(output_dir)) {
+  dir.create(output_dir, recursive = TRUE)
+}
+
+# Extract mz values for each feature from info_feature_complete
+info_feature_complete2 <- info_feature_complete %>% 
+  dplyr::select(Feature, mz, RT)  # Ensure you have these columns
+
+# Make sure SampleID is a column for merging
+data_sample_clr <- data_sample_clr %>% 
+  rownames_to_column(var = "SampleID")
+
+# Merge with metadata
+data_with_meta <- merge(
+  data_sample_clr,
+  metadata_final[, c("SampleID", "host_subject_id", "category_label")], 
+  by = "SampleID"
+)
+
+# Initialize list to store plots
+plots <- list()
+```
+
+
+```{r}
+# Define specific Compound_IDs to plot
+selected_compound_ids <- c("28600", "25614", "28946", "3545", "29246","30095","29236","21377")
+
+```
+
+```{r}
+# Initialize list to store plots
+selected_plots <- list()
+for (compound_id in selected_compound_ids) {
+  
+  compound_col <- as.character(compound_id)
+  
+  # Extract compound name from annotations based on X.Scan
+  compound_name <- annotations %>%
+    filter(X.Scan. == compound_col) %>%
+    pull(Compound_Name) %>%
+    unique()
+  
+  # If no compound name found, fall back to ID
+  if (length(compound_name) == 0) compound_name <- compound_col
+  
+  # Skip if compound is not in data
+  if (!(compound_col %in% colnames(data_with_meta))) next
+  
+  # Get mz and RT values for the current compound
+  mz_rt_info <- info_feature_complete2 %>% 
+    filter(Feature == compound_col)
+  
+  # If no match found, skip
+  if (nrow(mz_rt_info) == 0) next
+  
+  mz_val <- round(mz_rt_info$mz[1], 2)
+  rt_val <- round(mz_rt_info$RT[1], 2)
+
+  # Create subset for the compound
+  compound_data <- data_with_meta %>%
+    select(SampleID, host_subject_id, category_label, !!compound_col := all_of(compound_col))
+  
+  # Perform Kruskal-Wallis test
+  kruskal_result <- kruskal.test(
+    formula = as.formula(paste0("`", compound_col, "` ~ host_subject_id")),
+    data = compound_data
+  )
+  
+  kruskal_p <- signif(kruskal_result$p.value, 3)
+  
+  # Create labels
+  y_axis_label <- paste0("RCLR Transformed ", compound_name,
+                         "\n(m/z: ", format(mz_val, nsmall = 2), 
+                         " | RT: ", format(rt_val, nsmall = 2), ")")
+  
+  subtitle_text <- paste0(compound_name, 
+                          " (Compound ", compound_col, 
+                          "): m/z = ", format(mz_val, nsmall = 2),
+                          " | RT = ", format(rt_val, nsmall = 2), 
+                          " (Kruskal-Wallis p = ", kruskal_p, ")")
+
+  # Create plot
+  p <- compound_data %>%
+    ggplot(aes(x = host_subject_id,
+               y = .data[[compound_col]],
+               fill = category_label,
+               color = category_label)) +
+    geom_boxplot(outlier.shape = NA, width = 0.5) +
+    geom_jitter(width = 0.2, alpha = 0.6, size = 0.5) +
+    scale_fill_manual(values = colors) +
+    scale_color_manual(values = colors) +
+    labs(
+      y = y_axis_label,
+      x = "Host Subject ID",
+      subtitle = subtitle_text
+    ) +
+    theme_classic() +
+    theme(
+      axis.text.x = element_text(size = 8, angle = 45, hjust = 1),
+      axis.text.y = element_text(size = 8),
+      axis.title.y = element_text(size = 8),
+      panel.grid = element_blank(),
+      legend.position = "right",
+      axis.line = element_line(color = "black")
+    )
+  
+  # Add to list of selected plots
+  selected_plots[[length(selected_plots) + 1]] <- p
+  # Save the plot
+  filename <- paste0(output_dir, "/compound_", gsub("[^A-Za-z0-9]", "_", compound_id), ".png")
+  ggsave(filename, plot = p, width = 12, height = 7, dpi = 300)
+
+  
+
+}
+
+```
