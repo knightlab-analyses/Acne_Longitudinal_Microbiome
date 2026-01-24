@@ -61,7 +61,7 @@ plotAnnotatedStatic <- function(annotated, legend_setting = "bottom"){
 #Read data 
 feature_table <- read_csv("../Data/metabolomics/Run3_10252024/FBMN_mgf_Lami_10252024_quant.csv")
 
-metadata <- read_csv("../Metadata/metadata_metabolomics.csv")
+metadata <- read_csv("../Metadata/metadata_reordered.csv")
 
 sample_order <- read.csv("../Data/metabolomics/Run3_10252024/Sequence_order_10262024.csv")
 
@@ -310,7 +310,7 @@ data_TIC %>% dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Pool|wash|CT
   stat_cor()
 ```
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder.png", plot = last_plot(), dpi = 300, width = 8, height = 6, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder.png", plot = last_plot(), dpi = 300, width = 8, height = 6, units = "in")
 
 ```
 
@@ -361,7 +361,7 @@ f <- ggarrange(a0, a, b, c, d, ncol = 3, nrow = 2, labels = c("a", "b", "c", "d"
 
 ```
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
 
 ```
 
@@ -458,7 +458,7 @@ print(a0)
 f <- ggarrange(a0, a, b, c, d, ncol = 3, nrow = 2, labels = c("a", "b", "c", "d", "e"))
 ```
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all_filtered_5e8.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all_filtered_5e8.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
 
 ```
 ```{r}
@@ -470,7 +470,7 @@ data_tic_filtered %>% dplyr::filter(!(str_detect(SampleID, regex("Blank|6mix|Poo
 ```
 
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_sampleID.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_sampleID.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
 
 ```
 
@@ -571,7 +571,7 @@ f <- ggarrange(
 ```
 
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all_platenumber.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all_platenumber.png", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
 
 ```
 
@@ -641,7 +641,7 @@ f <- ggarrange(
 ```
 
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all_platenumber_filtered.svg", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_all_platenumber_filtered.svg", plot = last_plot(), dpi = 300, width = 16, height = 10, units = "in")
 ```
 
 
@@ -666,7 +666,7 @@ a0 <- data_tic_group %>%
 
 ```
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_group.png", plot = last_plot(), dpi = 300, width = 8, height = 8, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_group.png", plot = last_plot(), dpi = 300, width = 8, height = 8, units = "in")
 ```
 
 ```{r}
@@ -688,7 +688,7 @@ a0 <- data_tic_group %>%
 
 ```
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_group_filtered.png", plot = last_plot(), dpi = 300, width = 8, height = 8, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/TICvsOrder_group_filtered.png", plot = last_plot(), dpi = 300, width = 8, height = 8, units = "in")
 ```
 
 
@@ -758,7 +758,7 @@ table_IS %>% ggscatter(x = "Order", y = "sulfadimethoxine", add = c("reg.line"))
 ```
 
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/scatter_IS_filtered.png", plot = last_plot(), dpi = 300, width = 8, height = 6, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/scatter_IS_filtered.png", plot = last_plot(), dpi = 300, width = 8, height = 6, units = "in")
 ```
 
 
@@ -939,7 +939,7 @@ PCA_raw_plot <- PCA_raw_scores %>%
 
 ```
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/PCA_data_clean2.png", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
+#ggsave("../Figures/metabolomics_Figures/qc/PCA_data_clean2.png", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
 ```
 
 ```{r}
@@ -963,7 +963,7 @@ PCA_raw_plot <- PCA_raw_scores %>%
   scale_color_manual(values = sample_type_colors)
 ```
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/PCA_data_clean3.png", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/PCA_data_clean3.png", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
 ```
 
 
@@ -993,7 +993,7 @@ PCA_plot <- PCA_whole_scores %>%
 ```
 
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/PCA_rclr_dataclean3.png", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/PCA_rclr_dataclean3.png", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
 ```
 
 
@@ -1010,7 +1010,7 @@ f <- ggarrange(
 ```
 
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/PCA_combined_filtered.svg", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/PCA_combined_filtered.svg", plot = last_plot(), dpi = 300, width = 10, height = 6, units = "in")
 ```
 
 ```{r}
@@ -1121,7 +1121,7 @@ peg %>% arrange(Order) %>% dplyr::mutate(LogPeg = log2(PEG+1)) %>%
                   color = "Order", group = "Sample_Type", legend = "right") + scale_color_viridis_c()
 ```
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/PEGboxplot_26921.png", plot = last_plot(), dpi = 300, width = 11, height = 5, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/PEGboxplot_26921.png", plot = last_plot(), dpi = 300, width = 11, height = 5, units = "in")
 ```
 
 ```{r}
@@ -1146,7 +1146,7 @@ PCA_raw_plot <- PCA_raw_scores %>%
 
 ```
 ```{r}
-ggsave("../Figures/metabolomics_Figures/qc/PCA_raw_HD_filtered.png", plot = last_plot(), dpi = 300, width = 8, height = 6, units = "in")
+# ggsave("../Figures/metabolomics_Figures/qc/PCA_raw_HD_filtered.png", plot = last_plot(), dpi = 300, width = 8, height = 6, units = "in")
 ```
 
 ```{r}
