@@ -13,11 +13,13 @@ from matplotlib.lines import Line2D
 colormap = cm.get_cmap("RdBu_r")
 
 # Load conditional probability tables
-cond_probs_Healthy_vs_Acne_L = pd.read_csv("Outputs/experiment5/Healthy_vs_Acne_L/conditionals-viz.tsv", sep='\t', index_col=0)
-cond_probs_Healthy_vs_Acne_NL = pd.read_csv("Outputs/experiment5/Healthy_vs_Acne_NL/conditionals-viz.tsv", sep='\t', index_col=0)
-cond_probs_Acne_NL_vs_Acne_L = pd.read_csv("Outputs/experiment5/Acne_NL_vs_Acne_L/conditionals-viz.tsv", sep='\t', index_col=0)
+cond_probs_Healthy_vs_Acne_L = pd.read_csv("../Analyses/multi-omics/mmvec_outputs/experiment5/Healthy_vs_Acne_L/conditionals-viz.tsv", sep='\t', index_col=0)
+cond_probs_Healthy_vs_Acne_NL = pd.read_csv("../Analyses/multi-omics/mmvec_outputs/experiment5/Healthy_vs_Acne_NL/conditionals-viz.tsv", sep='\t', index_col=0)
+cond_probs_Acne_NL_vs_Acne_L = pd.read_csv("../Analyses/multi-omics/mmvec_outputs/experiment5/Acne_NL_vs_Acne_L/conditionals-viz.tsv", sep='\t', index_col=0)
 # cond_probs_AllGroups = pd.read_csv("Outputs/experiment6/conditionals-viz.tsv", sep='\t', index_col=0)
 
+fig_out_main = "../Figures/Main/Figure_6"
+fig_out_suppl = "../Figures/Supplementary/Suppl_Figure_11"
 
 # ------------------- Helper Functions -------------------- #
 
@@ -246,9 +248,9 @@ def draw_single_network(top_edges_df, title, outpath, norm_range, label_tweaks=N
 
 # ------------------- Prepare Top n ------------------- #
 
-number_of_edges = 48 # top 20%
-# number_of_edges = 60 # top 25%
-# number_of_edges = 50
+# number_of_edges = 48 # top 20%
+number_of_edges = 60 # top 25%
+# number_of_edges = 72  # top 30%
 
 top_Healthy_vs_Acne_L = topN_abs(cond_probs_Healthy_vs_Acne_L, number_of_edges)
 top_Healthy_vs_Acne_NL = topN_abs(cond_probs_Healthy_vs_Acne_NL, number_of_edges)
@@ -278,7 +280,7 @@ label_tweaks = {
 draw_single_network(
     top_Healthy_vs_Acne_L,
     "MMVEC Co-Occurrence Network: Healthy vs Acne Lesional",
-    "Figures/Network_Healthy_vs_Acne_L.png",
+    f"{fig_out_main}/Network_Healthy_vs_Acne_L.png",
     (global_min, global_max),
     label_tweaks=label_tweaks
 )
@@ -294,7 +296,7 @@ label_tweaks = {
 draw_single_network(
     top_Healthy_vs_Acne_NL,
     "MMVEC Co-Occurrence Network: Healthy vs Acne Non-lesional",
-    "Figures/Network_Healthy_vs_Acne_NL.png",
+    f"{fig_out_suppl}/Network_Healthy_vs_Acne_NL.png",
     (global_min, global_max),
     label_tweaks=label_tweaks
 )
@@ -309,7 +311,7 @@ label_tweaks = {
 draw_single_network(
     top_Acne_NL_vs_Acne_L,
     "MMVEC Co-Occurrence Network: Acne Non-lesional vs Acne Lesional",
-    "Figures/Network_Acne_NL_vs_Acne_L.png",
+    f"{fig_out_suppl}/Network_Acne_NL_vs_Acne_L.png",
     (global_min, global_max),
     label_tweaks=label_tweaks
 )

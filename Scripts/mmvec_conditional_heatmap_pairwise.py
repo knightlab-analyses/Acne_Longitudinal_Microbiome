@@ -8,13 +8,13 @@ import numpy as np
 
 # Global paths
 output_dir = "../Analyses/multi-omics/mmvec_outputs/experiment5"
-vip_path = "../Data/metabolomics/Run3_10252024/output/VIP_filtered_with_shortened_names.tsv"
+vip_path = "../Data/metabolomics/Run3_10252024/output/VIP_filtered_final_data_method2_11212024_with_shortened_names.csv"
 classyfire_path = "../Data/metabolomics/Run3_10252024/info_feature_complete.csv"
 # masst_path = "masst_screening_results_05152025_07152025_07192025.csv"
 masst_path = "../Data/metabolomics/Run3_10252024/masst_screening_results.csv"
 
 fig_dir_main = "../Figures/Main/Figure_6"
-fig_dir_suppl = "../Figures/Supplementary/Figure_6"
+fig_dir_suppl = "../Figures/Supplementary/Suppl_Figure_11"
 
 os.makedirs(fig_dir_main, exist_ok=True)
 os.makedirs(fig_dir_suppl, exist_ok=True)
@@ -43,7 +43,7 @@ comparisons = {
 
 # Load shared annotation data
 VIPs = (
-    pd.read_csv(vip_path, sep="\t")
+    pd.read_csv(vip_path)
     .drop(columns=["Unnamed: 0.1", "Unnamed: 0"], errors="ignore")
     .set_index("ID")
 )
