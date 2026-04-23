@@ -1,4 +1,0 @@
-Group1,Group2,Test Statistic,p-value,n_subjects,n_samples,shared_subjects,subjects_with_replicates,correction_type
-Acne_L,Acne_NL,1.2103115507341162,0.08,10,165,10,10,subject-corrected (cross-group)
-Acne_L,Healthy,4.535396730746815,0.586,17,142,0,16,subject-corrected (within-group)
-Acne_NL,Healthy,6.529655691553443,0.122,17,61,0,16,subject-corrected (within-group)
