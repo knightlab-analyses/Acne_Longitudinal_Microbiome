@@ -8,13 +8,13 @@ library(dplyr)
 
 ```{r}
 # Define the file path for the metadata file
-metadata_file <- "../Metadata/metadata_df.csv"
+metadata_file <- "../Metadata/metadata_final_22102024_with_age.tsv"
 
 # Read the metadata file
-metadata_df <- read.csv(metadata_file)
+metadata_df <- read.csv(metadata_file, sep='\t')
 
 # Define a custom color palette (update `palette` with your desired colors)
-palette <- c("Healthy" = "#6a61d6", "Acne" = "#f38a77")
+palette <- c("healthy" = "#6a61d6", "acne" = "#f38a77")
 
 # Perform Wilcoxon test
 p_value_wilcox <- wilcox.test(
@@ -43,10 +43,14 @@ plot <- metadata_df %>%
     y = class,
     fill = class
   )) +
+  scale_x_continuous(
+  breaks = c(0, 100, 200),
+  labels = c("0", "100", "200")
+  ) +
   
   # Add half-violin plots for density with vertical offset
   stat_halfeye(
-    data = . %>% filter(class == "Healthy"),
+    data = . %>% filter(class == "healthy"),
     adjust = 0.8,
     width = 0.6,
     .width = 0,
@@ -57,7 +61,7 @@ plot <- metadata_df %>%
     aes(fill = class)
   ) +
   stat_halfeye(
-    data = . %>% filter(class == "Acne"),
+    data = . %>% filter(class == "acne"),
     adjust = 0.8,
     width = 0.6,
     .width = 0,
@@ -70,7 +74,7 @@ plot <- metadata_df %>%
   
   # Add boxplots with vertical offsets
   geom_boxplot(
-    data = . %>% filter(class == "Healthy"),
+    data = . %>% filter(class == "healthy"),
     width = 0.15,
     outlier.shape = NA,
     alpha = 0.7,
@@ -78,7 +82,7 @@ plot <- metadata_df %>%
     aes(fill = class)
   ) +
   geom_boxplot(
-    data = . %>% filter(class == "Acne"),
+    data = . %>% filter(class == "acne"),
     width = 0.15,
     outlier.shape = NA,
     alpha = 0.7,
@@ -88,7 +92,7 @@ plot <- metadata_df %>%
   
   # Add dot histogram with downward stacking
   geom_dots(
-    data = . %>% filter(class == "Healthy"),
+    data = . %>% filter(class == "healthy"),
     aes(color = class),
     side = "bottom",
     binwidth = 2,
@@ -96,7 +100,7 @@ plot <- metadata_df %>%
     position = position_nudge(y = -2.4)
   ) +
   geom_dots(
-    data = . %>% filter(class == "Acne"),
+    data = . %>% filter(class == "acne"),
     aes(color = class),
     side = "bottom",
     binwidth = 2,
@@ -128,18 +132,18 @@ plot <- metadata_df %>%
   ) +
   theme_minimal() +
   theme(
-    plot.title = element_text(size = 20, hjust = 0.75, margin = margin(b = 20)),
+    plot.title = element_text(size = 20, hjust = 0.75, margin = margin(b = 30)),
     axis.title.x = element_text(size = 18, margin = margin(t = 15)),
     axis.text.x = element_text(size = 14),
     legend.position = "none",
     axis.text.y = element_blank(),
-    plot.margin = unit(c(0.5, 0.5, 0.5, 0.5), "cm"),
+    plot.margin = unit(c(0.75, 0.75, 0.75, 0.75), "cm"),
     plot.background = element_rect(fill = "white", color = NA)
   ) + 
   
   # Add custom labels with manual positions
   geom_text(
-    data = data.frame(x = c(-15, -15), y = c(2.43, 0.67), label = c("Acne", "Healthy")),
+    data = data.frame(x = c(-12, -12), y = c(2.43, 0.67), label = c("Acne", "Healthy")),
     aes(x = x, y = y, label = label),
     inherit.aes = FALSE,
     size = 6,
@@ -148,7 +152,7 @@ plot <- metadata_df %>%
 
 # Save the figure
 ggsave(
-  "../Figures/clinical_metadata_Figures/sebum_levels_raincloud-plot.png", 
+  "../Figures/Supplementary/Suppl_Figure_13/sebum_comparison.png", 
   plot = plot,
   width = 8, height = 6, dpi = 600, 
   units = "in", device = "png"
